@@ -1,0 +1,763 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SafeShake Home</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:'Satoshi';src:url(fonts/Satoshi-Light.otf) format('opentype');font-weight:300;font-display:swap}
+@font-face{font-family:'Satoshi';src:url(fonts/Satoshi-Regular.otf) format('opentype');font-weight:400;font-display:swap}
+@font-face{font-family:'Satoshi';src:url(fonts/Satoshi-Medium.otf) format('opentype');font-weight:500;font-display:swap}
+@font-face{font-family:'Erode';src:url(fonts/Erode-LightItalic.otf) format('opentype');font-weight:300;font-style:italic;font-display:swap}
+@font-face{font-family:'Erode';src:url(fonts/Erode-Italic.otf) format('opentype');font-weight:400;font-style:italic;font-display:swap}
+body{margin:0;background:#0d0d0d}
+a{color:#f2f2f2;text-decoration:none}a:hover{color:#b0def5}
+.ss{font-family:'Satoshi',system-ui,sans-serif;color:#f2f2f2;background:#0d0d0d;-webkit-font-smoothing:antialiased;overflow-x:clip}
+.ss *{box-sizing:border-box}
+.wrap{width:100%;max-width:1440px;margin:0 auto;padding:0 48px}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:400}
+.sq{display:inline-block;width:7px;height:7px;background:currentColor;margin-right:10px;vertical-align:1px}
+.it{font-family:'Erode',Georgia,serif;font-style:italic;font-weight:300;color:#b0def5;letter-spacing:-.01em}
+.h1{font-size:clamp(44px,6vw,100px);font-weight:300;line-height:.98;letter-spacing:-.025em;margin:0}
+.h2{font-size:clamp(36px,4.6vw,72px);font-weight:300;line-height:1.02;letter-spacing:-.022em;margin:0}
+.lede{font-size:clamp(17px,1.3vw,19px);line-height:1.5;color:rgba(242,242,242,.72);margin:0}
+.dim{color:rgba(242,242,242,.5)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:48px;padding:0 24px;border-radius:999px;font-size:15px;font-weight:500;border:1px solid rgba(242,242,242,.3);color:#f2f2f2;background:transparent;font-family:inherit;cursor:pointer;transition:background .3s,color .3s,border-color .3s}
+.btn:hover{background:#f2f2f2;color:#0d0d0d;border-color:#f2f2f2}
+.btn.solid{background:#f2f2f2;color:#0d0d0d;border-color:#f2f2f2}
+.btn.solid:hover{background:#b0def5;border-color:#b0def5;color:#0a2638}
+.btn.ink{background:#0a2638;color:#f2f2f2;border-color:#0a2638}
+.btn.ink:hover{background:#295766;border-color:#295766;color:#f2f2f2}
+.navlink{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:rgba(242,242,242,.8);padding:9px 10px;border-radius:2px;transition:background .2s,color .2s}
+.navlink:hover{background:rgba(242,242,242,.12);color:#f2f2f2}
+.navcta{display:inline-flex;align-items:center;min-height:38px;padding:0 16px;border-radius:2px;background:#f2f2f2;color:#0d0d0d;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;transition:background .2s;--sc:#0d0d0d}
+.navcta:hover{background:#b0def5;color:#0a2638;--sc:#0a2638}
+.ss{--sc:#f2f2f2}
+.foot{--sc:#0a2638}
+.scr{position:relative;display:inline-block}
+.scr.run{color:transparent !important}
+.scr.run::after{content:attr(data-scr);position:absolute;left:0;top:0;white-space:pre;color:var(--sc)}
+.menu-btn{min-height:44px;padding:0 18px;border-radius:999px;border:1px solid rgba(242,242,242,.3);background:transparent;color:#f2f2f2;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.cols{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px}
+.stage{position:sticky;top:0;height:clamp(640px,100vh,940px);overflow:hidden;background:#060c11}
+.stagebar{opacity:0;transition:opacity .6s}
+.stagebar.on{opacity:1}
+.story{position:absolute;left:57%;right:40px;top:50%;height:300px;transform:translateY(-50%)}
+.story>div{position:absolute;left:0;right:0;top:0;opacity:0;visibility:hidden}
+.story h2{font-size:clamp(32px,3.3vw,54px);font-weight:300;line-height:1.04;letter-spacing:-.02em;margin:18px 0 0}
+.steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;margin-top:14px}
+.steps span{color:rgba(242,242,242,.38);transition:color .4s}
+.steps span.on{color:#b0def5}
+.panel{background:#f2f2f2;color:#0a2638;margin:0 12px;border-radius:6px;overflow:hidden;overflow:clip}
+.ruler{height:12px;background-image:repeating-linear-gradient(90deg,rgba(10,38,56,.5) 0 1px,transparent 1px 60px),repeating-linear-gradient(90deg,rgba(10,38,56,.22) 0 1px,transparent 1px 12px);background-size:100% 12px,100% 6px;background-repeat:no-repeat;background-position:0 0,0 100%}
+.cross{position:absolute;width:13px;height:13px}
+.cross::before,.cross::after{content:'';position:absolute;background:#0a2638}
+.cross::before{left:6px;top:0;width:1px;height:13px}
+.cross::after{top:6px;left:0;height:1px;width:13px}
+.tab{display:inline-flex;align-items:center;min-height:44px;padding:0 4px;border:0;background:transparent;color:rgba(10,38,56,.5);font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+.tab[aria-pressed="true"]{color:#0a2638}
+.arrow{width:44px;height:44px;border-radius:4px;border:1px solid rgba(10,38,56,.25);background:transparent;color:#0a2638;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+.arrow:hover{background:#0a2638;color:#f2f2f2}
+.track{--cw:78%;display:flex;gap:16px;transition:transform 1s cubic-bezier(.7,0,.2,1)}
+.mcard{position:relative;flex:0 0 var(--cw);height:560px;border-radius:4px;overflow:hidden;background:#05080b;color:#f2f2f2}
+.mcard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.chip{display:inline-flex;align-items:center;padding:6px 10px;border:1px solid rgba(242,242,242,.5);border-radius:2px;background:rgba(5,8,11,.35)}
+.para{position:relative;overflow:hidden;overflow:clip;background:#04070a}
+.stars{position:absolute;inset:0;background-image:radial-gradient(1px 1px at 23px 41px,rgba(242,242,242,.8),transparent),radial-gradient(1px 1px at 140px 120px,rgba(242,242,242,.5),transparent),radial-gradient(1.5px 1.5px at 260px 30px,rgba(176,222,245,.8),transparent),radial-gradient(1px 1px at 310px 260px,rgba(242,242,242,.6),transparent),radial-gradient(1px 1px at 80px 300px,rgba(242,242,242,.35),transparent),radial-gradient(1px 1px at 200px 210px,rgba(176,222,245,.5),transparent);background-size:340px 340px}
+.planet{position:absolute;left:-40%;right:-40%;bottom:-1700px;height:2000px;border-radius:50%;background:radial-gradient(60% 40% at 50% 8%,#0f2c3d,#05080b 70%);border-top:2px solid rgba(214,238,250,.9);box-shadow:0 -30px 90px rgba(176,222,245,.45),0 -120px 240px rgba(41,87,102,.45),inset 0 30px 80px rgba(176,222,245,.25)}
+.tile{position:absolute;will-change:transform}
+.tile img{display:block;width:100%;height:100%;object-fit:cover}
+.tile i{position:absolute;width:6px;height:6px;background:#f2f2f2}
+.tile .tl{left:-3px;top:-3px}.tile .tr{right:-3px;top:-3px}.tile .bl{left:-3px;bottom:-3px}.tile .br{right:-3px;bottom:-3px}
+.stat{position:absolute;left:18px;right:18px;bottom:16px;display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.stat b{font-weight:300;font-size:clamp(30px,3vw,48px);letter-spacing:-.02em}
+.qmark{font-family:'Erode',Georgia,serif;font-style:italic;font-weight:300;font-size:clamp(120px,14vw,220px);line-height:.6;color:#b0def5}
+.foot{background:linear-gradient(180deg,#f2f2f2 0%,#f2f2f2 36%,#d8edf7 52%,#b0def5 70%,#7cc6df 88%,#5fb0d2 100%);color:#0a2638;overflow:hidden;overflow:clip}
+.foot a{color:#0a2638}.foot a:hover{color:#295766}
+.flink{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:5px 0;display:inline-block}
+.field{width:100%;min-height:52px;padding:0 20px;border-radius:999px;border:1px solid rgba(10,38,56,.3);background:#ffffff;color:#0a2638;font-family:inherit;font-size:16px}
+.field:focus{outline:2px solid #295766;outline-offset:2px}
+.mcard::after,.tile::after{content:'';position:absolute;inset:0;pointer-events:none;background-image:url(img/grain.png);background-size:220px 220px;opacity:.2;mix-blend-mode:overlay;z-index:1}
+.mcard>div,.tile>i,.tile .stat{z-index:2}
+@keyframes grainmove{0%{transform:translate(0,0)}20%{transform:translate(-40px,30px)}40%{transform:translate(30px,-50px)}60%{transform:translate(-60px,-20px)}80%{transform:translate(50px,40px)}100%{transform:translate(0,0)}}
+.track{touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none}
+.track.dragging{cursor:grabbing;transition:none}
+.mcard img{pointer-events:none;-webkit-user-drag:none}
+.foot{position:relative;background:linear-gradient(180deg,#f2f2f2 0%,#eef1f2 30%,#d6ebf5 46%,#a9d6ee 62%,#6db3d6 80%,#3a86b0 100%)}
+.tagbox{display:inline-block;padding:4px 8px;border:1px solid #0a2638;border-radius:2px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#0a2638}
+.fh{margin:22px 0 0;font-size:clamp(40px,5vw,80px);font-weight:500;line-height:1.02;letter-spacing:-.03em;color:#0d0d0d}
+.sbtn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border:0;border-radius:2px;background:#0d0d0d;color:#f2f2f2;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:background .3s}
+.foot a.sbtn{color:#f2f2f2}
+.sbtn:hover,.foot a.sbtn:hover{background:#295766;color:#f2f2f2}
+.ffield{flex:1 1 240px;min-height:44px;padding:0 14px;border:1px solid rgba(10,38,56,.35);border-radius:2px;background:rgba(255,255,255,.65);color:#0a2638;font-family:inherit;font-size:15px}
+.ffield:focus{outline:2px solid #295766;outline-offset:2px}
+.fgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) minmax(0,3fr);gap:24px;padding-bottom:40px}
+.fcol{display:flex;flex-direction:column}
+.fcol a,.fcol span,.fsocial a,.flegal span{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:4px 0}
+.fcol span{color:rgba(10,38,56,.55)}
+.fsocial{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-start}
+.flegal{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:14px 0}
+.fmark{position:relative;padding:48px 12px 0}
+.fimg{z-index:0;filter:blur(1.5px) saturate(.85);opacity:.9}
+@media (max-width:900px){.fgrid{grid-template-columns:1fr 1fr}.fsocial{grid-column:1 / -1}}
+@media (prefers-reduced-motion:reduce){.grain{animation:none}}
+.ml{display:block;overflow:hidden;padding-bottom:.12em;margin-bottom:-.12em}
+.ml>span{display:block}
+.js [data-rv]{opacity:0;transform:translateY(32px);transition:opacity 1.1s cubic-bezier(.2,.7,.2,1),transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.js [data-rv].in{opacity:1;transform:none}
+.js [data-rv].mk{opacity:1;transform:none}
+.js .mk .ml>span{transform:translateY(108%);transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.js .mk .ml:nth-child(2)>span{transition-delay:.09s}
+.js .mk .ml:nth-child(3)>span{transition-delay:.18s}
+.js .mk.in .ml>span{transform:none}
+@keyframes heroUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+.js .hero-in{animation:heroUp 1.3s cubic-bezier(.2,.7,.2,1) both}
+@keyframes cue{0%,100%{transform:scaleY(.3)}50%{transform:scaleY(1)}}
+.cue{width:1px;height:36px;background:#b0def5;transform-origin:top;animation:cue 2s ease-in-out infinite}
+@media (max-width:900px){.wrap{padding:0 20px}.hide-m{display:none !important}.cols{grid-template-columns:minmax(0,1fr);row-gap:28px}.cols>*{grid-column:1 / -1 !important}.story{left:20px;right:20px;top:auto;bottom:80px;height:230px;transform:none}.story h2{font-size:32px}.track{--cw:88%}.mcard{height:440px}.ml,.ml>span{display:inline;overflow:visible;padding:0;margin:0}.ml+.ml::before{content:' '}.js .mk .ml>span{transform:none}.js [data-rv].mk{opacity:0;transform:translateY(32px)}.js [data-rv].mk.in{opacity:1;transform:none}.panel{margin:0 6px}.stagebar.bottom{left:20px !important;right:20px !important}}
+@media (min-width:901px){.show-m{display:none !important}}
+@media (prefers-reduced-motion:reduce){.js [data-rv],.js .mk .ml>span{transform:none !important;opacity:1 !important;transition:none !important}.js .hero-in,.cue{animation:none}.track{transition:none}}
+</style>
+</helmet>
+<div class="ss" ref="{{rootRef}}">
+
+<header style="position: sticky; top: 0; z-index: 50; background: rgba(6,12,17,.5); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid rgba(242,242,242,.08)">
+<div class="wrap" style="height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 24px">
+<div style="display: flex; align-items: center; gap: 44px">
+<a href="Main.dc.html" aria-label="SafeShake home" style="display: flex; color: #f2f2f2">
+<svg viewBox="303.547 281.707 234.688 31.141" style="height: 22px; width: auto; display: block" fill="currentColor" aria-hidden="true"><g transform="translate(303.547 281.707) scale(0.48407) translate(-388.809 -265.285)"><path fill-rule="evenodd" d="M 447.363281 265.285156 L 447.363281 284.03125 L 434.324219 284.03125 C 434.789062 284.53125 435.203125 285.148438 435.667969 285.640625 C 444.023438 294.492188 456.167969 301.570312 452.195312 315.863281 C 450.523438 321.886719 443.207031 329.269531 436.667969 329.269531 L 394.179688 329.269531 L 394.179688 310.828125 L 394.484375 310.523438 L 407.425781 310.523438 L 393.5625 296.570312 C 385.363281 287.390625 388.101562 272.574219 399.207031 267.15625 C 400.558594 266.496094 403.863281 265.285156 405.285156 265.285156 Z M 433.914062 284.03125 L 407.832031 284.03125 L 420.773438 297.082031 Z M 433.914062 310.523438 L 420.773438 297.472656 L 407.628906 310.523438 Z"></path></g><path d="M 345.703125 302.992188 L 350.949219 302.992188 C 351.417969 306.234375 354.40625 308.28125 359.183594 308.28125 C 363.066406 308.28125 365.113281 306.789062 365.113281 304.273438 C 365.113281 301.925781 363.277344 300.988281 360.378906 300.09375 L 355.515625 298.640625 C 352.015625 297.574219 346.554688 296.039062 346.554688 290.195312 C 346.554688 285.289062 350.609375 281.707031 357.222656 281.707031 C 364.429688 281.707031 369.039062 285.585938 369.421875 291.902344 L 364.21875 291.902344 C 364.003906 288.53125 361.53125 286.269531 357.050781 286.269531 C 353.765625 286.269531 351.632812 287.636719 351.632812 289.9375 C 351.632812 292.542969 354.234375 293.179688 357.136719 294.121094 L 361.65625 295.527344 C 365.882812 296.851562 370.316406 298.386719 370.316406 304.015625 C 370.316406 309.4375 366.007812 312.847656 359.183594 312.847656 C 351.332031 312.847656 346.085938 308.921875 345.703125 302.992188 M 371.085938 305.9375 C 371.128906 300.648438 376.375 299.539062 380.769531 299.027344 C 384.183594 298.640625 386.699219 298.515625 386.742188 296.722656 C 386.699219 294.503906 384.992188 293.054688 382.089844 293.054688 C 379.105469 293.054688 376.972656 294.675781 376.675781 297.019531 L 371.597656 297.019531 C 372.066406 292.242188 376.332031 288.914062 382.175781 288.914062 C 388.277344 288.914062 391.648438 292.242188 391.648438 297.0625 L 391.648438 307.300781 C 391.648438 307.941406 391.988281 308.285156 392.757812 308.285156 L 393.992188 308.285156 L 393.992188 312.207031 L 391.605469 312.207031 C 389.300781 312.207031 387.894531 311.269531 387.511719 309.5625 C 387.425781 309.351562 387.339844 309.050781 387.296875 308.796875 C 385.972656 311.226562 383.5 312.679688 379.660156 312.679688 C 374.457031 312.679688 371.042969 310.160156 371.085938 305.9375 M 386.742188 303.71875 L 386.742188 300.5625 C 385.890625 301.882812 383.710938 302.183594 381.324219 302.480469 C 378.507812 302.824219 376.160156 303.207031 376.160156 305.59375 C 376.160156 307.558594 377.742188 308.710938 380.683594 308.710938 C 384.140625 308.710938 386.742188 306.75 386.742188 303.71875 M 396.601562 312.675781 L 396.601562 295.355469 L 392.632812 295.355469 L 392.632812 291.089844 L 396.601562 291.089844 L 396.601562 288.273438 C 396.601562 284.007812 399.117188 281.707031 403.808594 281.707031 L 408.714844 281.707031 L 408.714844 285.972656 L 404.152344 285.972656 C 402.53125 285.972656 401.632812 286.910156 401.632812 288.617188 L 401.632812 291.089844 L 408.203125 291.089844 L 408.203125 295.355469 L 401.632812 295.355469 L 401.632812 312.675781 Z M 407.605469 300.988281 C 407.605469 293.523438 412.511719 288.914062 418.828125 288.914062 C 425.226562 288.914062 429.492188 293.394531 429.621094 300.730469 L 429.621094 301.925781 L 412.640625 301.925781 C 412.980469 305.894531 415.457031 308.582031 419.296875 308.582031 C 421.898438 308.582031 423.859375 307.300781 424.628906 305.042969 L 429.535156 305.042969 C 428.382812 309.90625 424.585938 312.847656 419.253906 312.847656 C 412.34375 312.847656 407.605469 307.898438 407.605469 300.988281 M 424.414062 298.386719 C 423.773438 295.144531 421.769531 293.179688 418.828125 293.179688 C 415.839844 293.179688 413.621094 295.144531 412.855469 298.386719 Z M 430.257812 305 L 435.121094 305 C 435.292969 307.429688 437.382812 308.710938 440.15625 308.710938 C 442.714844 308.710938 444.082031 307.730469 444.082031 305.980469 C 444.082031 304.230469 442.628906 303.890625 440.667969 303.25 L 437.683594 302.269531 C 433.925781 301.03125 430.683594 299.75 430.683594 295.570312 C 430.683594 291.558594 433.757812 288.914062 439.175781 288.914062 C 444.421875 288.914062 448.007812 291.6875 448.601562 296.808594 L 443.824219 296.808594 C 443.570312 294.246094 441.734375 293.054688 439.132812 293.054688 C 436.914062 293.054688 435.632812 293.992188 435.632812 295.527344 C 435.632812 297.277344 437.597656 297.746094 439.21875 298.300781 L 441.949219 299.195312 C 446.425781 300.691406 449.117188 302.054688 449.117188 306.109375 C 449.117188 310.289062 445.957031 312.847656 440.414062 312.847656 C 434.226562 312.847656 430.558594 309.949219 430.257812 305 M 450.695312 312.207031 L 450.695312 281.707031 L 455.726562 281.707031 L 455.726562 292.027344 C 457.261719 290.152344 459.867188 288.914062 462.808594 288.914062 C 467.628906 288.914062 470.785156 292.15625 470.785156 297.234375 L 470.785156 312.207031 L 465.753906 312.207031 L 465.753906 297.488281 C 465.753906 294.972656 464.089844 293.308594 461.402344 293.308594 C 457.988281 293.308594 455.769531 295.570312 455.726562 298.515625 L 455.726562 312.207031 Z M 472.363281 305.9375 C 472.40625 300.648438 477.65625 299.539062 482.050781 299.027344 C 485.460938 298.640625 487.980469 298.515625 488.023438 296.722656 C 487.980469 294.503906 486.273438 293.054688 483.371094 293.054688 C 480.386719 293.054688 478.253906 294.675781 477.953125 297.019531 L 472.878906 297.019531 C 473.34375 292.242188 477.613281 288.914062 483.457031 288.914062 C 489.558594 288.914062 492.925781 292.242188 492.925781 297.0625 L 492.925781 307.300781 C 492.925781 307.941406 493.269531 308.285156 494.039062 308.285156 L 495.273438 308.285156 L 495.273438 312.207031 L 492.886719 312.207031 C 490.582031 312.207031 489.171875 311.269531 488.789062 309.5625 C 488.703125 309.351562 488.617188 309.050781 488.578125 308.796875 C 487.253906 311.226562 484.78125 312.679688 480.941406 312.679688 C 475.734375 312.679688 472.320312 310.160156 472.363281 305.9375 M 488.023438 303.71875 L 488.023438 300.5625 C 487.167969 301.882812 484.992188 302.183594 482.601562 302.480469 C 479.789062 302.824219 477.441406 303.207031 477.441406 305.59375 C 477.441406 307.558594 479.019531 308.710938 481.964844 308.710938 C 485.417969 308.710938 488.023438 306.75 488.023438 303.71875 M 496.554688 312.207031 L 496.554688 281.707031 L 501.585938 281.707031 L 501.585938 299.410156 L 511.230469 289.597656 L 517.371094 289.597656 L 509.179688 297.746094 L 518.480469 312.207031 L 512.636719 312.207031 L 505.683594 301.242188 L 501.585938 305.339844 L 501.585938 312.207031 Z M 516.21875 300.988281 C 516.21875 293.523438 521.125 288.914062 527.441406 288.914062 C 533.839844 288.914062 538.105469 293.394531 538.234375 300.730469 L 538.234375 301.925781 L 521.253906 301.925781 C 521.59375 305.894531 524.070312 308.582031 527.910156 308.582031 C 530.511719 308.582031 532.472656 307.300781 533.242188 305.042969 L 538.148438 305.042969 C 536.996094 309.90625 533.199219 312.847656 527.867188 312.847656 C 520.957031 312.847656 516.21875 307.898438 516.21875 300.988281 M 533.027344 298.386719 C 532.386719 295.144531 530.382812 293.179688 527.441406 293.179688 C 524.453125 293.179688 522.234375 295.144531 521.46875 298.386719 Z"></path></svg>
+</a>
+<div class="mono hide-m" style="color: rgba(242,242,242,.6); white-space: nowrap"><span class="sq" style="color: #b0def5"></span>{{sec}}<span style="display: inline-block; width: 18px"></span>{{secName}}</div>
+</div>
+<nav class="hide-m" aria-label="Main" style="display: flex; align-items: center; gap: 6px">
+<a class="navlink" data-hs href="Product.dc.html"><span class="scr">Product</span></a>
+<a class="navlink" data-hs href="Enterprise.dc.html"><span class="scr">Enterprise</span></a>
+<a class="navlink" data-hs href="Challenge.dc.html"><span class="scr">Break the Envelope</span></a>
+<a class="navlink" data-hs href="Company.dc.html"><span class="scr">Company</span></a>
+<a class="navcta" data-hs href="#access" style="margin-left: 14px"><span class="scr">Get access</span></a>
+</nav>
+<button class="menu-btn show-m" onClick="{{toggleMenu}}" aria-expanded="{{menuOpen}}">{{menuLabel}}</button>
+</div>
+<sc-if value="{{menu}}" hint-placeholder-val="{{false}}">
+<nav class="show-m" aria-label="Mobile" style="padding: 8px 20px 28px; display: flex; flex-direction: column; border-top: 1px solid rgba(242,242,242,.08)">
+<a class="navlink" href="Product.dc.html" style="font-size: 22px; padding: 14px 0">Product</a>
+<a class="navlink" href="Enterprise.dc.html" style="font-size: 22px; padding: 14px 0">Enterprise</a>
+<a class="navlink" href="Challenge.dc.html" style="font-size: 22px; padding: 14px 0">Break the Envelope</a>
+<a class="navlink" href="Company.dc.html" style="font-size: 22px; padding: 14px 0">Company</a>
+<a class="btn solid" href="#access" onClick="{{closeMenu}}" style="margin-top: 16px">Get access</a>
+</nav>
+</sc-if>
+</header>
+
+<section ref="{{wrapRef}}" data-sec="001|How it works" style="position: relative; margin-top: -65px">
+<div class="stage" ref="{{innerRef}}">
+<canvas ref="{{cvRef}}" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block"></canvas>
+
+<div data-hero style="position: absolute; inset: 0; pointer-events: none">
+<div aria-hidden="true" style="position: absolute; inset: 0; background: radial-gradient(90% 75% at 0% 100%, rgba(6,12,17,.95), rgba(6,12,17,.55) 45%, rgba(6,12,17,0) 78%)"></div>
+<div class="wrap" style="position: relative; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 56px; pointer-events: auto">
+<h1 class="h1 hero-in" style="animation-delay: 3.1s; max-width: 13ch">The <span class="it">trusted</span> layer between <span class="it">agents</span> and <span class="it">payments.</span></h1>
+<div style="display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between; align-items: flex-end; margin-top: 40px">
+<div class="hero-in" style="animation-delay: 3.5s; display: flex; gap: 12px; flex-wrap: wrap"><a class="btn solid" href="#access">Get access</a><a class="btn" href="Product.dc.html">How it works</a></div>
+<div class="hero-in mono hide-m" style="animation-delay: 4s; display: flex; align-items: center; gap: 14px; color: rgba(242,242,242,.6)"><div class="cue"></div>Scroll to see how it works</div>
+</div>
+</div>
+</div>
+
+<div class="stagebar {{barCls}} hide-m" style="position: absolute; left: 48px; right: 48px; top: 92px; display: flex; justify-content: space-between" aria-hidden="true">
+<span class="mono" style="color: rgba(242,242,242,.6)"><span class="sq" style="color: #b0def5"></span>What SafeShake does</span>
+<span class="mono" style="color: rgba(242,242,242,.6)">Step {{stepNo}} / 05</span>
+</div>
+
+<div class="story">
+<div data-step-text="1"><div class="mono" style="color: #b0def5"><span class="sq"></span>01 / Agents</div><h2>Agents are starting <span class="it">to spend.</span></h2><p class="lede" style="margin-top: 18px">They buy, book and call paid tools on their own.</p></div>
+<div data-step-text="2"><div class="mono" style="color: #b0def5"><span class="sq"></span>02 / The risk</div><h2>Nothing bounds <span class="it">what they can do.</span></h2><p class="lede" style="margin-top: 18px">A fooled agent can spend like anyone else.</p></div>
+<div data-step-text="3"><div class="mono" style="color: #b0def5"><span class="sq"></span>03 / The envelope</div><h2>SafeShake gives each one <span class="it">an envelope.</span></h2><p class="lede" style="margin-top: 18px">Signed limits: what, from whom, and how much.</p></div>
+<div data-step-text="4"><div class="mono" style="color: #b0def5"><span class="sq"></span>04 / The check</div><h2>Every action is <span class="it">checked first.</span></h2><p class="lede" style="margin-top: 18px">Inside the envelope, it runs. Outside, it doesn't.</p></div>
+<div data-step-text="5"><div class="mono" style="color: #b0def5"><span class="sq"></span>05 / The record</div><h2>Every decision <span class="it">becomes proof.</span></h2><p class="lede" style="margin-top: 18px">A record anyone can verify, without us.</p></div>
+</div>
+
+<div class="stagebar bottom {{barCls}}" style="position: absolute; left: 48px; right: 48px; bottom: 28px" aria-hidden="true">
+<div style="height: 1px; background: rgba(242,242,242,.16); position: relative"><div data-fill style="position: absolute; inset: 0; background: #b0def5; transform: scaleX(0); transform-origin: left center"></div></div>
+<div class="steps mono hide-m"><span class="{{s1}}">01 Agents</span><span class="{{s2}}">02 The risk</span><span class="{{s3}}">03 Envelope</span><span class="{{s4}}">04 Check</span><span class="{{s5}}">05 Record</span></div>
+</div>
+</div>
+</section>
+
+<section data-sec="002|Three modes" style="padding: 12px 0 0">
+<div class="panel">
+<div class="wrap" style="position: relative; padding-top: 28px; padding-bottom: 96px">
+<div class="mono" style="display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; color: rgba(10,38,56,.75)"><span><span class="sq"></span>002</span><span class="hide-m"><span class="sq"></span>One envelope, three modes</span><span class="hide-m">ENV_001 / bsea/0.2</span><span><span class="sq"></span>Signed by principal</span></div>
+<div class="ruler" style="margin-top: 18px" aria-hidden="true"></div>
+<div class="cross hide-m" style="left: 48px; top: 84px" aria-hidden="true"></div>
+<div class="cross hide-m" style="right: 48px; top: 84px" aria-hidden="true"></div>
+<div class="cols" style="margin-top: 88px; align-items: end">
+<h2 class="h2 mk" data-rv style="grid-column: 1 / span 7"><span class="ml"><span>One envelope.</span></span><span class="ml"><span style="font-family: 'Erode', Georgia, serif; font-style: italic; color: #295766">Three ways to use it.</span></span></h2>
+<p class="mono" data-rv style="grid-column: 9 / span 4; line-height: 1.8; color: rgba(10,38,56,.75); margin: 0; transition-delay: .15s">Observe today. Enforce when you are ready. Transact later. The rules never change.</p>
+</div>
+<div style="margin-top: 56px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap">
+<div role="group" aria-label="Modes" style="display: flex; gap: 22px; flex-wrap: wrap">
+<button type="button" class="tab" aria-pressed="{{p0}}" onClick="{{pick0}}"><span class="sq"></span>Observe</button>
+<button type="button" class="tab" aria-pressed="{{p1}}" onClick="{{pick1}}"><span class="sq"></span>Enforce</button>
+<button type="button" class="tab" aria-pressed="{{p2}}" onClick="{{pick2}}"><span class="sq"></span>Transact</button>
+</div>
+<div style="display: flex; gap: 8px"><button type="button" class="arrow" aria-label="Previous mode" onClick="{{prev}}"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></button><button type="button" class="arrow" aria-label="Next mode" onClick="{{next}}"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></button></div>
+</div>
+<div style="margin-top: 20px">
+<div class="track" ref="{{trackRef}}" onPointerDown="{{dragStart}}" onPointerMove="{{dragMove}}" onPointerUp="{{dragEnd}}" onPointerCancel="{{dragEnd}}" style="transform: translateX({{trackX}})">
+<article class="mcard">
+<img src="img/card.jpg" alt="A glass SafeShake card lit from below" style="object-position: 50% 70%">
+<div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5,8,11,.55), rgba(5,8,11,0) 40%, rgba(5,8,11,.6))"></div>
+<div style="position: absolute; left: 28px; right: 28px; top: 26px; display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap">
+<div style="display: flex; align-items: baseline; gap: 14px"><span class="mono dim">[01]</span><span class="h2" style="font-size: clamp(34px, 3.4vw, 54px)">Observe</span></div>
+<p class="lede" style="max-width: 22em; color: rgba(242,242,242,.82)">See every agent's spend, and who approved it. Nothing is blocked.</p>
+</div>
+<div class="mono" style="position: absolute; left: 28px; bottom: 26px; display: flex; gap: 8px; flex-wrap: wrap"><span class="chip">Chargeback</span><span class="chip">Evidence</span><span class="chip">In pilot</span></div>
+</article>
+<article class="mcard">
+<img src="img/walker.jpg" alt="A figure walking across a giant SafeShake mark in a beam of light" style="object-position: 50% 60%">
+<div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5,8,11,.6), rgba(5,8,11,0) 40%, rgba(5,8,11,.55))"></div>
+<div style="position: absolute; left: 28px; right: 28px; top: 26px; display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap">
+<div style="display: flex; align-items: baseline; gap: 14px"><span class="mono dim">[02]</span><span class="h2" style="font-size: clamp(34px, 3.4vw, 54px)">Enforce</span></div>
+<p class="lede" style="max-width: 22em; color: rgba(242,242,242,.82)">The same envelope reserves before anything runs.</p>
+</div>
+<div class="mono" style="position: absolute; left: 28px; bottom: 26px; display: flex; gap: 8px; flex-wrap: wrap"><span class="chip">Budgets</span><span class="chip">Containment</span><span class="chip">On roadmap</span></div>
+</article>
+<article class="mcard">
+<img src="img/hands.jpg" alt="A robotic hand and a human hand reaching towards the SafeShake mark" style="object-position: 50% 50%">
+<div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5,8,11,.6), rgba(5,8,11,0) 40%, rgba(5,8,11,.55))"></div>
+<div style="position: absolute; left: 28px; right: 28px; top: 26px; display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap">
+<div style="display: flex; align-items: baseline; gap: 14px"><span class="mono dim">[03]</span><span class="h2" style="font-size: clamp(34px, 3.4vw, 54px)">Transact</span></div>
+<p class="lede" style="max-width: 22em; color: rgba(242,242,242,.82)">SafeShake authorizes. Your systems move the money.</p>
+</div>
+<div class="mono" style="position: absolute; left: 28px; bottom: 26px; display: flex; gap: 8px; flex-wrap: wrap"><span class="chip">Purchases</span><span class="chip">Payees</span><span class="chip">Later</span></div>
+</article>
+</div>
+</div>
+<a class="mono" href="Product.dc.html" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 32px; color: #0a2638; min-height: 44px"><span class="sq"></span>Inside the envelope</a>
+</div>
+</div>
+</section>
+
+<section data-sec="003|Proof" data-par class="para" style="height: 1800px; margin-top: 12px">
+<div class="stars" aria-hidden="true"></div>
+<div class="planet" aria-hidden="true"></div>
+<div style="position: sticky; top: 0; height: clamp(600px, 100vh, 900px); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; z-index: 2; pointer-events: none; padding: 0 20px">
+<span class="mono" style="padding: 5px 10px; border: 1px solid rgba(242,242,242,.5)">What we've built</span>
+<h2 class="h2" style="margin-top: 24px">Built to <span class="it">hold.</span></h2>
+<p class="lede" style="margin-top: 18px">Tested, self-hosted, and verifiable by anyone.</p>
+</div>
+<div class="tile" data-speed="-420" style="left: 4%; top: 140px; width: min(30%, 420px); aspect-ratio: 4 / 3; z-index: 3">
+<img src="img/stage.jpg" alt="An audience in front of a SafeShake screen" style="object-position: 50% 60%"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i>
+<div class="stat"><b>591</b><span class="mono">Automated tests</span></div>
+</div>
+<div class="tile" data-speed="-180" style="right: 7%; top: 80px; width: min(20%, 280px); aspect-ratio: 3 / 4; z-index: 1">
+<img src="img/card.jpg" alt="The SafeShake glass card" style="object-position: 50% 65%"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i>
+<div class="stat"><b>10</b><span class="mono">Never eleven</span></div>
+</div>
+<div class="tile" data-speed="-560" style="left: 16%; top: 1000px; width: min(32%, 460px); aspect-ratio: 16 / 10; z-index: 3">
+<img src="img/walker.jpg" alt="A figure crossing the SafeShake mark" style="object-position: 50% 65%"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i>
+<div class="stat"><b>Offline</b><span class="mono">Verifiable by anyone</span></div>
+</div>
+<div class="tile" data-speed="-260" style="right: 10%; top: 1100px; width: min(24%, 340px); aspect-ratio: 1; z-index: 1">
+<img src="img/hands.jpg" alt="Robotic and human hands" style="object-position: 40% 50%"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i>
+<div class="stat"><b>Yours</b><span class="mono">Self-hosted</span></div>
+</div>
+</section>
+
+<section data-sec="004|Founder" data-par style="position: relative; overflow: clip; background: #0d0d0d; padding: 150px 0 160px">
+<div class="tile hide-m" data-speed="-160" style="left: 0; top: 34%; width: 7%; height: 300px"><img src="img/hands.jpg" alt="" style="object-position: 20% 70%"></div>
+<div class="wrap">
+<div class="cols" style="align-items: center; row-gap: 40px">
+<div class="qmark hide-m" aria-hidden="true" style="grid-column: 1 / span 1; align-self: start">“</div>
+<div data-rv style="grid-column: 2 / span 4; position: relative">
+<img src="img/zack.jpg" alt="Zack Field, co-founder and CEO of SafeShake" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 18%">
+<i style="position: absolute; width: 6px; height: 6px; background: #f2f2f2; left: -3px; top: -3px"></i><i style="position: absolute; width: 6px; height: 6px; background: #f2f2f2; right: -3px; top: -3px"></i><i style="position: absolute; width: 6px; height: 6px; background: #f2f2f2; left: -3px; bottom: -3px"></i><i style="position: absolute; width: 6px; height: 6px; background: #f2f2f2; right: -3px; bottom: -3px"></i>
+</div>
+<div data-rv style="grid-column: 7 / span 6; transition-delay: .15s">
+<p style="margin: 0; font-size: clamp(26px, 2.6vw, 40px); font-weight: 300; line-height: 1.25; letter-spacing: -.01em">Agents are going to spend money for us, whether we're ready or not. Every one of them should do it inside limits a person signed, <span class="it">with a record anyone can check.</span></p>
+<div style="margin-top: 36px"><div style="font-size: 16px">Zack Field</div><div class="mono dim" style="margin-top: 6px">Co-founder + CEO</div></div>
+</div>
+</div>
+<div class="qmark hide-m" aria-hidden="true" style="text-align: right; margin-top: 30px">”</div>
+</div>
+</section>
+
+<footer id="access" data-sec="005|Get access" data-par class="foot">
+<div class="wrap" style="padding-top: 150px; padding-bottom: 110px; text-align: center; display: flex; flex-direction: column; align-items: center">
+<span class="tagbox">Talk to us</span>
+<h2 class="fh">Empower the agent.<br>Bound the action.</h2>
+<sc-if value="{{notSent}}" hint-placeholder-val="{{true}}">
+<form onSubmit="{{submit}}" style="margin-top: 36px; display: flex; gap: 8px; width: min(100%, 460px); flex-wrap: wrap; justify-content: center">
+<label for="ss-email" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Work email</label>
+<input id="ss-email" class="ffield" type="email" required placeholder="Work email" autocomplete="email">
+<button class="sbtn" type="submit">Get access</button>
+</form>
+</sc-if>
+<sc-if value="{{sent}}" hint-placeholder-val="{{false}}">
+<p class="mono" style="margin-top: 36px; color: #0a2638">Received. We'll be in touch.</p>
+</sc-if>
+</div>
+<div class="wrap">
+<div class="fgrid">
+<div class="fcol"><span>Product</span><a data-hs href="Product.dc.html"><span class="scr">The envelope</span></a><a data-hs href="Enterprise.dc.html"><span class="scr">Enterprise</span></a></div>
+<div class="fcol"><span>Challenge</span><a data-hs href="Challenge.dc.html"><span class="scr">Break the Envelope</span></a><a data-hs href="Challenge.dc.html#register"><span class="scr">Register interest</span></a></div>
+<div class="fcol"><span>Company</span><a data-hs href="Company.dc.html"><span class="scr">About</span></a><a data-hs href="Company.dc.html#contact"><span class="scr">Contact</span></a></div>
+<div class="fsocial"><a data-hs href="https://www.linkedin.com"><span class="scr">LinkedIn</span></a><a data-hs href="https://x.com"><span class="scr">X</span></a><a data-hs href="https://www.safeshake.ai"><span class="scr">safeshake.ai</span></a></div>
+</div>
+<div class="flegal"><span>© 2026 SafeShake. All rights reserved. Patent pending.</span><span>[Terms]&nbsp;&nbsp;&nbsp;&nbsp;[Privacy]</span></div>
+</div>
+<div class="fmark">
+<svg viewBox="345.703 281.707 192.531 31.141" role="img" aria-label="Safeshake" style="position: relative; z-index: 1; width: 100%; height: auto; display: block; color: #0d0d0d; margin-bottom: -1.4%" fill="currentColor"><path d="M 345.703125 302.992188 L 350.949219 302.992188 C 351.417969 306.234375 354.40625 308.28125 359.183594 308.28125 C 363.066406 308.28125 365.113281 306.789062 365.113281 304.273438 C 365.113281 301.925781 363.277344 300.988281 360.378906 300.09375 L 355.515625 298.640625 C 352.015625 297.574219 346.554688 296.039062 346.554688 290.195312 C 346.554688 285.289062 350.609375 281.707031 357.222656 281.707031 C 364.429688 281.707031 369.039062 285.585938 369.421875 291.902344 L 364.21875 291.902344 C 364.003906 288.53125 361.53125 286.269531 357.050781 286.269531 C 353.765625 286.269531 351.632812 287.636719 351.632812 289.9375 C 351.632812 292.542969 354.234375 293.179688 357.136719 294.121094 L 361.65625 295.527344 C 365.882812 296.851562 370.316406 298.386719 370.316406 304.015625 C 370.316406 309.4375 366.007812 312.847656 359.183594 312.847656 C 351.332031 312.847656 346.085938 308.921875 345.703125 302.992188 M 371.085938 305.9375 C 371.128906 300.648438 376.375 299.539062 380.769531 299.027344 C 384.183594 298.640625 386.699219 298.515625 386.742188 296.722656 C 386.699219 294.503906 384.992188 293.054688 382.089844 293.054688 C 379.105469 293.054688 376.972656 294.675781 376.675781 297.019531 L 371.597656 297.019531 C 372.066406 292.242188 376.332031 288.914062 382.175781 288.914062 C 388.277344 288.914062 391.648438 292.242188 391.648438 297.0625 L 391.648438 307.300781 C 391.648438 307.941406 391.988281 308.285156 392.757812 308.285156 L 393.992188 308.285156 L 393.992188 312.207031 L 391.605469 312.207031 C 389.300781 312.207031 387.894531 311.269531 387.511719 309.5625 C 387.425781 309.351562 387.339844 309.050781 387.296875 308.796875 C 385.972656 311.226562 383.5 312.679688 379.660156 312.679688 C 374.457031 312.679688 371.042969 310.160156 371.085938 305.9375 M 386.742188 303.71875 L 386.742188 300.5625 C 385.890625 301.882812 383.710938 302.183594 381.324219 302.480469 C 378.507812 302.824219 376.160156 303.207031 376.160156 305.59375 C 376.160156 307.558594 377.742188 308.710938 380.683594 308.710938 C 384.140625 308.710938 386.742188 306.75 386.742188 303.71875 M 396.601562 312.675781 L 396.601562 295.355469 L 392.632812 295.355469 L 392.632812 291.089844 L 396.601562 291.089844 L 396.601562 288.273438 C 396.601562 284.007812 399.117188 281.707031 403.808594 281.707031 L 408.714844 281.707031 L 408.714844 285.972656 L 404.152344 285.972656 C 402.53125 285.972656 401.632812 286.910156 401.632812 288.617188 L 401.632812 291.089844 L 408.203125 291.089844 L 408.203125 295.355469 L 401.632812 295.355469 L 401.632812 312.675781 Z M 407.605469 300.988281 C 407.605469 293.523438 412.511719 288.914062 418.828125 288.914062 C 425.226562 288.914062 429.492188 293.394531 429.621094 300.730469 L 429.621094 301.925781 L 412.640625 301.925781 C 412.980469 305.894531 415.457031 308.582031 419.296875 308.582031 C 421.898438 308.582031 423.859375 307.300781 424.628906 305.042969 L 429.535156 305.042969 C 428.382812 309.90625 424.585938 312.847656 419.253906 312.847656 C 412.34375 312.847656 407.605469 307.898438 407.605469 300.988281 M 424.414062 298.386719 C 423.773438 295.144531 421.769531 293.179688 418.828125 293.179688 C 415.839844 293.179688 413.621094 295.144531 412.855469 298.386719 Z M 430.257812 305 L 435.121094 305 C 435.292969 307.429688 437.382812 308.710938 440.15625 308.710938 C 442.714844 308.710938 444.082031 307.730469 444.082031 305.980469 C 444.082031 304.230469 442.628906 303.890625 440.667969 303.25 L 437.683594 302.269531 C 433.925781 301.03125 430.683594 299.75 430.683594 295.570312 C 430.683594 291.558594 433.757812 288.914062 439.175781 288.914062 C 444.421875 288.914062 448.007812 291.6875 448.601562 296.808594 L 443.824219 296.808594 C 443.570312 294.246094 441.734375 293.054688 439.132812 293.054688 C 436.914062 293.054688 435.632812 293.992188 435.632812 295.527344 C 435.632812 297.277344 437.597656 297.746094 439.21875 298.300781 L 441.949219 299.195312 C 446.425781 300.691406 449.117188 302.054688 449.117188 306.109375 C 449.117188 310.289062 445.957031 312.847656 440.414062 312.847656 C 434.226562 312.847656 430.558594 309.949219 430.257812 305 M 450.695312 312.207031 L 450.695312 281.707031 L 455.726562 281.707031 L 455.726562 292.027344 C 457.261719 290.152344 459.867188 288.914062 462.808594 288.914062 C 467.628906 288.914062 470.785156 292.15625 470.785156 297.234375 L 470.785156 312.207031 L 465.753906 312.207031 L 465.753906 297.488281 C 465.753906 294.972656 464.089844 293.308594 461.402344 293.308594 C 457.988281 293.308594 455.769531 295.570312 455.726562 298.515625 L 455.726562 312.207031 Z M 472.363281 305.9375 C 472.40625 300.648438 477.65625 299.539062 482.050781 299.027344 C 485.460938 298.640625 487.980469 298.515625 488.023438 296.722656 C 487.980469 294.503906 486.273438 293.054688 483.371094 293.054688 C 480.386719 293.054688 478.253906 294.675781 477.953125 297.019531 L 472.878906 297.019531 C 473.34375 292.242188 477.613281 288.914062 483.457031 288.914062 C 489.558594 288.914062 492.925781 292.242188 492.925781 297.0625 L 492.925781 307.300781 C 492.925781 307.941406 493.269531 308.285156 494.039062 308.285156 L 495.273438 308.285156 L 495.273438 312.207031 L 492.886719 312.207031 C 490.582031 312.207031 489.171875 311.269531 488.789062 309.5625 C 488.703125 309.351562 488.617188 309.050781 488.578125 308.796875 C 487.253906 311.226562 484.78125 312.679688 480.941406 312.679688 C 475.734375 312.679688 472.320312 310.160156 472.363281 305.9375 M 488.023438 303.71875 L 488.023438 300.5625 C 487.167969 301.882812 484.992188 302.183594 482.601562 302.480469 C 479.789062 302.824219 477.441406 303.207031 477.441406 305.59375 C 477.441406 307.558594 479.019531 308.710938 481.964844 308.710938 C 485.417969 308.710938 488.023438 306.75 488.023438 303.71875 M 496.554688 312.207031 L 496.554688 281.707031 L 501.585938 281.707031 L 501.585938 299.410156 L 511.230469 289.597656 L 517.371094 289.597656 L 509.179688 297.746094 L 518.480469 312.207031 L 512.636719 312.207031 L 505.683594 301.242188 L 501.585938 305.339844 L 501.585938 312.207031 Z M 516.21875 300.988281 C 516.21875 293.523438 521.125 288.914062 527.441406 288.914062 C 533.839844 288.914062 538.105469 293.394531 538.234375 300.730469 L 538.234375 301.925781 L 521.253906 301.925781 C 521.59375 305.894531 524.070312 308.582031 527.910156 308.582031 C 530.511719 308.582031 532.472656 307.300781 533.242188 305.042969 L 538.148438 305.042969 C 536.996094 309.90625 533.199219 312.847656 527.867188 312.847656 C 520.957031 312.847656 516.21875 307.898438 516.21875 300.988281 M 533.027344 298.386719 C 532.386719 295.144531 530.382812 293.179688 527.441406 293.179688 C 524.453125 293.179688 522.234375 295.144531 521.46875 298.386719 Z"></path></svg>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"motion":{"editor":"boolean","default":true},"$preview":{"width":1440,"height":6400}}'>
+class Component extends DCLogic {
+  constructor(...args) {
+    super(...args);
+    this.state = { sec: '000', secName: 'Overview', menu: false, sent: false, step: 0, slide: 0 };
+    this.root = null; this.cv = null; this.wrap = null; this.inner = null; this.s = 0; this.long = false;
+    this.setRoot = (el) => { this.root = el; };
+    this.setCv = (el) => { this.cv = el; };
+    this.setWrap = (el) => { this.wrap = el; };
+    this.setInner = (el) => { this.inner = el; };
+    this.toggleMenu = () => this.setState({ menu: !this.state.menu });
+    this.closeMenu = () => this.setState({ menu: false });
+    this.submit = (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ sent: true }); };
+    this.pick0 = () => this.setState({ slide: 0 });
+    this.pick1 = () => this.setState({ slide: 1 });
+    this.pick2 = () => this.setState({ slide: 2 });
+    this.prev = () => this.setState({ slide: (this.state.slide + 2) % 3 });
+    this.next = () => this.setState({ slide: (this.state.slide + 1) % 3 });
+    this.track = null;
+    this.setTrack = (el) => { this.track = el; };
+    this.dragStart = (e) => {
+      if (e.button !== undefined && e.button !== 0) return;
+      this.drag = { x: e.clientX, y: e.clientY, dx: 0, active: false, id: e.pointerId };
+    };
+    this.dragMove = (e) => {
+      const d = this.drag, el = this.track;
+      if (!d || !el) return;
+      const dx = e.clientX - d.x, dy = e.clientY - d.y;
+      if (!d.active) {
+        if (Math.abs(dx) < 6) return;
+        if (Math.abs(dy) > Math.abs(dx)) { this.drag = null; return; }
+        d.active = true;
+        try { el.setPointerCapture(d.id); } catch (err) {}
+        el.classList.add('dragging');
+      }
+      d.dx = dx;
+      const card = el.firstElementChild;
+      const w = card ? card.offsetWidth + 16 : 0;
+      const sl = this.state.slide;
+      const edge = (sl === 0 && dx > 0) || (sl === 2 && dx < 0);
+      el.style.transform = 'translateX(' + (-sl * w + (edge ? dx * 0.35 : dx)) + 'px)';
+    };
+    this.dragEnd = () => {
+      const d = this.drag, el = this.track;
+      this.drag = null;
+      if (!d || !d.active || !el) return;
+      el.classList.remove('dragging');
+      const card = el.firstElementChild;
+      const lim = Math.min(80, (card ? card.offsetWidth : 600) * 0.15);
+      let sl = this.state.slide;
+      if (d.dx < -lim && sl < 2) sl++;
+      else if (d.dx > lim && sl > 0) sl--;
+      el.style.transform = 'translateX(calc(var(--cw) * -' + sl + ' - ' + (16 * sl) + 'px))';
+      if (sl !== this.state.slide) this.setState({ slide: sl });
+    };
+  }
+
+  componentDidMount() {
+    const root = this.root;
+    if (!root) return;
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.motion = (this.props.motion ?? true) && !reduce && typeof IntersectionObserver !== 'undefined';
+    if (this.motion) root.classList.add('js');
+    this.onOver = (e) => {
+      const a = e.target.closest && e.target.closest('[data-hs]');
+      if (!a || (e.relatedTarget && a.contains(e.relatedTarget))) return;
+      const el = a.querySelector('.scr');
+      if (!el) return;
+      const text = el.getAttribute('data-txt') || el.textContent;
+      el.setAttribute('data-txt', text);
+      const glyphs = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#%&*+=/<>';
+      const n = text.length, dur = Math.min(900, 280 + n * 32), t0 = performance.now();
+      el.classList.add('run');
+      cancelAnimationFrame(el._raf);
+      const tick = (now) => {
+        const p = (now - t0) / dur;
+        let out = '';
+        for (let i = 0; i < n; i++) { const ch = text[i]; out += (ch === ' ' || p > (i / n) * 0.75 + 0.25) ? ch : glyphs[Math.floor(Math.random() * glyphs.length)]; }
+        el.setAttribute('data-scr', out);
+        if (p < 1) el._raf = requestAnimationFrame(tick); else el.classList.remove('run');
+      };
+      el._raf = requestAnimationFrame(tick);
+    };
+    if (this.motion) root.addEventListener('mouseover', this.onOver);
+    this.heroText = root.querySelector('[data-hero]');
+    this.steps = Array.prototype.slice.call(root.querySelectorAll('[data-step-text]'));
+    this.fill = root.querySelector('[data-fill]');
+    this.par = Array.prototype.slice.call(root.querySelectorAll('[data-speed]')).map((el) => ({ el, sec: el.closest('[data-par]'), speed: Number(el.getAttribute('data-speed')) || 0 }));
+    this.startStage();
+    if (!this.motion) return;
+
+    this.rvIO = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); this.rvIO.unobserve(e.target); } });
+    }, { threshold: 0.01, rootMargin: '0px 0px -12% 0px' });
+    root.querySelectorAll('[data-rv]').forEach((el) => this.rvIO.observe(el));
+    this.secIO = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        const parts = (e.target.getAttribute('data-sec') || '').split('|');
+        this.setState({ sec: parts[0], secName: parts[1] || '' });
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    root.querySelectorAll('[data-sec]').forEach((el) => this.secIO.observe(el));
+
+    this.layout = () => {
+      const vh = window.innerHeight || 800;
+      this.long = vh < 1600;
+      if (this.wrap && this.inner) this.wrap.style.height = this.long ? (this.inner.offsetHeight * 7) + 'px' : '';
+    };
+    this.onScroll = () => {
+      const vh = window.innerHeight || 800;
+      const cl = (v) => Math.max(0, Math.min(1, v));
+      if (this.wrap && this.inner && this.long) {
+        const r = this.wrap.getBoundingClientRect();
+        this.s = Math.max(0, Math.min(6, -r.top / (this.inner.offsetHeight || 1)));
+      } else this.s = 0;
+      const s = this.s;
+      if (this.heroText) {
+        const a = 1 - cl(s / 0.4);
+        this.heroText.style.opacity = String(a);
+        this.heroText.style.transform = 'translateY(' + (-s * 90) + 'px)';
+        this.heroText.style.visibility = a < 0.01 ? 'hidden' : 'visible';
+      }
+      this.steps.forEach((el) => {
+        const i = Number(el.getAttribute('data-step-text'));
+        let a = cl((s - (i - 0.2)) / 0.3);
+        if (i < 5) a *= 1 - cl((s - (i + 0.72)) / 0.25);
+        el.style.opacity = String(a);
+        el.style.transform = 'translateY(' + ((1 - a) * 26) + 'px)';
+        el.style.visibility = a < 0.01 ? 'hidden' : 'visible';
+      });
+      if (this.fill) this.fill.style.transform = 'scaleX(' + cl((s - 0.8) / 4.6) + ')';
+      const step = Math.max(0, Math.min(5, Math.floor(s + 0.2)));
+      if (step !== this.state.step) this.setState({ step });
+      this.par.forEach((p) => {
+        if (!p.sec) return;
+        if (!this.long) { p.el.style.transform = ''; return; }
+        const r = p.sec.getBoundingClientRect();
+        const prog = (vh - r.top) / (vh + r.height);
+        p.el.style.transform = 'translate3d(0,' + ((prog - 0.5) * p.speed).toFixed(1) + 'px,0)';
+      });
+    };
+    this.onResize = () => { this.layout(); this.onScroll(); };
+    this.layout();
+    document.addEventListener('scroll', this.onScroll, true);
+    window.addEventListener('resize', this.onResize);
+    this.onScroll();
+  }
+
+  componentWillUnmount() {
+    ['rvIO', 'secIO', 'heroIO', 'ro'].forEach((k) => { if (this[k]) this[k].disconnect(); });
+    if (this.raf) cancelAnimationFrame(this.raf);
+    if (this.onScroll) {
+      document.removeEventListener('scroll', this.onScroll, true);
+      window.removeEventListener('resize', this.onResize);
+    }
+  }
+
+  startStage() {
+    const cv = this.cv;
+    if (!cv || !cv.getContext) return;
+    const c = cv.getContext('2d');
+    if (!c) return;
+    const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+    const lerp = (a, b, k) => a + (b - a) * k;
+    const io = (p) => { p = clamp(p); return p < .5 ? 8 * p ** 4 : 1 - Math.pow(-2 * p + 2, 4) / 2; };
+    const smooth = (p) => { p = clamp(p); return p * p * (3 - 2 * p); };
+    const hash = (a, n) => { const x = Math.sin(a * 127.1 + n * 311.7) * 43758.5453; return x - Math.floor(x); };
+    let seed = 7;
+    const rnd = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+    const F = 900, ZN = 1.1, ZF = 70;
+    const lanes = [];
+    for (let i = 0; i < 170; i++) { const x = rnd() ** 1.6 * (rnd() < .5 ? -1 : 1) * 16; lanes.push({ x, a: .045 + rnd() * .09, cloud: rnd() < .18 }); }
+    const pulses = [];
+    for (let i = 0; i < 340; i++) { const lane = lanes[Math.floor(rnd() * lanes.length)]; pulses.push({ lane, phase: rnd(), period: 2.6 + rnd() * 3.6, len: .12 + rnd() * .22, w: .8 + rnd() * 1.2, bright: .55 + rnd() * .45, white: rnd() < .3 }); }
+    const motes = [];
+    for (let i = 0; i < 420; i++) motes.push({ x: (rnd() * 2 - 1) * 18, z: ZN * Math.pow(ZF / ZN, rnd()), tw: rnd() * 6.28, r: .5 + rnd() });
+    const ORB = [.62, .8, 1.0, 1.25, 1.55];
+    const agents = [];
+    for (let i = 0; i < 16; i++) agents.push({ id: i + 1, o: i % ORB.length, a0: rnd() * 6.283, w: (rnd() < .5 ? -1 : 1) * (.05 + rnd() * .07), p: 2.2 + rnd() * 1.6, ph: rnd(), label: i % 3 === 0 });
+    const HZ = [176, 222, 245], CL = [242, 242, 242];
+    const rgba = (r, a) => 'rgba(' + r[0] + ',' + r[1] + ',' + r[2] + ',' + a + ')';
+    const mark = new Path2D('M 447.363281 265.285156 L 447.363281 284.03125 L 434.324219 284.03125 C 434.789062 284.53125 435.203125 285.148438 435.667969 285.640625 C 444.023438 294.492188 456.167969 301.570312 452.195312 315.863281 C 450.523438 321.886719 443.207031 329.269531 436.667969 329.269531 L 394.179688 329.269531 L 394.179688 310.828125 L 394.484375 310.523438 L 407.425781 310.523438 L 393.5625 296.570312 C 385.363281 287.390625 388.101562 272.574219 399.207031 267.15625 C 400.558594 266.496094 403.863281 265.285156 405.285156 265.285156 Z M 433.914062 284.03125 L 407.832031 284.03125 L 420.773438 297.082031 Z M 433.914062 310.523438 L 420.773438 297.472656 L 407.628906 310.523438 Z');
+    const MB = [388.809, 265.285, 64.16, 63.984];
+    let W = 1, H = 1, dpr = 1, k = 1, ox = 0, oy = 0;
+    const size = () => {
+      const r = cv.getBoundingClientRect();
+      dpr = Math.min(2, window.devicePixelRatio || 1);
+      W = Math.max(1, r.width); H = Math.max(1, r.height);
+      cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+      k = Math.max(W / 1920, H / 1080); ox = (W - 1920 * k) / 2; oy = (H - 1080 * k) / 2;
+    };
+
+    const floor = (t) => {
+      const vx = 960, vy = lerp(352, 470, io(t / 7.2)), hc = lerp(1.18, .96, io(t / 7.2));
+      const sx = (x, z) => vx + F * x / z, sy = (z) => vy + F * hc / z;
+      const arrive = smooth((t - .4) / 2.6);
+      let g = c.createLinearGradient(0, 0, 0, vy + 40);
+      g.addColorStop(0, '#0b0f14'); g.addColorStop(.7, '#0a1c2a'); g.addColorStop(1, '#0d2c40');
+      c.fillStyle = g; c.fillRect(-400, -400, 2720, vy + 401);
+      g = c.createLinearGradient(0, vy, 0, 1080);
+      g.addColorStop(0, '#0d2a3c'); g.addColorStop(.35, '#081a26'); g.addColorStop(1, '#060f16');
+      c.fillStyle = g; c.fillRect(-400, vy, 2720, 1480 - vy);
+      c.globalCompositeOperation = 'lighter';
+      const bloom = .26 + .3 * arrive + .03 * Math.sin(t * 2.1);
+      c.save(); c.translate(vx, vy); c.scale(1, .32);
+      g = c.createRadialGradient(0, 0, 0, 0, 0, 900);
+      g.addColorStop(0, rgba(HZ, bloom)); g.addColorStop(.35, rgba([64, 150, 185], bloom * .35)); g.addColorStop(1, 'rgba(0,0,0,0)');
+      c.fillStyle = g; c.fillRect(-900, -900, 1800, 1800);
+      c.restore();
+      c.lineCap = 'round';
+      for (const l of lanes) {
+        const z0 = Math.max(ZN, Math.abs(l.x) * F / 1100);
+        const x0 = sx(l.x, z0), y0 = sy(z0);
+        g = c.createLinearGradient(x0, y0, vx, vy);
+        const col = l.cloud ? CL : HZ;
+        g.addColorStop(0, rgba(col, 0)); g.addColorStop(.55, rgba(col, l.a * .6)); g.addColorStop(.97, rgba(col, l.a * 1.4)); g.addColorStop(1, rgba(col, 0));
+        c.strokeStyle = g; c.lineWidth = 1; c.beginPath(); c.moveTo(x0, y0); c.lineTo(vx, vy); c.stroke();
+      }
+      for (const m of motes) {
+        const z = m.z, y = sy(z), x = sx(m.x, z);
+        if (x < -10 || x > 1930 || y > 1090) continue;
+        const a = (.10 + .12 * (1 + Math.sin(t * 1.7 + m.tw)) / 2) * clamp((z - ZN) / 2) * (1 - clamp((z - 30) / 40));
+        c.fillStyle = rgba(HZ, a);
+        c.beginPath(); c.arc(x, y, m.r * clamp(3 / z, .4, 1.6), 0, 6.283); c.fill();
+      }
+      const flow = smooth(t / 1.2);
+      const ga = c.globalAlpha;
+      for (const p of pulses) {
+        const u = ((t / p.period + p.phase) % 1 + 1) % 1;
+        const z = ZN * Math.pow(ZF / ZN, u), zt = z / (1 + p.len);
+        const x1 = sx(p.lane.x, z), y1 = sy(z), x0 = sx(p.lane.x, zt), y0 = sy(zt);
+        if ((x0 < -50 && x1 < -50) || (x0 > 1970 && x1 > 1970)) continue;
+        const a = p.bright * flow * smooth(u / .1) * (1 - smooth((u - .78) / .22));
+        if (a < .01) continue;
+        const col = p.white ? CL : HZ;
+        const w = p.w * clamp(2.4 / z, .35, 2.2);
+        g = c.createLinearGradient(x0, y0, x1, y1);
+        g.addColorStop(0, rgba(col, 0)); g.addColorStop(.85, rgba(col, a * .55)); g.addColorStop(1, rgba(col, a));
+        c.strokeStyle = g;
+        c.lineWidth = w * 4; c.globalAlpha = ga * .18; c.beginPath(); c.moveTo(x0, y0); c.lineTo(x1, y1); c.stroke();
+        c.lineWidth = w; c.globalAlpha = ga; c.beginPath(); c.moveTo(x0, y0); c.lineTo(x1, y1); c.stroke();
+      }
+      g = c.createLinearGradient(vx - 900, 0, vx + 900, 0);
+      const hl = .35 + .45 * arrive;
+      g.addColorStop(0, rgba(HZ, 0)); g.addColorStop(.42, rgba(HZ, hl * .5)); g.addColorStop(.5, rgba(CL, hl)); g.addColorStop(.58, rgba(HZ, hl * .5)); g.addColorStop(1, rgba(HZ, 0));
+      c.fillStyle = g; c.fillRect(vx - 900, vy - .75, 1800, 1.5);
+      c.globalCompositeOperation = 'source-over';
+      return vy;
+    };
+
+    const label = (txt, x, y, a, align) => {
+      c.font = '11px "IBM Plex Mono", ui-monospace, monospace';
+      c.textAlign = align || 'left';
+      c.fillStyle = rgba(HZ, a);
+      c.fillText(txt, x, y);
+    };
+
+    const diagram = (t, s, A, cx, cy, R, Rp) => {
+      c.save();
+      c.globalAlpha = A;
+      let g = c.createRadialGradient(cx, cy, 0, cx, cy, Rp * 2.4);
+      g.addColorStop(0, 'rgba(176,222,245,.2)'); g.addColorStop(.45, 'rgba(41,87,102,.16)'); g.addColorStop(1, 'rgba(0,0,0,0)');
+      c.fillStyle = g; c.beginPath(); c.arc(cx, cy, Rp * 2.4, 0, 6.283); c.fill();
+      c.strokeStyle = 'rgba(176,222,245,.10)'; c.lineWidth = Rp * .38;
+      c.beginPath(); c.arc(cx, cy, Rp * 1.2, 0, 6.283); c.stroke();
+      c.lineWidth = 1;
+      ORB.forEach((o, i) => {
+        c.setLineDash(i % 2 ? [1, 7] : [3, 6]);
+        c.lineDashOffset = (i % 2 ? 1 : -1) * t * 6;
+        c.strokeStyle = 'rgba(176,222,245,' + (.5 - i * .06) + ')';
+        c.beginPath(); c.arc(cx, cy, R * o, 0, 6.283); c.stroke();
+      });
+      c.setLineDash([]);
+      label('PAYMENTS', cx + Rp * 1.05, cy + Rp * 1.05 + 8, .7);
+      label('AGENTS', cx + R * Math.cos(-.95) + 8, cy + R * Math.sin(-.95), .55);
+      const re = R * .46, rr = R * .37;
+      const env = clamp((s - 2.75) / .8);
+      if (env > 0) {
+        c.save();
+        c.strokeStyle = rgba(HZ, 1); c.lineWidth = 2.4;
+        c.shadowColor = 'rgba(176,222,245,.9)'; c.shadowBlur = 14 * dpr;
+        c.setLineDash([9, 5]); c.lineDashOffset = -t * 14;
+        c.beginPath(); c.arc(cx, cy, re, -Math.PI / 2, -Math.PI / 2 + 6.283 * env); c.stroke();
+        c.restore();
+        c.setLineDash([]);
+        c.fillStyle = 'rgba(176,222,245,' + (.06 * env) + ')';
+        c.beginPath(); c.arc(cx, cy, re, 0, 6.283); c.fill();
+        c.strokeStyle = rgba(HZ, .45); c.lineWidth = 1;
+        for (let i = 0; i < 90 * env; i++) {
+          const an = -Math.PI / 2 + i / 90 * 6.283, l2 = i % 5 ? 6 : 10;
+          c.beginPath(); c.moveTo(cx + Math.cos(an) * (re + 3), cy + Math.sin(an) * (re + 3)); c.lineTo(cx + Math.cos(an) * (re + l2), cy + Math.sin(an) * (re + l2)); c.stroke();
+        }
+        label('ENVELOPE / ENV_001', cx, cy - re - 18, .9 * env, 'center');
+      }
+      const rec = clamp((s - 4.7) / .9);
+      if (rec > 0) {
+        c.strokeStyle = rgba(CL, .85); c.lineWidth = 1.2;
+        const n = 120;
+        for (let i = 0; i < n * rec; i++) {
+          const an = -Math.PI / 2 + i / n * 6.283;
+          c.beginPath(); c.moveTo(cx + Math.cos(an) * (rr - 4), cy + Math.sin(an) * (rr - 4)); c.lineTo(cx + Math.cos(an) * (rr + 4), cy + Math.sin(an) * (rr + 4)); c.stroke();
+        }
+        if (rec > .95) label('RECORD / VERIFIED', cx, cy + rr + 22, .95, 'center');
+      }
+      c.globalCompositeOperation = 'lighter';
+      for (const a of agents) {
+        const ang = a.a0 + t * a.w, rad = R * ORB[a.o];
+        const x = cx + Math.cos(ang) * rad, y = cy + Math.sin(ang) * rad;
+        c.fillStyle = 'rgba(176,222,245,.14)'; c.beginPath(); c.arc(x, y, 7, 0, 6.283); c.fill();
+        c.fillStyle = rgba(CL, .95); c.fillRect(x - 2, y - 2, 4, 4);
+        if (a.label) label('AGENT ' + (a.id < 10 ? '0' : '') + a.id, x + 10, y - 8, .6);
+      }
+      const risk = s >= 1.75 && s < 2.75, check = s >= 3.75;
+      for (const a of agents) {
+        const P = risk ? a.p * .55 : a.p;
+        const v = t / P + a.ph, n = Math.floor(v), u = v - n;
+        if (u > .78) continue;
+        const q = u / .78;
+        const ang = a.a0 + (t - u * P) * a.w, rad = R * ORB[a.o];
+        const Ax = cx + Math.cos(ang) * rad, Ay = cy + Math.sin(ang) * rad;
+        const dx = cx - Ax, dy = cy - Ay, d = Math.hypot(dx, dy) || 1, ux = dx / d, uy = dy / d;
+        const hv = hash(a.id, n);
+        let x0, y0, x1, y1, qq, col = HZ, alpha = 1;
+        if (risk && hv < .45) {
+          const side = hv < .22 ? 1 : -1;
+          x0 = Ax; y0 = Ay; x1 = Ax - ux * R * 1.3 + uy * R * .6 * side; y1 = Ay - uy * R * 1.3 - ux * R * .6 * side;
+          qq = q; col = CL; alpha = 1 - smooth((q - .7) / .3);
+          if (a.id % 2 === 0 && q > .2 && q < .8) label('UNBOUNDED', lerp(x0, x1, q) + 10, lerp(y0, y1, q) - 8, .8);
+        } else if (check) {
+          const Bx = cx - ux * re, By = cy - uy * re;
+          const blocked = hv < .3;
+          if (q < .55) { x0 = Ax; y0 = Ay; x1 = Bx; y1 = By; qq = q / .55; }
+          else {
+            qq = (q - .55) / .45;
+            if (blocked) {
+              x0 = Bx; y0 = By; x1 = Bx - ux * R * .3; y1 = By - uy * R * .3; col = CL; alpha = 1 - qq;
+              c.strokeStyle = rgba(CL, .8 * (1 - qq)); c.lineWidth = 1.2;
+              c.beginPath(); c.arc(Bx, By, 4 + qq * 16, 0, 6.283); c.stroke();
+              if (qq < .8) label('BLOCKED', Bx - ux * 18 + 6, By - uy * 18 - 6, .95 * (1 - qq));
+            } else {
+              x0 = Bx; y0 = By; x1 = cx - ux * Rp; y1 = cy - uy * Rp;
+              if (a.id % 4 === 1 && qq < .5) label('ALLOWED', Bx + 8, By + 14, .7 * (1 - qq * 2));
+            }
+          }
+        } else { x0 = Ax; y0 = Ay; x1 = cx - ux * Rp; y1 = cy - uy * Rp; qq = q; }
+        const px = lerp(x0, x1, qq), py = lerp(y0, y1, qq);
+        const sx2 = x1 - x0, sy2 = y1 - y0, sl = Math.hypot(sx2, sy2) || 1;
+        const tx = px - sx2 / sl * 26, ty = py - sy2 / sl * 26;
+        g = c.createLinearGradient(tx, ty, px, py);
+        g.addColorStop(0, rgba(col, 0)); g.addColorStop(1, rgba(col, .95 * alpha));
+        c.strokeStyle = g; c.lineWidth = 1.6;
+        c.beginPath(); c.moveTo(tx, ty); c.lineTo(px, py); c.stroke();
+        c.fillStyle = rgba(col, alpha); c.beginPath(); c.arc(px, py, 1.8, 0, 6.283); c.fill();
+      }
+      c.restore();
+    };
+
+    const draw = (t) => {
+      const s = this.s || 0;
+      c.setTransform(dpr, 0, 0, dpr, 0, 0);
+      c.globalCompositeOperation = 'source-over'; c.globalAlpha = 1;
+      c.fillStyle = '#060c11'; c.fillRect(0, 0, W, H);
+      const heroA = 1 - smooth(s / .9);
+      let vy = lerp(352, 470, io(t / 7.2));
+      if (heroA > .01) {
+        c.save(); c.globalAlpha = heroA; c.setTransform(dpr * k, 0, 0, dpr * k, dpr * ox, dpr * oy);
+        vy = floor(t);
+        c.restore();
+      }
+      c.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const mob = W < 900;
+      const cx = mob ? W / 2 : W * .33, cy = mob ? H * .34 : H * .53;
+      const R = mob ? W * .44 : Math.min(H * .42, W * .3);
+      const Rp = R * .24;
+      const e = smooth((s - .05) / .85);
+      const diagA = smooth((s - .3) / .7);
+      if (diagA > .01) diagram(t, s, diagA, cx, cy, R, Rp);
+      if (s > .02) {
+        const hx = ox + 960 * k, hy = oy + vy * k;
+        c.save(); c.globalCompositeOperation = 'lighter';
+        c.strokeStyle = rgba(HZ, .9); c.lineWidth = lerp(1.5, 2, e);
+        c.shadowColor = 'rgba(176,222,245,.85)'; c.shadowBlur = 16 * dpr;
+        c.beginPath(); c.ellipse(lerp(hx, cx, e), lerp(hy, cy, e), lerp(900 * k, Rp, e), lerp(.6, Rp, e), 0, 0, 6.283); c.stroke();
+        c.restore();
+      }
+      const ma = clamp((t - .9) / 1.4);
+      if (ma > 0) {
+        const rr = io((t - .9) / 3.2), topF = lerp(vy + 6, vy - 88 - 34, rr);
+        const hmx = ox + 960 * k, hmy = oy + (topF + 44) * k, hms = 88 * k;
+        const mx = lerp(hmx, cx, e), my = lerp(hmy, cy, e), ms = lerp(hms, Rp * .9, e);
+        const sc = ms / MB[3];
+        c.save();
+        if (s < .02) { c.beginPath(); c.rect(0, 0, W, oy + (vy + .5) * k); c.clip(); }
+        c.globalAlpha = ma;
+        c.shadowColor = 'rgba(176,222,245,.55)'; c.shadowBlur = 24 * dpr;
+        c.translate(mx - MB[2] * sc / 2 - MB[0] * sc, my - MB[3] * sc / 2 - MB[1] * sc); c.scale(sc, sc);
+        c.fillStyle = '#f2f2f2'; c.fill(mark, 'evenodd');
+        c.restore();
+      }
+    };
+
+    size();
+    if (!this.motion) {
+      draw(9);
+      if (typeof ResizeObserver !== 'undefined') { this.ro = new ResizeObserver(() => { size(); draw(9); }); this.ro.observe(cv); }
+      return;
+    }
+    let start = null, visible = true;
+    const loop = (now) => {
+      if (start === null) start = now;
+      if (visible) draw((now - start) / 1000);
+      this.raf = requestAnimationFrame(loop);
+    };
+    this.raf = requestAnimationFrame(loop);
+    this.heroIO = new IntersectionObserver((es) => { visible = es[0].isIntersecting; });
+    this.heroIO.observe(cv);
+    if (typeof ResizeObserver !== 'undefined') { this.ro = new ResizeObserver(() => size()); this.ro.observe(cv); }
+  }
+
+  renderVals() {
+    const st = this.state.step, menu = this.state.menu, sent = this.state.sent, sl = this.state.slide;
+    return {
+      rootRef: this.setRoot, cvRef: this.setCv, wrapRef: this.setWrap, innerRef: this.setInner,
+      sec: this.state.sec, secName: this.state.secName,
+      menu, menuOpen: menu ? 'true' : 'false', menuLabel: menu ? 'Close' : 'Menu', toggleMenu: this.toggleMenu, closeMenu: this.closeMenu,
+      submit: this.submit, sent, notSent: !sent,
+      barCls: st > 0 ? 'on' : '', stepNo: '0' + Math.max(1, st),
+      s1: st === 1 ? 'on' : '', s2: st === 2 ? 'on' : '', s3: st === 3 ? 'on' : '', s4: st === 4 ? 'on' : '', s5: st === 5 ? 'on' : '',
+      p0: sl === 0 ? 'true' : 'false', p1: sl === 1 ? 'true' : 'false', p2: sl === 2 ? 'true' : 'false',
+      pick0: this.pick0, pick1: this.pick1, pick2: this.pick2, prev: this.prev, next: this.next,
+      trackRef: this.setTrack, dragStart: this.dragStart, dragMove: this.dragMove, dragEnd: this.dragEnd,
+      trackX: 'calc(var(--cw) * -' + sl + ' - ' + (16 * sl) + 'px)'
+    };
+  }
+}
+</script>
+</body>
+</html>
