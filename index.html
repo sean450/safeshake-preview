@@ -303,7 +303,7 @@ a{color:#f2f2f2;text-decoration:none}a:hover{color:#b0def5}
 .tstats{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:40px}
 .tstats div{min-width:150px;padding:16px 18px;border:1px solid rgba(242,242,242,.2);border-radius:4px;background:rgba(2,4,6,.6);text-align:left}
 .tstats b{display:block;font-weight:300;font-size:40px;letter-spacing:-.02em}
-.badges{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:40px}
+.badges{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:40px}
 .badge{position:relative;padding:22px 20px 26px;border:1px solid rgba(242,242,242,.16);border-radius:4px;min-height:170px;display:flex;flex-direction:column;justify-content:space-between;background:rgba(242,242,242,.02)}
 .badge b{font-weight:300;font-size:clamp(26px,2.2vw,34px);letter-spacing:-.02em;line-height:1.1}
 .badge::before,.badge::after{content:'';position:absolute;width:6px;height:6px;background:#b0def5}
@@ -699,8 +699,8 @@ a{color:#f2f2f2;text-decoration:none}a:hover{color:#b0def5}
 <h2 class="h2 mk" data-rv style="grid-column: 1 / span 8"><span class="ml"><span>Filed. Published.</span></span><span class="ml"><span class="it">Tested.</span></span></h2>
 </div>
 <div class="badges" data-rv>
-<div class="badge"><span class="mono" style="color: #b0def5">Patent</span><b>Patent pending</b><span class="mono dim">[Application number]</span></div>
-<div class="badge"><span class="mono" style="color: #b0def5">NIST</span><b>[NIST document title]</b><span class="mono dim">[Reference and date]</span></div>
+<div class="badge"><span class="mono" style="color: #b0def5">Patent</span><b>Patents pending</b><span class="mono dim">On the core system</span></div>
+
 <div class="badge"><span class="mono" style="color: #b0def5">Tested</span><b class="scr" data-count="591">591</b><span class="mono dim">Automated tests</span></div>
 <div class="badge"><span class="mono" style="color: #b0def5">Open verifier</span><b>Checks offline</b><span class="mono dim">No access to SafeShake needed</span></div>
 </div>
@@ -730,11 +730,13 @@ a{color:#f2f2f2;text-decoration:none}a:hover{color:#b0def5}
 <span class="tagbox">Talk to us</span>
 <h2 class="fh">Empower the agent.<br>Bound the action.</h2>
 <sc-if value="{{notSent}}" hint-placeholder-val="{{true}}">
-<form onSubmit="{{submit}}" style="margin-top: 36px; display: flex; gap: 8px; width: min(100%, 460px); flex-wrap: wrap; justify-content: center">
+<form onSubmit="{{submit}}" style="margin-top: 36px; display: flex; gap: 8px; width: min(100%, 460px); flex-wrap: wrap; justify-content: center" name="access" method="POST" data-netlify="true" netlify-honeypot="bot-field"><input type="hidden" name="form-name" value="access"><p hidden><label>Leave this empty <input name="bot-field"></label></p>
 <label for="ss-email" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Work email</label>
-<input id="ss-email" class="ffield" type="email" required placeholder="Work email" autocomplete="email">
+<input id="ss-email" name="email" class="ffield" type="email" required placeholder="Work email" autocomplete="email">
 <button class="sbtn" type="submit">Get access</button>
 </form>
+<p class="mono" aria-live="polite" style="margin-top: 12px; opacity: .8">{{formErr}}</p>
+<p class="mono" style="margin-top: 10px; opacity: .55; text-transform: none; letter-spacing: .04em">We only use your details to reply to you.</p>
 </sc-if>
 <sc-if value="{{sent}}" hint-placeholder-val="{{false}}">
 <p class="mono" style="margin-top: 36px; color: #0a2638">Received. We'll be in touch.</p>
@@ -745,9 +747,9 @@ a{color:#f2f2f2;text-decoration:none}a:hover{color:#b0def5}
 <div class="fcol"><span>Product</span><a data-hs href="Product.dc.html"><span class="scr">Developers</span></a><a data-hs href="Enterprise.dc.html"><span class="scr">Enterprise</span></a></div>
 <div class="fcol"><span>Hackathon</span><a data-hs href="Challenge.dc.html"><span class="scr">Break the Envelope</span></a><a data-hs href="Challenge.dc.html#register"><span class="scr">Register interest</span></a></div>
 <div class="fcol"><span>Mission</span><a data-hs href="Company.dc.html"><span class="scr">Our mission</span></a><a data-hs href="Company.dc.html#contact"><span class="scr">Contact</span></a></div>
-<div class="fsocial"><a data-hs href="https://www.linkedin.com"><span class="scr">LinkedIn</span></a><a data-hs href="https://x.com"><span class="scr">X</span></a><a data-hs href="https://www.safeshake.ai"><span class="scr">safeshake.ai</span></a></div>
+<div class="fsocial"><a data-hs href="https://www.safeshake.ai"><span class="scr">safeshake.ai</span></a></div>
 </div>
-<div class="flegal"><span>© 2026 SafeShake. All rights reserved. Patent pending.</span><span>[Terms]&nbsp;&nbsp;&nbsp;&nbsp;[Privacy]</span></div>
+<div class="flegal"><span>© 2026 SafeShake. All rights reserved. Patents pending.</span></div>
 </div>
 <div class="fmark">
 <svg viewBox="345.703 281.707 192.531 31.141" role="img" aria-label="Safeshake" style="position: relative; z-index: 1; width: 100%; height: auto; display: block; color: #0d0d0d; margin-bottom: -1.4%" fill="currentColor"><path d="M 345.703125 302.992188 L 350.949219 302.992188 C 351.417969 306.234375 354.40625 308.28125 359.183594 308.28125 C 363.066406 308.28125 365.113281 306.789062 365.113281 304.273438 C 365.113281 301.925781 363.277344 300.988281 360.378906 300.09375 L 355.515625 298.640625 C 352.015625 297.574219 346.554688 296.039062 346.554688 290.195312 C 346.554688 285.289062 350.609375 281.707031 357.222656 281.707031 C 364.429688 281.707031 369.039062 285.585938 369.421875 291.902344 L 364.21875 291.902344 C 364.003906 288.53125 361.53125 286.269531 357.050781 286.269531 C 353.765625 286.269531 351.632812 287.636719 351.632812 289.9375 C 351.632812 292.542969 354.234375 293.179688 357.136719 294.121094 L 361.65625 295.527344 C 365.882812 296.851562 370.316406 298.386719 370.316406 304.015625 C 370.316406 309.4375 366.007812 312.847656 359.183594 312.847656 C 351.332031 312.847656 346.085938 308.921875 345.703125 302.992188 M 371.085938 305.9375 C 371.128906 300.648438 376.375 299.539062 380.769531 299.027344 C 384.183594 298.640625 386.699219 298.515625 386.742188 296.722656 C 386.699219 294.503906 384.992188 293.054688 382.089844 293.054688 C 379.105469 293.054688 376.972656 294.675781 376.675781 297.019531 L 371.597656 297.019531 C 372.066406 292.242188 376.332031 288.914062 382.175781 288.914062 C 388.277344 288.914062 391.648438 292.242188 391.648438 297.0625 L 391.648438 307.300781 C 391.648438 307.941406 391.988281 308.285156 392.757812 308.285156 L 393.992188 308.285156 L 393.992188 312.207031 L 391.605469 312.207031 C 389.300781 312.207031 387.894531 311.269531 387.511719 309.5625 C 387.425781 309.351562 387.339844 309.050781 387.296875 308.796875 C 385.972656 311.226562 383.5 312.679688 379.660156 312.679688 C 374.457031 312.679688 371.042969 310.160156 371.085938 305.9375 M 386.742188 303.71875 L 386.742188 300.5625 C 385.890625 301.882812 383.710938 302.183594 381.324219 302.480469 C 378.507812 302.824219 376.160156 303.207031 376.160156 305.59375 C 376.160156 307.558594 377.742188 308.710938 380.683594 308.710938 C 384.140625 308.710938 386.742188 306.75 386.742188 303.71875 M 396.601562 312.675781 L 396.601562 295.355469 L 392.632812 295.355469 L 392.632812 291.089844 L 396.601562 291.089844 L 396.601562 288.273438 C 396.601562 284.007812 399.117188 281.707031 403.808594 281.707031 L 408.714844 281.707031 L 408.714844 285.972656 L 404.152344 285.972656 C 402.53125 285.972656 401.632812 286.910156 401.632812 288.617188 L 401.632812 291.089844 L 408.203125 291.089844 L 408.203125 295.355469 L 401.632812 295.355469 L 401.632812 312.675781 Z M 407.605469 300.988281 C 407.605469 293.523438 412.511719 288.914062 418.828125 288.914062 C 425.226562 288.914062 429.492188 293.394531 429.621094 300.730469 L 429.621094 301.925781 L 412.640625 301.925781 C 412.980469 305.894531 415.457031 308.582031 419.296875 308.582031 C 421.898438 308.582031 423.859375 307.300781 424.628906 305.042969 L 429.535156 305.042969 C 428.382812 309.90625 424.585938 312.847656 419.253906 312.847656 C 412.34375 312.847656 407.605469 307.898438 407.605469 300.988281 M 424.414062 298.386719 C 423.773438 295.144531 421.769531 293.179688 418.828125 293.179688 C 415.839844 293.179688 413.621094 295.144531 412.855469 298.386719 Z M 430.257812 305 L 435.121094 305 C 435.292969 307.429688 437.382812 308.710938 440.15625 308.710938 C 442.714844 308.710938 444.082031 307.730469 444.082031 305.980469 C 444.082031 304.230469 442.628906 303.890625 440.667969 303.25 L 437.683594 302.269531 C 433.925781 301.03125 430.683594 299.75 430.683594 295.570312 C 430.683594 291.558594 433.757812 288.914062 439.175781 288.914062 C 444.421875 288.914062 448.007812 291.6875 448.601562 296.808594 L 443.824219 296.808594 C 443.570312 294.246094 441.734375 293.054688 439.132812 293.054688 C 436.914062 293.054688 435.632812 293.992188 435.632812 295.527344 C 435.632812 297.277344 437.597656 297.746094 439.21875 298.300781 L 441.949219 299.195312 C 446.425781 300.691406 449.117188 302.054688 449.117188 306.109375 C 449.117188 310.289062 445.957031 312.847656 440.414062 312.847656 C 434.226562 312.847656 430.558594 309.949219 430.257812 305 M 450.695312 312.207031 L 450.695312 281.707031 L 455.726562 281.707031 L 455.726562 292.027344 C 457.261719 290.152344 459.867188 288.914062 462.808594 288.914062 C 467.628906 288.914062 470.785156 292.15625 470.785156 297.234375 L 470.785156 312.207031 L 465.753906 312.207031 L 465.753906 297.488281 C 465.753906 294.972656 464.089844 293.308594 461.402344 293.308594 C 457.988281 293.308594 455.769531 295.570312 455.726562 298.515625 L 455.726562 312.207031 Z M 472.363281 305.9375 C 472.40625 300.648438 477.65625 299.539062 482.050781 299.027344 C 485.460938 298.640625 487.980469 298.515625 488.023438 296.722656 C 487.980469 294.503906 486.273438 293.054688 483.371094 293.054688 C 480.386719 293.054688 478.253906 294.675781 477.953125 297.019531 L 472.878906 297.019531 C 473.34375 292.242188 477.613281 288.914062 483.457031 288.914062 C 489.558594 288.914062 492.925781 292.242188 492.925781 297.0625 L 492.925781 307.300781 C 492.925781 307.941406 493.269531 308.285156 494.039062 308.285156 L 495.273438 308.285156 L 495.273438 312.207031 L 492.886719 312.207031 C 490.582031 312.207031 489.171875 311.269531 488.789062 309.5625 C 488.703125 309.351562 488.617188 309.050781 488.578125 308.796875 C 487.253906 311.226562 484.78125 312.679688 480.941406 312.679688 C 475.734375 312.679688 472.320312 310.160156 472.363281 305.9375 M 488.023438 303.71875 L 488.023438 300.5625 C 487.167969 301.882812 484.992188 302.183594 482.601562 302.480469 C 479.789062 302.824219 477.441406 303.207031 477.441406 305.59375 C 477.441406 307.558594 479.019531 308.710938 481.964844 308.710938 C 485.417969 308.710938 488.023438 306.75 488.023438 303.71875 M 496.554688 312.207031 L 496.554688 281.707031 L 501.585938 281.707031 L 501.585938 299.410156 L 511.230469 289.597656 L 517.371094 289.597656 L 509.179688 297.746094 L 518.480469 312.207031 L 512.636719 312.207031 L 505.683594 301.242188 L 501.585938 305.339844 L 501.585938 312.207031 Z M 516.21875 300.988281 C 516.21875 293.523438 521.125 288.914062 527.441406 288.914062 C 533.839844 288.914062 538.105469 293.394531 538.234375 300.730469 L 538.234375 301.925781 L 521.253906 301.925781 C 521.59375 305.894531 524.070312 308.582031 527.910156 308.582031 C 530.511719 308.582031 532.472656 307.300781 533.242188 305.042969 L 538.148438 305.042969 C 536.996094 309.90625 533.199219 312.847656 527.867188 312.847656 C 520.957031 312.847656 516.21875 307.898438 516.21875 300.988281 M 533.027344 298.386719 C 532.386719 295.144531 530.382812 293.179688 527.441406 293.179688 C 524.453125 293.179688 522.234375 295.144531 521.46875 298.386719 Z"></path></svg>
@@ -769,7 +771,7 @@ class Component extends DCLogic {
   constructor(...args) {
     super(...args);
     this.state = {
-      sec: '000', secName: 'Overview', menu: false, sent: false, step: 0, slide: 0,
+      sec: '000', secName: 'Overview', menu: false, sent: false, formErr: '', step: 0, slide: 0,
       log: [], tool: -1, tk: 'ka', typed: '',
       sh: { who: -1, what: 'Waiting for a request', c: [0, 0, 0], v: '', ok: true, spent: 6420, hist: 412 },
       k: [1284, 920, 344, 2210, 610, 4120, 8830, 2975],
@@ -795,7 +797,18 @@ class Component extends DCLogic {
     this.jump = (half) => { if (!this.mSec || !this.mStage || !this.long) { this.setState({ mp: half ? 1 : 0.2 }); return; } const r = this.mSec.getBoundingClientRect(), span = r.height - this.mStage.offsetHeight; window.scrollTo({ top: window.scrollY + r.top + span * (half ? 0.78 : 0.2), behavior: 'smooth' }); };
     this.toggleMenu = () => this.setState({ menu: !this.state.menu });
     this.closeMenu = () => this.setState({ menu: false });
-    this.submit = (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ sent: true }); };
+    this.submit = (e) => {
+      if (e && e.preventDefault) e.preventDefault();
+      const t = e && (e.currentTarget || e.target);
+      const form = t && (t.tagName === 'FORM' ? t : t.closest && t.closest('form'));
+      if (!form) { this.setState({ sent: true }); return; }
+      // Netlify Forms: post the fields to the site, it emails them on
+      const body = new URLSearchParams(new FormData(form)).toString();
+      this.setState({ formErr: 'Sending' });
+      fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body })
+        .then((r) => { if (!r.ok) throw new Error(String(r.status)); this.setState({ sent: true, formErr: '' }); })
+        .catch(() => this.setState({ formErr: 'That did not send. Please try again in a moment.' }));
+    };
     this.pickObserve = () => this.jump(0);
     this.pickEnforce = () => this.jump(1);
     this.tog = [0, 1, 2, 3, 4, 5].map((i) => () => this.setState({ open: this.state.open === i ? -1 : i }));
@@ -1522,7 +1535,7 @@ class Component extends DCLogic {
       pinRef: this.setPin, stageRef: this.setStage, tripRef: this.setTrip, tripStageRef: this.setTripStage,
       sec: this.state.sec, secName: this.state.secName,
       menu, menuOpen: menu ? 'true' : 'false', menuLabel: menu ? 'Close' : 'Menu', toggleMenu: this.toggleMenu, closeMenu: this.closeMenu,
-      submit: this.submit, sent, notSent: !sent,
+      submit: this.submit, formErr: this.state.formErr || '', sent, notSent: !sent,
       barCls: st > 0 ? 'on' : '', stepNo: '0' + Math.max(1, st),
       p0: sl === 0 ? 'true' : 'false', p1: sl === 1 ? 'true' : 'false', p2: sl === 2 ? 'true' : 'false',
       pick0: this.pick0, pick1: this.pick1, pick2: this.pick2, prev: this.prev, next: this.next,
