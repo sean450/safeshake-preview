@@ -121,6 +121,17 @@ textarea.field{min-height:110px;padding:12px 14px;resize:vertical}
 @media (max-width:900px){.wrap{padding:0 20px}.hide-m{display:none !important}.cols{grid-template-columns:minmax(0,1fr);row-gap:24px}.cols>*{grid-column:1 / -1 !important}.grid4{grid-template-columns:minmax(0,1fr)}.stats{grid-template-columns:minmax(0,1fr)}.sbar{grid-template-columns:1fr}.sbar>div+div{display:none}.drow{grid-template-columns:minmax(0,1fr);gap:10px}.dgrid{grid-template-columns:minmax(0,1fr)}.dash{transform:none;animation:none}.fgrid{grid-template-columns:1fr 1fr}.fsocial{grid-column:1 / -1}.ml,.ml>span{display:inline;overflow:visible;padding:0;margin:0}.ml+.ml::before{content:' '}.js .mk .ml>span{transform:none}.js [data-rv].mk{opacity:0;transform:translateY(32px)}.js [data-rv].mk.in{opacity:1;transform:none}.panel{margin:4px}}
 @media (min-width:901px){.show-m{display:none !important}}
 @media (prefers-reduced-motion:reduce){.js [data-rv],.js .mk .ml>span,.js .track>div{transform:none !important;opacity:1 !important;transition:none !important}.js .hero-in,.sheen,.dash,.dlist,.dtrack i,.live::before{animation:none}}
+.est{position:relative}
+.estage{position:sticky;top:0;height:clamp(640px,100vh,940px);overflow:hidden;background:#060c11}
+.estory{position:absolute;left:57%;right:40px;top:50%;height:300px;transform:translateY(-50%)}
+.estory>div{position:absolute;left:0;right:0;top:0;opacity:0;visibility:hidden}
+.estory h2{font-size:clamp(32px,3.3vw,54px);font-weight:500;line-height:1.04;letter-spacing:-.025em;margin:18px 0 0}
+.estory .ld{font-size:17px;line-height:1.5;color:rgba(242,242,242,.72);margin:18px 0 0}
+.ebar{position:absolute;left:40px;right:40px;bottom:28px}
+.esteps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:14px}
+.esteps span{color:rgba(242,242,242,.38);transition:color .4s}
+.esteps span.on{color:#b0def5}
+@media (max-width:900px){.estory{left:20px;right:20px;top:auto;bottom:66px;height:250px;transform:none}.estory h2{font-size:30px}.ebar{left:20px;right:20px}.esteps{display:none}}
 </style>
 </helmet>
 <div class="ss" ref="{{rootRef}}">
@@ -157,7 +168,7 @@ textarea.field{min-height:110px;padding:12px 14px;resize:vertical}
 <div class="floor" aria-hidden="true"></div>
 <div style="position: relative; display: flex; flex-direction: column; align-items: center; padding: 0 20px; width: 100%">
 <span class="mono hero-in" style="animation-delay: .2s; color: #b0def5"><span class="sq"></span><span class="scr" data-scr-in>Enterprise</span></span>
-<h1 class="h1 sheen hero-in" style="margin-top: 22px; animation-delay: .35s">Authority you can prove.</h1>
+<h1 class="h1 sheen hero-in" style="margin-top: 22px; animation-delay: .35s; max-width: 16ch">Change nothing. Track everything. Enforce when ready.</h1>
 <p class="mono hero-in" style="margin: 22px 0 0; animation-delay: .55s; color: rgba(242,242,242,.7)">Self-hosted. Verifiable without us.</p>
 <div class="scene hero-in" style="animation-delay: .8s" aria-hidden="true">
 <div class="dash">
@@ -207,7 +218,24 @@ textarea.field{min-height:110px;padding:12px 14px;resize:vertical}
 </div>
 </section>
 
-<section data-sec="002|Chargeback">
+<section class="est" ref="{{eWrapRef}}" data-sec="002|How it fits">
+<div class="estage" ref="{{eInnerRef}}">
+<canvas ref="{{eCvRef}}" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block"></canvas>
+<div class="estory">
+<div data-es="1"><div class="mono" style="color: #b0def5"><span class="sq"></span>01 / Track</div><h2>Track <span class="it">all spend.</span></h2><p class="ld">Across departments, frameworks, users and models. Nothing changes in how your teams work.</p></div>
+<div data-es="2"><div class="mono" style="color: #b0def5"><span class="sq"></span>02 / Fit</div><h2>Fits alongside <span class="it">your stack.</span></h2><p class="ld">SafeShake sits beside your identity provider, gateway and frameworks. Every control keeps its job.</p></div>
+<div data-es="3"><div class="mono" style="color: #b0def5"><span class="sq"></span>03 / Report</div><h2>Audit-ready <span class="it">by default.</span></h2><p class="ld">Compliance-grade reports, tamper-evident as a consequence. Export them whenever you're asked.</p></div>
+<div data-es="4"><div class="mono" style="color: #b0def5"><span class="sq"></span>04 / Enforce</div><h2>Then switch <span class="it">enforcement on.</span></h2><p class="ld">Regulate AI usage and behaviour with the same envelope. One switch.</p></div>
+</div>
+<div class="ebar" aria-hidden="true">
+<div style="height: 1px; background: rgba(242,242,242,.16); position: relative"><div data-efill style="position: absolute; inset: 0; background: #b0def5; transform: scaleX(0); transform-origin: left center"></div></div>
+<div class="esteps mono"><span class="{{e1}}">01 Track</span><span class="{{e2}}">02 Fit</span><span class="{{e3}}">03 Report</span><span class="{{e4}}">04 Enforce</span></div>
+</div>
+</div>
+</section>
+
+
+<section data-sec="003|Chargeback">
 <div class="panel">
 <div class="wrap">
 <div class="sbar mono"><div><span><span class="sq"></span>002</span><span><span class="sq"></span><span class="scr" data-scr-in>Chargeback</span></span></div><div class="hide-m"><span><span class="sq"></span>002</span><span><span class="sq"></span><span class="scr" data-scr-in>As it happens</span></span></div></div>
@@ -226,7 +254,7 @@ textarea.field{min-height:110px;padding:12px 14px;resize:vertical}
 </div>
 </section>
 
-<section data-sec="003|Enforce" style="padding: 0 0 120px">
+<section data-sec="004|Enforce" style="padding: 0 0 120px">
 <div class="wrap">
 <div class="sbar mono dim"><div><span><span class="sq"></span>003</span><span><span class="sq"></span><span class="scr" data-scr-in>When you're ready</span></span></div><div class="hide-m"><span><span class="sq"></span>003</span><span><span class="sq"></span><span class="scr" data-scr-in>Switched on rule by rule</span></span></div></div>
 <div class="cols" style="padding: 72px 0 56px; align-items: end">
@@ -242,7 +270,7 @@ textarea.field{min-height:110px;padding:12px 14px;resize:vertical}
 </div>
 </section>
 
-<section data-sec="004|Fit">
+<section data-sec="005|Fit">
 <div class="panel">
 <div class="wrap">
 <div class="sbar mono"><div><span><span class="sq"></span>004</span><span><span class="sq"></span><span class="scr" data-scr-in>Fit</span></span></div><div class="hide-m"><span><span class="sq"></span>004</span><span><span class="sq"></span><span class="scr" data-scr-in>However mature your stack</span></span></div></div>
@@ -264,7 +292,7 @@ textarea.field{min-height:110px;padding:12px 14px;resize:vertical}
 </div>
 </section>
 
-<section id="walkthrough" data-sec="005|Walkthrough" style="padding: 110px 0 130px">
+<section id="walkthrough" data-sec="006|Walkthrough" style="padding: 110px 0 130px">
 <div class="wrap">
 <div class="cols" style="row-gap: 48px; align-items: start">
 <div style="grid-column: 1 / span 6">
@@ -290,7 +318,7 @@ textarea.field{min-height:110px;padding:12px 14px;resize:vertical}
 </div>
 </section>
 
-<footer class="foot" data-sec="006|Get access">
+<footer class="foot" data-sec="007|Get access">
 <div class="wrap" style="padding-top: 150px; padding-bottom: 110px; text-align: center; display: flex; flex-direction: column; align-items: center">
 <span class="tagbox">Talk to us</span>
 <h2 class="fh">Empower the agent.<br>Bound the action.</h2>
@@ -316,7 +344,10 @@ textarea.field{min-height:110px;padding:12px 14px;resize:vertical}
 class Component extends DCLogic {
   constructor(...args) {
     super(...args);
-    this.state = { sec: '001', secName: 'Enterprise', menu: false, sent: false, stack: 'full' };
+    this.state = { sec: '001', secName: 'Enterprise', menu: false, sent: false, stack: 'full', estep: 4 };
+    this.setEWrap = (el) => { this.eWrap = el; };
+    this.setEInner = (el) => { this.eInner = el; };
+    this.setECv = (el) => { this.eCv = el; };
     this.root = null;
     this.setRoot = (el) => { this.root = el; };
     this.toggleMenu = () => this.setState({ menu: !this.state.menu });
@@ -378,9 +409,240 @@ class Component extends DCLogic {
     }, 1600);
   }
 
+  // the scroll story: departments on one side, the services they pay on the other, SafeShake in between
+  startStory() {
+    const cv = this.eCv, wrap = this.eWrap, inner = this.eInner, root = this.root;
+    if (!cv || !wrap || !inner || !root || !cv.getContext) return;
+    const c = cv.getContext('2d');
+    if (!c) return;
+    const motion = !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+    const lerp = (a, b, k) => a + (b - a) * k;
+    const smooth = (p) => { p = clamp(p); return p * p * (3 - 2 * p); };
+    const hash = (a, n) => { const x = Math.sin(a * 127.1 + n * 311.7) * 43758.5453; return x - Math.floor(x); };
+    const HZ = [176, 222, 245], CL = [242, 242, 242];
+    const rgba = (r, a) => 'rgba(' + r[0] + ',' + r[1] + ',' + r[2] + ',' + a + ')';
+    const mark = new Path2D('M 447.363281 265.285156 L 447.363281 284.03125 L 434.324219 284.03125 C 434.789062 284.53125 435.203125 285.148438 435.667969 285.640625 C 444.023438 294.492188 456.167969 301.570312 452.195312 315.863281 C 450.523438 321.886719 443.207031 329.269531 436.667969 329.269531 L 394.179688 329.269531 L 394.179688 310.828125 L 394.484375 310.523438 L 407.425781 310.523438 L 393.5625 296.570312 C 385.363281 287.390625 388.101562 272.574219 399.207031 267.15625 C 400.558594 266.496094 403.863281 265.285156 405.285156 265.285156 Z M 433.914062 284.03125 L 407.832031 284.03125 L 420.773438 297.082031 Z M 433.914062 310.523438 L 420.773438 297.472656 L 407.628906 310.523438 Z');
+    const MB = [388.809, 265.285, 64.16, 63.984];
+    const DEP = ['LEGAL', 'FINANCE', 'ENGINEERING', 'MARKETING', 'SUPPORT'];
+    const BASE = [9840, 6120, 14300, 4410, 2875];
+    const PROV = ['OPENAI', 'ANTHROPIC', 'AWS', 'STRIPE', 'GOOGLE'];
+    const FW = ['LANGCHAIN', 'CREWAI', 'MCP', 'OPENAI SDK', 'AUTOGEN'];
+    const USERS = ['@ANA', '@RAJ', '@LI', '@TOM', '@SAM'];
+    const LAY = [[.2, 'IDENTITY'], [.36, 'FRAMEWORKS'], [.68, 'AI GATEWAY'], [.84, 'MODELS + RAILS']];
+    const UA = .04, UG = .52, UD = .96;
+    const texts = Array.prototype.slice.call(root.querySelectorAll('[data-es]'));
+    const fill = root.querySelector('[data-efill]');
+    const log = [], seen = {};
+    let recNo = 1204, W = 1, H = 1, dpr = 1, s = 3.6, long = false;
+    const size = () => {
+      const r = cv.getBoundingClientRect();
+      dpr = Math.min(2, window.devicePixelRatio || 1);
+      W = Math.max(1, r.width); H = Math.max(1, r.height);
+      cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    };
+    const geo = () => {
+      if (W < 900) {
+        const X0 = 30, X1 = W - 30, Y0 = 150, Y1 = Math.max(Y0 + 200, H - 400);
+        return { mob: true, X0, X1, Y0, Y1, n: 4, P: (u, v) => [X0 + v * (X1 - X0), Y0 + u * (Y1 - Y0)] };
+      }
+      const X0 = 90, X1 = W * .5, Y0 = H * .2, Y1 = H * .66;
+      return { mob: false, X0, X1, Y0, Y1, n: 5, P: (u, v) => [X0 + u * (X1 - X0), Y0 + v * (Y1 - Y0)] };
+    };
+    const av = (G, i) => .06 + i * (.88 / (G.n - 1));
+    const bz = (a, b, d, e, t) => { const m = 1 - t; return m * m * m * a + 3 * m * m * t * b + 3 * m * t * t * d + t * t * t * e; };
+    const pathPt = (G, va, vd, t) => G.P(bz(UA, UA + .25, UD - .25, UD, t), bz(va, va, vd, vd, t));
+    const label = (txt, x, y, a, align, col, px) => {
+      c.font = (px || 11) + 'px "IBM Plex Mono", ui-monospace, monospace';
+      c.textAlign = align || 'left';
+      c.fillStyle = rgba(col || HZ, a);
+      c.fillText(txt, x, y);
+    };
+    const money = (v) => '€' + (v < 100 ? v.toFixed(2) : Math.round(v).toLocaleString('en-GB'));
+    const rrect = (x, y, w, h, r) => { c.beginPath(); if (c.roundRect) c.roundRect(x, y, w, h, r); else c.rect(x, y, w, h); };
+
+    const draw = (t) => {
+      c.setTransform(dpr, 0, 0, dpr, 0, 0);
+      c.globalCompositeOperation = 'source-over'; c.globalAlpha = 1;
+      c.fillStyle = '#060c11'; c.fillRect(0, 0, W, H);
+      const G = geo(), fs = G.mob ? 9 : 11;
+      let g = c.createRadialGradient(...G.P(UG, .5), 0, ...G.P(UG, .5), Math.max(W, H) * .6);
+      g.addColorStop(0, 'rgba(41,87,102,.34)'); g.addColorStop(1, 'rgba(0,0,0,0)');
+      c.fillStyle = g; c.fillRect(0, 0, W, H);
+      const fit = clamp((s - .85) / .4), rep = clamp((s - 1.85) / .4), enf = clamp((s - 2.85) / .45), on = enf > .5;
+      const gc = G.P(UG, .5), g0 = G.P(UG, -.06), g1 = G.P(UG, 1.06);
+
+      // the stack you already run
+      if (fit > 0) {
+        for (const [u, n] of LAY) {
+          const a0 = G.P(u, -.04), a1 = G.P(u, 1.04);
+          c.strokeStyle = rgba(CL, .16 * fit); c.lineWidth = 1; c.setLineDash([2, 5]);
+          c.beginPath(); c.moveTo(a0[0], a0[1]); c.lineTo(a1[0], a1[1]); c.stroke(); c.setLineDash([]);
+          if (G.mob) label(n, G.X0, a0[1] + 13, .55 * fit, 'left', CL, 8); else label(n, a0[0], a0[1] - 12, .55 * fit, 'center', CL, 10);
+        }
+      }
+      // SafeShake, observing or enforcing
+      c.save();
+      c.strokeStyle = rgba(HZ, on ? .95 : .45); c.lineWidth = on ? 2.2 : 1.2;
+      if (on) { c.shadowColor = 'rgba(176,222,245,.9)'; c.shadowBlur = 14 * dpr; c.setLineDash([9, 5]); c.lineDashOffset = -t * 14; }
+      c.beginPath(); c.moveTo(g0[0], g0[1]); c.lineTo(g1[0], g1[1]); c.stroke();
+      c.restore();
+      const glab = 'SAFESHAKE · ' + (on ? 'ENFORCE' : 'OBSERVE');
+      if (G.mob) label(glab, G.X1, gc[1] - 10, .9, 'right', HZ, 9); else label(glab, g0[0], g0[1] - 30, .9, 'center', HZ, 11);
+      if (fit > 0 && rep < 1) { if (G.mob) label('NEW · CHANGES NOTHING', G.X1, gc[1] - 24, .8 * fit * (1 - rep), 'right', CL, 8); else label('NEW · CHANGES NOTHING', g0[0], g0[1] - 14, .8 * fit * (1 - rep), 'center', CL, 10); }
+
+      // the switch
+      const swA = clamp((s - 2.55) / .3);
+      if (swA > 0) {
+        const sw = G.mob ? 150 : 180, sh = 30, sx = G.mob ? W / 2 - sw / 2 : gc[0] - sw / 2, sy = G.mob ? 84 : g0[1] - 82;
+        c.save(); c.globalAlpha = swA;
+        c.strokeStyle = rgba(HZ, .6); c.lineWidth = 1; rrect(sx, sy, sw, sh, sh / 2); c.stroke();
+        const kx = lerp(sx + 3, sx + sw / 2, smooth(enf));
+        c.fillStyle = on ? '#b0def5' : 'rgba(242,242,242,.9)'; rrect(kx, sy + 3, sw / 2 - 3, sh - 6, (sh - 6) / 2); c.fill();
+        label('OBSERVE', sx + sw / 4, sy + 19, 1, 'center', on ? CL : [10, 38, 56], G.mob ? 9 : 10);
+        label('ENFORCE', sx + sw * .75, sy + 19, 1, 'center', on ? [10, 38, 56] : CL, G.mob ? 9 : 10);
+        c.restore();
+      }
+
+      // departments, with their spend
+      for (let i = 0; i < G.n; i++) {
+        const [x, y] = G.P(UA, av(G, i));
+        c.fillStyle = '#0b1822'; c.strokeStyle = rgba(HZ, .7); c.lineWidth = 1;
+        rrect(x - 9, y - 9, 18, 18, 4); c.fill(); c.stroke();
+        c.fillStyle = rgba(HZ, .9); c.fillRect(x - 3, y - 3, 6, 6);
+        const spend = BASE[i] + t * (14 + i * 6);
+        if (G.mob) { label(DEP[i], x, y - 18, .7, 'center', HZ, 8); label(money(spend), x, y + 24, .9, 'center', CL, 9); }
+        else { label(DEP[i], x - 20, y - 2, .7, 'right', HZ, 10); label(money(spend), x - 20, y + 13, .95, 'right', CL, 11); }
+      }
+      // the services they pay
+      for (let j = 0; j < G.n; j++) {
+        const [x, y] = G.P(UD, av(G, j));
+        c.fillStyle = 'rgba(176,222,245,.12)'; c.beginPath(); c.arc(x, y, 9, 0, 6.283); c.fill();
+        c.fillStyle = rgba(CL, .95); c.fillRect(x - 3, y - 3, 6, 6);
+        if (G.mob) label(PROV[j], x, y + 22, .7, 'center', HZ, 8); else label(PROV[j], x + 16, y + 4, .7, 'left', HZ, 11);
+      }
+
+      // payments flowing through
+      c.globalCompositeOperation = 'lighter';
+      for (let i = 0; i < G.n; i++) {
+        const per = 1.7 + hash(i, 9) * 1.3;
+        const v = t / per + hash(i, 4), n = Math.floor(v), u = v - n;
+        if (u > .85) continue;
+        const q = u / .85;
+        const j = Math.floor(hash(i + 1, n) * G.n), amt = 2 + hash(i + 11, n) * 180;
+        const bad = hash(i + 31, n) < .3, type = hash(i + 41, n) < .5 ? 'OVER BUDGET' : 'UNAPPROVED MODEL';
+        const blocked = on && bad;
+        const va = av(G, i), vd = av(G, j);
+        const tt = blocked ? Math.min(q, .5) : q;
+        if (rep > .5 && q >= .5 && seen[i] !== n) {
+          seen[i] = n;
+          const gp = pathPt(G, va, vd, .5);
+          log.unshift({ no: ++recNo, dep: DEP[i], amt, prov: PROV[j], ok: !blocked, type, t, x: gp[0], y: gp[1] });
+          if (log.length > 8) log.pop();
+        }
+        const [px, py] = pathPt(G, va, vd, tt), [qx, qy] = pathPt(G, va, vd, Math.max(0, tt - .07));
+        let al = smooth(q / .05) * (1 - smooth((q - .9) / .1));
+        if (blocked && q > .5) al = 1 - (q - .5) * 2;
+        const col = bad && on ? CL : HZ;
+        g = c.createLinearGradient(qx, qy, px, py);
+        g.addColorStop(0, rgba(col, 0)); g.addColorStop(1, rgba(col, .95 * al));
+        c.strokeStyle = g; c.lineWidth = 1.8;
+        c.beginPath(); c.moveTo(qx, qy); c.lineTo(px, py); c.stroke();
+        c.fillStyle = rgba(col, al); c.beginPath(); c.arc(px, py, 2.2, 0, 6.283); c.fill();
+        if ((i + n) % 2 === 0 && q < .48 && !G.mob) label(money(amt) + ' · ' + FW[Math.floor(hash(i + 21, n) * 5)] + ' · ' + USERS[Math.floor(hash(i + 51, n) * 5)], px + 9, py - 9, .75 * al, 'left', HZ, 10);
+        if (blocked && q > .5) {
+          const k3 = (q - .5) * 2;
+          c.strokeStyle = rgba(CL, .85 * (1 - k3)); c.lineWidth = 1.2;
+          c.beginPath(); c.arc(px, py, 4 + k3 * 20, 0, 6.283); c.stroke();
+          const fl = G.mob && px > W * .45;
+          label('BLOCKED · ' + type, fl ? px - 12 : px + 12, py + (G.mob ? 22 : -14), .95 * (1 - k3), fl ? 'right' : 'left', CL, fs);
+        }
+      }
+      c.globalCompositeOperation = 'source-over';
+
+      // the mark at the centre of it all
+      c.fillStyle = '#060c11'; c.beginPath(); c.arc(gc[0], gc[1], G.mob ? 22 : 28, 0, 6.283); c.fill();
+      c.save(); c.strokeStyle = rgba(HZ, on ? 1 : .6); c.lineWidth = 1.5; if (on) { c.shadowColor = 'rgba(176,222,245,.9)'; c.shadowBlur = 12 * dpr; } c.stroke(); c.restore();
+      const ms = G.mob ? 24 : 30, sc = ms / MB[3];
+      c.save(); c.translate(gc[0] - MB[2] * sc / 2 - MB[0] * sc, gc[1] - MB[3] * sc / 2 - MB[1] * sc); c.scale(sc, sc); c.fillStyle = '#f2f2f2'; c.fill(mark, 'evenodd'); c.restore();
+
+      // the report
+      if (rep > 0) {
+        const rows = G.mob ? 0 : (H > 760 ? 4 : 2);
+        if (G.mob) label('AUDIT LOG #0' + recNo + ' · TAMPER-EVIDENT ✓', W / 2, G.Y1 + 50, .9 * rep, 'center', HZ, 9);
+        const lx = G.X0 - (G.mob ? 0 : 50), lw = G.X1 - lx + (G.mob ? 0 : 80), ly = G.Y1 + (G.mob ? 58 : 70);
+        if (rows > 0) {
+          c.save(); c.globalAlpha = rep;
+          label(G.mob ? 'AI SPEND REPORT · AUDIT-READY' : 'Q3 AI SPEND REPORT · AUDIT-READY', lx, ly, .95, 'left', CL, fs);
+          label('EXPORT ↓', lx + lw, ly, .8, 'right', HZ, fs);
+          c.fillStyle = rgba(CL, .18); c.fillRect(lx, ly + 8, lw, 1);
+          for (let r = 0; r < rows && r < log.length; r++) {
+            const e = log[r], y = ly + 26 + r * (G.mob ? 16 : 19), a = (r === 0 ? smooth((t - e.t) / .35) : 1) * (1 - r * .16), col = e.ok ? HZ : CL;
+            label('#0' + e.no, lx, y, a * .6, 'left', HZ, fs);
+            label(e.dep, lx + (G.mob ? 56 : 76), y, a, 'left', col, fs);
+            label(money(e.amt), lx + (G.mob ? 150 : 200), y, a, 'left', col, fs);
+            if (!G.mob) label(e.ok ? '→ ' + e.prov : 'BLOCKED · ' + e.type, lx + 290, y, a * .8, 'left', col, fs);
+            label('SIG ✓', lx + lw, y, a * .7, 'right', HZ, fs);
+          }
+          c.save(); c.translate(lx + lw - 70, ly + 40); c.rotate(-.12);
+          c.strokeStyle = rgba(HZ, .8 * rep); c.lineWidth = 1.4; rrect(-62, -14, 124, 26, 3); c.stroke();
+          label('TAMPER-EVIDENT', 0, 4, .9 * rep, 'center', HZ, 10);
+          c.restore();
+          c.restore();
+          c.globalCompositeOperation = 'lighter';
+          for (const e of log) {
+            const age = t - e.t;
+            if (age > .6) continue;
+            const k4 = smooth(age / .6);
+            c.fillStyle = rgba(CL, rep * (1 - k4 * .5)); c.fillRect(lerp(e.x, lx - 8, k4) - 2, lerp(e.y, ly + 22, k4) - 2, 4, 4);
+          }
+          c.globalCompositeOperation = 'source-over';
+        }
+      }
+    };
+
+    const onScroll = () => {
+      const cl = (v) => Math.max(0, Math.min(1, v));
+      if (long) {
+        const r = wrap.getBoundingClientRect();
+        s = Math.max(0, Math.min(4.2, -r.top / (inner.offsetHeight || 1)));
+      } else s = 3.6;
+      texts.forEach((el) => {
+        const i = Number(el.getAttribute('data-es'));
+        let a = cl((s - (i - 1) + .15) / .25);
+        if (i < 4) a *= 1 - cl((s - (i - .2)) / .2);
+        el.style.opacity = String(a);
+        el.style.transform = 'translateY(' + ((1 - a) * 22) + 'px)';
+        el.style.visibility = a < 0.01 ? 'hidden' : 'visible';
+      });
+      if (fill) fill.style.transform = 'scaleX(' + cl(s / 3.6) + ')';
+      const st = Math.max(1, Math.min(4, Math.floor(s) + 1));
+      if (st !== this.state.estep) this.setState({ estep: st });
+    };
+    const layout = () => {
+      long = motion && (window.innerHeight || 800) < 1600;
+      wrap.style.height = long ? (inner.offsetHeight * 5) + 'px' : '';
+    };
+    size(); layout(); onScroll();
+    this.eScroll = onScroll;
+    this.eResize = () => { size(); layout(); onScroll(); };
+    document.addEventListener('scroll', onScroll, true);
+    window.addEventListener('resize', this.eResize);
+    if (!motion) { draw(20); return; }
+    let start = null;
+    const loop = (now) => {
+      if (start === null) start = now;
+      const r = cv.getBoundingClientRect();
+      if (r.bottom > 0 && r.top < (window.innerHeight || 800)) draw((now - start) / 1000);
+      this.eRaf = requestAnimationFrame(loop);
+    };
+    this.eRaf = requestAnimationFrame(loop);
+  }
+
   componentDidMount() {
     const root = this.root;
     this.startGlitch(root);
+    this.startStory();
     if (!root || typeof IntersectionObserver === 'undefined') return;
     if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     root.classList.add('js');
@@ -416,6 +678,8 @@ class Component extends DCLogic {
 
   componentWillUnmount() {
     if (this.glitchT) clearInterval(this.glitchT);
+    if (this.eRaf) cancelAnimationFrame(this.eRaf);
+    if (this.eScroll) { document.removeEventListener('scroll', this.eScroll, true); window.removeEventListener('resize', this.eResize); }
     ['rvIO', 'scIO', 'secIO'].forEach((k) => { if (this[k]) this[k].disconnect(); });
     if (this.root && this.onOver) this.root.removeEventListener('mouseover', this.onOver);
   }
@@ -427,7 +691,9 @@ class Component extends DCLogic {
       menu, menuOpen: menu ? 'true' : 'false', menuLabel: menu ? 'Close' : 'Menu', toggleMenu: this.toggleMenu,
       submit: this.submit, sent, notSent: !sent,
       pickFull: this.pickFull, pickBuild: this.pickBuild, isFull: full, isBuild: !full,
-      fullPressed: full ? 'true' : 'false', buildPressed: full ? 'false' : 'true'
+      fullPressed: full ? 'true' : 'false', buildPressed: full ? 'false' : 'true',
+      eWrapRef: this.setEWrap, eInnerRef: this.setEInner, eCvRef: this.setECv,
+      e1: this.state.estep === 1 ? 'on' : '', e2: this.state.estep === 2 ? 'on' : '', e3: this.state.estep === 3 ? 'on' : '', e4: this.state.estep === 4 ? 'on' : ''
     };
   }
 }
