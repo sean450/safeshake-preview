@@ -135,6 +135,46 @@ a{color:#f2f2f2;text-decoration:none}
 @media (max-width:900px){.wrap{padding:0 20px}.hide-m{display:none !important}.cols{grid-template-columns:minmax(0,1fr);row-gap:24px}.cols>*{grid-column:1 / -1 !important}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.sbar{grid-template-columns:1fr}.sbar>div+div{display:none}.flow{grid-template-columns:minmax(0,1fr)}.node+.node::before,.flow.on::after{display:none}.fgrid{grid-template-columns:1fr 1fr}.fsocial{grid-column:1 / -1}.ml,.ml>span{display:inline;overflow:visible;padding:0;margin:0}.ml+.ml::before{content:' '}.js .mk .ml>span{transform:none}.js [data-rv].mk{opacity:0;transform:translateY(32px)}.js [data-rv].mk.in{opacity:1;transform:none}.panel{margin:4px}.pinstage{position:static;height:auto;padding-bottom:60px}.anat{grid-template-columns:minmax(0,1fr);gap:16px}.js .ftag{opacity:1;transform:none}.ftag::after{display:none}.acc button{grid-template-columns:44px minmax(0,1fr) 40px}.acc button .mono.r{display:none}}
 @media (min-width:901px){.show-m{display:none !important}}
 @media (prefers-reduced-motion:reduce){.js [data-rv],.js .mk .ml>span,.js .tl,.js .ftag{transform:none !important;opacity:1 !important;transition:none !important}.js .hero-in,.sheen,.gcard,.gcard::before,.flow.on::after{animation:none}}
+.tbox{width:min(640px,100%);margin-top:48px;text-align:left;border-radius:8px;background:rgba(5,8,11,.88);border:1px solid rgba(176,222,245,.3);box-shadow:0 40px 120px rgba(0,0,0,.6),0 0 80px rgba(176,222,245,.1);overflow:hidden}
+.tbar{display:flex;align-items:center;gap:7px;padding:11px 14px;border-bottom:1px solid rgba(242,242,242,.1)}
+.tbar i{width:9px;height:9px;border-radius:50%;background:rgba(242,242,242,.2)}
+.tbar span{margin-left:10px}
+.tbody{padding:18px 20px 22px;font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.9;min-height:250px}
+.ln{display:block;white-space:pre;opacity:0;transform:translateY(4px);transition:opacity .25s,transform .25s}
+.ln.on{opacity:1;transform:none}
+.ln.cmd{color:rgba(242,242,242,.6)}
+.ln.ok{color:#b0def5}
+.ln.big{color:#f2f2f2;font-weight:500}
+.burn{position:relative}
+.burnstage{position:sticky;top:0;height:clamp(680px,100vh,960px);overflow:hidden;display:flex;flex-direction:column;padding-top:64px}
+.meters{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch;padding:28px 0 48px}
+.meter{position:relative;display:flex;flex-direction:column;border:1px solid rgba(242,242,242,.14);border-radius:6px;padding:24px 26px;background:rgba(242,242,242,.02);overflow:hidden}
+.meter.safe{border-color:rgba(176,222,245,.45);background:rgba(10,38,56,.45)}
+.meter .big{font-size:clamp(48px,5.4vw,92px);font-weight:300;letter-spacing:-.03em;line-height:1;margin-top:18px}
+.mrow{display:flex;justify-content:space-between;gap:12px;margin-top:10px}
+.spark{flex:1;min-height:120px;margin-top:20px}
+.spark path{fill:none;stroke-width:2;vector-effect:non-scaling-stroke}
+.stopb{position:absolute;right:22px;top:64px;padding:6px 10px;border:1.5px solid #b0def5;border-radius:3px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#b0def5;opacity:0;transform:scale(1.6) rotate(-6deg);transition:opacity .25s,transform .35s cubic-bezier(.2,.8,.2,1)}
+.stopb.on{opacity:1;transform:rotate(-6deg)}
+.clock{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.14em;color:#f2f2f2}
+.code{margin:16px 0 0;padding:16px 18px;border-radius:4px;background:#05080b;border:1px solid rgba(242,242,242,.12);font-family:'IBM Plex Mono',monospace;font-size:12.5px;line-height:1.8;white-space:pre;overflow-x:auto;color:#f2f2f2}
+.code .k{color:#b0def5}.code .c{color:rgba(242,242,242,.4)}.code .s{color:#d6ebf5}
+.steps3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.st3{padding:22px 22px 24px;border:1px solid rgba(10,38,56,.18);border-radius:6px;background:#fff;min-width:0}
+.st3 .code{background:#0a2638;border-color:#0a2638}
+.ucs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.uc{position:relative;padding:22px 22px 28px;min-height:200px;border:1px solid rgba(242,242,242,.14);border-radius:6px;background:rgba(242,242,242,.02);display:flex;flex-direction:column;justify-content:space-between;transition:border-color .4s,background .4s,transform .4s}
+.uc:hover{border-color:#b0def5;background:rgba(10,38,56,.55);transform:translateY(-4px)}
+.fws{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.fws span{padding:10px 14px;border:1px solid rgba(242,242,242,.2);border-radius:999px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(242,242,242,.8)}
+.comm{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:48px}
+.cm{position:relative;display:flex;flex-direction:column;justify-content:space-between;min-height:220px;padding:22px;border-radius:6px;border:1px solid rgba(242,242,242,.2);background:rgba(5,8,11,.35);color:#f2f2f2;transition:background .3s,border-color .3s}
+.panel .cm{color:#f2f2f2}
+.cm:hover,.panel .cm:hover{background:#f2f2f2;color:#0a2638;border-color:#f2f2f2}
+.cm b{font-weight:400;font-size:clamp(26px,2.4vw,38px);letter-spacing:-.02em}
+.cm .arr{font-size:22px}
+@media (max-width:900px){.meters{grid-template-columns:1fr;gap:12px;padding:16px 0 24px}.meter{padding:16px 18px}.meter .big{font-size:44px;margin-top:8px}.spark{min-height:60px;margin-top:8px}.steps3,.ucs{grid-template-columns:1fr}.comm{grid-template-columns:1fr 1fr}.tbody{font-size:11px;min-height:230px}}
+@media (prefers-reduced-motion:reduce){.ln{opacity:1;transform:none;transition:none}}
 </style>
 </helmet>
 <div class="ss" ref="{{rootRef}}">
@@ -167,125 +207,118 @@ a{color:#f2f2f2;text-decoration:none}
 </sc-if>
 </header>
 
-<section class="hero" data-sec="001|The envelope">
+<section class="hero" data-sec="001|Developers">
 <div class="floor" aria-hidden="true"></div>
-<div style="position: relative; display: flex; flex-direction: column; align-items: center; padding: 0 20px">
-<span class="mono hero-in" style="animation-delay: .2s; color: #b0def5"><span class="sq"></span><span class="scr" data-scr-in>Product</span></span>
-<h1 class="h1 sheen hero-in" style="margin-top: 22px; animation-delay: .35s">The envelope.</h1>
-<p class="mono hero-in" style="margin: 22px 0 0; animation-delay: .55s; color: rgba(242,242,242,.7)">One signed object. Every governed action. One trusted record.</p>
-<div class="scene hero-in" style="animation-delay: .8s" aria-hidden="true">
-<div class="gcard">
-<div style="display: flex; justify-content: space-between; align-items: flex-start">
-<svg viewBox="388.809 265.285 64.16 63.984" style="width: 34px; height: 34px; color: #f2f2f2" fill="currentColor"><path fill-rule="evenodd" d="M 447.363281 265.285156 L 447.363281 284.03125 L 434.324219 284.03125 C 434.789062 284.53125 435.203125 285.148438 435.667969 285.640625 C 444.023438 294.492188 456.167969 301.570312 452.195312 315.863281 C 450.523438 321.886719 443.207031 329.269531 436.667969 329.269531 L 394.179688 329.269531 L 394.179688 310.828125 L 394.484375 310.523438 L 407.425781 310.523438 L 393.5625 296.570312 C 385.363281 287.390625 388.101562 272.574219 399.207031 267.15625 C 400.558594 266.496094 403.863281 265.285156 405.285156 265.285156 Z M 433.914062 284.03125 L 407.832031 284.03125 L 420.773438 297.082031 Z M 433.914062 310.523438 L 420.773438 297.472656 L 407.628906 310.523438 Z"></path></svg>
-<span class="chip" style="color: #b0def5">Issued</span>
+<div style="position: relative; display: flex; flex-direction: column; align-items: center; padding: 0 20px; width: 100%">
+<span class="mono hero-in" style="animation-delay: .2s; color: #b0def5"><span class="sq"></span><span class="scr" data-scr-in>Developers</span></span>
+<h1 class="h1 sheen hero-in" style="margin-top: 22px; animation-delay: .35s; max-width: 13ch">Two minutes to bounded agents.</h1>
+<p class="mono hero-in" style="margin: 22px 0 0; animation-delay: .55s; color: rgba(242,242,242,.7)">Install. Sign an envelope. Wrap your agent.</p>
+<div class="tbox hero-in" style="animation-delay: .8s" role="img" aria-label="Terminal showing SafeShake installed and an agent wrapped in under two minutes">
+<div class="tbar"><i></i><i></i><i></i><span class="mono dim">~/my-agent</span></div>
+<div class="tbody">
+<span class="ln cmd {{L0}}">$ npm install safeshake</span>
+<span class="ln dim {{L1}}">added 1 package in 2s</span>
+<span class="ln cmd {{L2}}">$ npx safeshake init</span>
+<span class="ln ok {{L3}}">✓ envelope env_001 created</span>
+<span class="ln ok {{L4}}">✓ signed by you · ed25519</span>
+<span class="ln cmd {{L5}}">$ npx safeshake wrap ./agent.ts</span>
+<span class="ln ok {{L6}}">✓ 14 tool calls now checked</span>
+<span class="ln ok {{L7}}">✓ budget €50 / day · new payees blocked</span>
+<span class="ln big {{L8}}">Ready in 1m 48s</span>
 </div>
-<div>
-<div class="crow"><span>ENV_ID</span><b class="scr" data-scr-in>env_001</b></div>
-<div class="crow"><span>SCHEMA</span><b class="scr" data-scr-in>bsea/0.2</b></div>
-<div class="crow"><span>KEY</span><b class="scr" data-scr-in>ed25519</b></div>
-<div class="crow" style="border-bottom: 0"><span>SHA-256</span><b class="scr" data-scr-in>9f5e9a8fec0c7b24d3a9</b></div>
+</div>
+<div class="hero-in" style="animation-delay: 1s; display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 32px"><a class="sbtn" data-hs href="#start"><span class="scr">Start building</span></a><a class="sbtn" data-hs href="#community" style="background: transparent; border: 1px solid rgba(242,242,242,.35)"><span class="scr">Join the Discord</span></a></div>
+</div>
+</section>
+
+<section class="burn" ref="{{burnRef}}" data-sec="002|The token burn">
+<div class="burnstage" ref="{{burnStageRef}}">
+<div class="wrap" style="flex: 1; display: flex; flex-direction: column">
+<div class="sbar mono dim"><div><span><span class="sq"></span>002</span><span><span class="sq"></span><span class="scr" data-scr-in>The token burn</span></span></div><div class="hide-m"><span><span class="sq"></span>002</span><span><span class="sq"></span><span class="scr" data-scr-in>A true story, give or take</span></span></div></div>
+<div class="cols" style="padding-top: 28px; align-items: end; row-gap: 14px">
+<h2 class="h2" style="grid-column: 1 / span 7">One retry loop. <span class="it">One long night.</span></h2>
+<p class="small dim" style="grid-column: 9 / span 4">At 03:02 an agent hits an error and starts retrying. Nobody is awake. Scroll to watch the night play out twice.</p>
+</div>
+<div class="meters">
+<div class="meter">
+<div class="mrow"><span class="mono dim">Without SafeShake</span><span class="clock">{{clock}}</span></div>
+<div class="big">{{costA}}</div>
+<div class="mrow"><span class="mono dim">{{tokA}} tokens</span><span class="mono dim">{{callA}} calls</span></div>
+<svg class="spark" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="{{pathA}}" stroke="#f2f2f2"></path></svg>
+<div class="mono" style="color: rgba(242,242,242,.6); margin-top: 12px">{{noteA}}</div>
+</div>
+<div class="meter safe">
+<span class="stopb {{stopCls}}">Stopped by the envelope</span>
+<div class="mrow"><span class="mono" style="color: #b0def5">With SafeShake</span><span class="clock">{{clock}}</span></div>
+<div class="big">{{costB}}</div>
+<div class="mrow"><span class="mono dim">{{tokB}} tokens</span><span class="mono dim">{{callB}} calls</span></div>
+<svg class="spark" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="34" x2="100" y2="34" stroke="#b0def5" stroke-dasharray="2 2" vector-effect="non-scaling-stroke" opacity=".6"></line><path d="{{pathB}}" stroke="#b0def5"></path></svg>
+<div class="mono" style="color: #b0def5; margin-top: 12px">{{noteB}}</div>
 </div>
 </div>
 </div>
 </div>
 </section>
 
-<section data-sec="001|In numbers" style="padding: 0 0 6px">
-<div class="wrap" style="padding-top: 6px">
-<div class="stats" data-rv>
-<div><b class="scr" data-count="1">1</b><span class="mono">Signed object</span></div>
-<div><b class="scr" data-count="4">4</b><span class="mono">Questions answered</span></div>
-<div><b class="scr" data-count="2">2</b><span class="mono">Modes, same rules</span></div>
-<div><b class="scr" data-count="591">591</b><span class="mono">Automated tests</span></div>
-</div>
-</div>
-</section>
-
-<section class="pin" ref="{{pinRef}}" data-sec="002|Anatomy">
-<div class="pinstage" ref="{{stageRef}}">
-<div class="wrap">
-<div class="sbar mono dim"><div><span><span class="sq"></span>002</span><span><span class="sq"></span><span class="scr" data-scr-in>Anatomy</span></span></div><div class="hide-m"><span><span class="sq"></span>002</span><span><span class="sq"></span><span class="scr" data-scr-in>Signed once, never edited</span></span></div></div>
-<div class="cols" style="padding-top: 36px; align-items: end">
-<h2 class="h2" style="grid-column: 1 / span 7">What's inside <span class="it">an envelope.</span></h2>
-<p class="mono dim" style="grid-column: 9 / span 4; margin: 0; line-height: 1.8; text-align: right">Scroll to open it up</p>
-</div>
-</div>
-<div class="wrap" style="flex: 1; display: flex">
-<div class="anat" style="width: 100%">
-<div class="ftags l">
-<div class="ftag {{f0}}" data-f><span class="chip" style="color: #b0def5">[01] Owner</span><p class="h3" style="margin-top: 10px">Who delegated</p></div>
-<div class="ftag {{f1}}" data-f><span class="chip" style="color: #b0def5">[02] Allocation</span><p class="h3" style="margin-top: 10px">What, and how much</p></div>
-<div class="ftag {{f2}}" data-f><span class="chip" style="color: #b0def5">[03] Rules</span><p class="h3" style="margin-top: 10px">Under which rules</p></div>
-</div>
-<div class="acard" aria-hidden="true">
-<div style="display: flex; justify-content: space-between; align-items: center; padding: 0 8px 12px; border-bottom: 1px solid rgba(176,222,245,.2); margin-bottom: 8px">
-<span class="mono" style="font-size: 12px">SafeShake envelope</span><span class="chip" style="color: #b0def5">env_001</span>
-</div>
-<div class="arow {{r0}}"><span>OWNER</span><b>Head of Legal</b></div>
-<div class="arow {{r1}}"><span>ALLOCATION</span><b>€8,000 / month</b></div>
-<div class="arow {{r2}}"><span>RULES</span><b>5 · in-house first</b></div>
-<div class="arow {{r3}}"><span>VALID</span><b>05-20 → 06-20</b></div>
-<div class="arow {{r4}}"><span>SIGNATURE</span><b>ed25519 · valid</b></div>
-<div class="arow {{r5}}"><span>RECORD</span><b>412 events · chained</b></div>
-</div>
-<div class="ftags r">
-<div class="ftag {{f3}}" data-f><span class="chip" style="color: #b0def5">[04] Validity</span><p class="h3" style="margin-top: 10px">For how long</p></div>
-<div class="ftag {{f4}}" data-f><span class="chip" style="color: #b0def5">[05] Signature</span><p class="h3" style="margin-top: 10px">Signed by the principal</p></div>
-<div class="ftag {{f5}}" data-f><span class="chip" style="color: #b0def5">[06] Record</span><p class="h3" style="margin-top: 10px">Every action, chained</p></div>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<section data-sec="003|Two modes">
-<div class="panel" style="background: #0a2638; color: #f2f2f2; --sc: #f2f2f2">
-<div class="wrap" style="padding-bottom: 100px">
-<div class="sbar mono dim"><div><span><span class="sq"></span>003</span><span><span class="sq"></span><span class="scr" data-scr-in>Two modes</span></span></div><div class="hide-m"><span><span class="sq"></span>003</span><span><span class="sq"></span><span class="scr" data-scr-in>Switched on rule by rule</span></span></div></div>
-<div class="cols" style="padding: 72px 0 56px; align-items: end; row-gap: 28px">
-<h2 class="h2 mk" data-rv style="grid-column: 1 / span 8"><span class="ml"><span>Observe first.</span></span><span class="ml"><span class="it">Enforce when you're ready.</span></span></h2>
-<div data-rv style="grid-column: 9 / span 4; display: flex; justify-content: flex-end">
-<div class="seg" role="group" aria-label="Mode"><button type="button" aria-pressed="{{obsPressed}}" onClick="{{pickObserve}}">Observe</button><button type="button" aria-pressed="{{enfPressed}}" onClick="{{pickEnforce}}">Enforce</button></div>
-</div>
-</div>
-<div data-rv style="border-top: 1px solid rgba(242,242,242,.16)">
-<div class="flow {{obsCls}}"><div class="h3">Observe</div><div class="node">Would this be allowed?</div><div class="node">Record the decision</div><div class="node">Run anyway</div><div class="node">Settle</div></div>
-<div class="flow {{enfCls}}"><div class="h3" style="color: #b0def5">Enforce</div><div class="node">Is this allowed?</div><div class="node">Reserve the authority</div><div class="node">Run, steer or escalate</div><div class="node">Settle</div></div>
-</div>
-</div>
-</div>
-</section>
-
-<section data-sec="004|Integration">
+<section id="start" data-sec="003|Install">
 <div class="panel">
-<div class="wrap">
-<div class="sbar mono"><div><span><span class="sq"></span>004</span><span><span class="sq"></span><span class="scr" data-scr-in>Integration</span></span></div><div class="hide-m"><span><span class="sq"></span>004</span><span><span class="sq"></span><span class="scr" data-scr-in>Every control keeps its job</span></span></div></div>
-<div class="cols" style="padding: 72px 0 56px; align-items: end">
-<h2 class="h2 mk" data-rv style="grid-column: 1 / span 7"><span class="ml"><span>Sits beside</span></span><span class="ml"><span>what you already run.</span></span></h2>
-<p class="mono ink" data-rv style="grid-column: 9 / span 4; line-height: 1.8; margin: 0">One layer is missing from the stack: delegated authority.</p>
+<div class="wrap" style="padding-bottom: 96px">
+<div class="sbar mono"><div><span><span class="sq"></span>003</span><span><span class="sq"></span><span class="scr" data-scr-in>Install</span></span></div><div class="hide-m"><span><span class="sq"></span>003</span><span><span class="sq"></span><span class="scr" data-scr-in>Three steps, two minutes</span></span></div></div>
+<div class="cols" style="padding: 72px 0 48px; align-items: end">
+<h2 class="h2 mk" data-rv style="grid-column: 1 / span 8"><span class="ml"><span>Easy to add.</span></span><span class="ml"><span style="font-family: 'Erode', Georgia, serif; font-style: italic; font-weight: 300; color: #295766">Hard to get round.</span></span></h2>
+<p class="mono ink" data-rv style="grid-column: 9 / span 4; line-height: 1.8; margin: 0">No wallets, no keys handed to the agent, no rewrite. [Package names and syntax are placeholders until the SDK ships.]</p>
 </div>
-<div data-rv style="padding-bottom: 96px">
-<div class="acc {{a0}}"><button type="button" onClick="{{t0}}" aria-expanded="{{e0}}"><span class="mono ink">[01]</span><span class="h3">Identity provider</span><span class="mono ink r">Who the agent is</span><span class="pl" aria-hidden="true">+</span></button><div class="accb"><div><p class="small ink" style="padding: 0 0 26px 86px; max-width: 46em">Envelopes name owners and bind to identities you already issue.</p></div></div></div>
-<div class="acc hi {{a1}}"><button type="button" onClick="{{t1}}" aria-expanded="{{e1}}"><span class="mono ink">[02]</span><span class="h3">SafeShake</span><span class="mono r" style="color: #295766">Delegated authority</span><span class="pl" aria-hidden="true">+</span></button><div class="accb"><div><p class="small ink" style="padding: 0 0 26px 86px; max-width: 46em">Self-hosted in your environment. Checks the envelope, holds the evidence.</p></div></div></div>
-<div class="acc {{a2}}"><button type="button" onClick="{{t2}}" aria-expanded="{{e2}}"><span class="mono ink">[03]</span><span class="h3">AI gateway</span><span class="mono ink r">Routes, limits keys</span><span class="pl" aria-hidden="true">+</span></button><div class="accb"><div><p class="small ink" style="padding: 0 0 26px 86px; max-width: 46em">A gateway policy asks SafeShake before forwarding.</p></div></div></div>
-<div class="acc {{a3}}"><button type="button" onClick="{{t3}}" aria-expanded="{{e3}}"><span class="mono ink">[04]</span><span class="h3">Agent frameworks</span><span class="mono ink r">Orchestrate</span><span class="pl" aria-hidden="true">+</span></button><div class="accb"><div><p class="small ink" style="padding: 0 0 26px 86px; max-width: 46em">Hooks or middleware ask before each model and tool call.</p></div></div></div>
-<div class="acc {{a4}}"><button type="button" onClick="{{t4}}" aria-expanded="{{e4}}"><span class="mono ink">[05]</span><span class="h3">Models, tools, MCP</span><span class="mono ink r">Consumed</span><span class="pl" aria-hidden="true">+</span></button><div class="accb"><div><p class="small ink" style="padding: 0 0 26px 86px; max-width: 46em">An MCP server and local proxy see the calls hooks miss.</p></div></div></div>
-<div class="acc hi {{a5}}"><button type="button" onClick="{{t5}}" aria-expanded="{{e5}}"><span class="mono ink">[06]</span><span class="h3">Economic record</span><span class="mono r" style="color: #295766">Owned, settled, proven</span><span class="pl" aria-hidden="true">+</span></button><div class="accb"><div><p class="small ink" style="padding: 0 0 26px 86px; max-width: 46em">Removable. The evidence stays usable without us.</p></div></div></div>
+<div class="steps3" data-rv>
+<div class="st3"><span class="chip" style="color: #295766">[01] Install</span><p class="h3" style="margin-top: 14px">Add the package</p><div class="code"><span class="c"># Node, Python and Go</span>
+npm install safeshake
+pip install safeshake</div></div>
+<div class="st3"><span class="chip" style="color: #295766">[02] Sign</span><p class="h3" style="margin-top: 14px">Write and sign an envelope</p><div class="code"><span class="k">const</span> env = envelope({
+  owner: <span class="s">'you@company.com'</span>,
+  budget: <span class="s">'€50 / day'</span>,
+  allow: [<span class="s">'openai.*'</span>, <span class="s">'stripe.charge'</span>],
+  deny: [<span class="s">'new_payee'</span>]
+})</div></div>
+<div class="st3"><span class="chip" style="color: #295766">[03] Wrap</span><p class="h3" style="margin-top: 14px">Wrap your agent</p><div class="code"><span class="k">export const</span> agent =
+  guard(myAgent, env)
+
+<span class="c">// every tool call is now
+// checked, then recorded</span></div></div>
 </div>
 </div>
 </div>
 </section>
 
-<section data-sec="005|Verification" style="padding: 0 0 130px">
+<section data-sec="004|Use cases" style="padding: 120px 0 40px">
 <div class="wrap">
-<div class="sbar mono dim"><div><span><span class="sq"></span>005</span><span><span class="sq"></span><span class="scr" data-scr-in>Verification</span></span></div><div class="hide-m"><span><span class="sq"></span>005</span><span><span class="sq"></span><span class="scr" data-scr-in>Verifier built</span></span></div></div>
-<div class="cols" style="padding-top: 72px; row-gap: 48px; align-items: center">
-<div style="grid-column: 1 / span 5">
-<h2 class="h2 mk" data-rv><span class="ml"><span>Anyone can</span></span><span class="ml"><span class="it">check the record.</span></span></h2>
-<p class="mono dim" data-rv style="line-height: 1.8; margin-top: 28px; max-width: 28em">Checked offline, with no access to SafeShake. Edits and deletions show up.</p>
+<div class="sbar mono dim"><div><span><span class="sq"></span>004</span><span><span class="sq"></span><span class="scr" data-scr-in>Use cases</span></span></div><div class="hide-m"><span><span class="sq"></span>004</span><span><span class="sq"></span><span class="scr" data-scr-in>What people build</span></span></div></div>
+<div class="cols" style="padding: 56px 0 48px; align-items: end">
+<h2 class="h2 mk" data-rv style="grid-column: 1 / span 8"><span class="ml"><span>Give agents real jobs.</span></span><span class="ml"><span class="it">Keep the limits real too.</span></span></h2>
 </div>
-<div data-rv style="grid-column: 7 / span 6">
-<div class="term" role="img" aria-label="Terminal: safeshake verify passes five checks and prints VERIFIED"><span class="tl dim" style="transition-delay: .2s">$ safeshake verify legal-october.json</span><span class="tl" style="transition-delay: .9s"> </span><span class="tl" style="color: #b0def5; transition-delay: 1.3s">PASS envelope id is the content hash of its body</span><span class="tl" style="color: #b0def5; transition-delay: 1.7s">PASS envelope signed by the declared principal key</span><span class="tl" style="color: #b0def5; transition-delay: 2.1s">PASS hash chain is continuous</span><span class="tl" style="color: #b0def5; transition-delay: 2.5s">PASS event hashes recompute from their contents</span><span class="tl" style="color: #b0def5; transition-delay: 2.9s">PASS event signatures verify against the public key</span><span class="tl" style="transition-delay: 3.1s"> </span><span class="tl" style="color: #f2f2f2; font-weight: 500; transition-delay: 3.6s">VERIFIED</span></div>
+<div class="ucs" data-rv>
+<div class="uc"><span class="mono" style="color: #b0def5">[01] Token spend</span><div><p class="h3">Cap the model bill</p><p class="small dim" style="margin-top: 8px">Daily and per-task budgets on every model call.</p></div></div>
+<div class="uc"><span class="mono" style="color: #b0def5">[02] Coding agents</span><div><p class="h3">Ship code, not surprises</p><p class="small dim" style="margin-top: 8px">Allow the repo and the tests. Block production and deletes.</p></div></div>
+<div class="uc"><span class="mono" style="color: #b0def5">[03] Procurement</span><div><p class="h3">Pay known suppliers only</p><p class="small dim" style="margin-top: 8px">New payees wait for a human. Everything else flows.</p></div></div>
+<div class="uc"><span class="mono" style="color: #b0def5">[04] Support</span><div><p class="h3">Refunds under a limit</p><p class="small dim" style="margin-top: 8px">Agents settle small claims on their own, with a record.</p></div></div>
+<div class="uc"><span class="mono" style="color: #b0def5">[05] Research</span><div><p class="h3">Paid APIs, on a budget</p><p class="small dim" style="margin-top: 8px">Search, data and scraping tools with a spend ceiling.</p></div></div>
+<div class="uc"><span class="mono" style="color: #b0def5">[06] Agent teams</span><div><p class="h3">Many agents, one budget</p><p class="small dim" style="margin-top: 8px">One envelope shared across a crew, with state they all respect.</p></div></div>
+</div>
+<p class="mono dim" style="margin-top: 72px">Works alongside</p>
+<div class="fws"><span>LangChain</span><span>CrewAI</span><span>OpenAI Agents SDK</span><span>Anthropic</span><span>MCP</span><span>Vercel AI SDK</span><span>AutoGen</span><span>LlamaIndex</span></div>
+</div>
+</section>
+
+<section id="community" data-sec="005|Community" style="padding: 80px 0 12px">
+<div class="panel" style="background: #0a2638; color: #f2f2f2; --sc: #f2f2f2">
+<div class="wrap" style="padding-bottom: 96px">
+<div class="sbar mono dim"><div><span><span class="sq"></span>005</span><span><span class="sq"></span><span class="scr" data-scr-in>Community</span></span></div><div class="hide-m"><span><span class="sq"></span>005</span><span><span class="sq"></span><span class="scr" data-scr-in>Build it with us</span></span></div></div>
+<div class="cols" style="padding: 72px 0 0; align-items: end">
+<h2 class="h2 mk" data-rv style="grid-column: 1 / span 8"><span class="ml"><span>Come and</span></span><span class="ml"><span class="it">break things with us.</span></span></h2>
+</div>
+<div class="comm" data-rv>
+<a class="cm" href="#"><span class="mono">[Discord link]</span><div><b>Discord</b><p class="small" style="margin-top: 8px; opacity: .7">Ask, share, get help.</p></div><span class="arr">→</span></a>
+<a class="cm" href="#"><span class="mono">[GitHub link]</span><div><b>GitHub</b><p class="small" style="margin-top: 8px; opacity: .7">SDKs, examples and the verifier.</p></div><span class="arr">→</span></a>
+<a class="cm" href="#"><span class="mono">[Docs link]</span><div><b>Docs</b><p class="small" style="margin-top: 8px; opacity: .7">Guides and the full reference.</p></div><span class="arr">→</span></a>
+<a class="cm" href="Challenge.dc.html"><span class="mono">Hackathon</span><div><b>Break the Envelope</b><p class="small" style="margin-top: 8px; opacity: .7">Beat the limits. Win the prize.</p></div><span class="arr">→</span></a>
 </div>
 </div>
 </div>
@@ -317,15 +350,12 @@ a{color:#f2f2f2;text-decoration:none}
 class Component extends DCLogic {
   constructor(...args) {
     super(...args);
-    this.state = { sec: '001', secName: 'The envelope', menu: false, mode: 'observe', step: 6, open: 1 };
-    this.root = null; this.pin = null; this.stage = null; this.long = false;
+    this.state = { sec: '001', secName: 'Developers', menu: false, tl: 9, bp: 1 };
+    this.root = null; this.burn = null; this.burnStage = null; this.long = false;
     this.setRoot = (el) => { this.root = el; };
-    this.setPin = (el) => { this.pin = el; };
-    this.setStage = (el) => { this.stage = el; };
+    this.setBurn = (el) => { this.burn = el; };
+    this.setBurnStage = (el) => { this.burnStage = el; };
     this.toggleMenu = () => this.setState({ menu: !this.state.menu });
-    this.pickObserve = () => this.setState({ mode: 'observe' });
-    this.pickEnforce = () => this.setState({ mode: 'enforce' });
-    this.tog = [0, 1, 2, 3, 4, 5].map((i) => () => this.setState({ open: this.state.open === i ? -1 : i }));
   }
 
   scramble(el) {
@@ -339,26 +369,11 @@ class Component extends DCLogic {
     const tick = (now) => {
       const p = (now - t0) / dur;
       let out = '';
-      for (let i = 0; i < n; i++) {
-        const ch = text[i];
-        out += (ch === ' ' || p > (i / n) * 0.75 + 0.25) ? ch : glyphs[Math.floor(Math.random() * glyphs.length)];
-      }
+      for (let i = 0; i < n; i++) { const ch = text[i]; out += (ch === ' ' || p > (i / n) * 0.75 + 0.25) ? ch : glyphs[Math.floor(Math.random() * glyphs.length)]; }
       el.setAttribute('data-scr', out);
       if (p < 1) el._raf = requestAnimationFrame(tick); else el.classList.remove('run');
     };
     el._raf = requestAnimationFrame(tick);
-  }
-
-  count(el) {
-    const target = Number(el.getAttribute('data-count')) || 0;
-    const t0 = performance.now(), dur = 1500;
-    el.classList.add('run');
-    const tick = (now) => {
-      const p = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - p, 3);
-      el.setAttribute('data-scr', Math.round(target * e).toLocaleString('en-GB'));
-      if (p < 1) requestAnimationFrame(tick); else el.classList.remove('run');
-    };
-    requestAnimationFrame(tick);
   }
 
   startGlitch(root) {
@@ -394,13 +409,7 @@ class Component extends DCLogic {
     };
     root.addEventListener('mouseover', this.onOver);
     this.rvIO = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (!e.isIntersecting) return;
-        const t = e.target;
-        t.classList.add('in');
-        this.rvIO.unobserve(t);
-        t.querySelectorAll('[data-count]').forEach((c) => this.count(c));
-      });
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); this.rvIO.unobserve(e.target); } });
     }, { threshold: 0.01, rootMargin: '0px 0px -12% 0px' });
     root.querySelectorAll('[data-rv]').forEach((el) => this.rvIO.observe(el));
     this.scIO = new IntersectionObserver((entries) => {
@@ -415,56 +424,70 @@ class Component extends DCLogic {
       });
     }, { rootMargin: '-40% 0px -55% 0px' });
     root.querySelectorAll('[data-sec]').forEach((el) => this.secIO.observe(el));
-
+    // the install terminal types itself, then starts again
+    this.setState({ tl: 0 });
+    this.termT = setInterval(() => {
+      const tl = this.state.tl;
+      this.setState({ tl: tl >= 14 ? 0 : tl + 1 });
+    }, 520);
     this.layout = () => {
-      const vh = window.innerHeight || 800, w = window.innerWidth || 1200;
-      this.long = vh < 1600 && w > 900;
-      if (this.pin && this.stage) this.pin.style.height = this.long ? (this.stage.offsetHeight * 3.2) + 'px' : '';
+      const vh = window.innerHeight || 800;
+      this.long = vh < 1600;
+      if (this.burn && this.burnStage) this.burn.style.height = this.long ? (this.burnStage.offsetHeight * 2.6) + 'px' : '';
     };
     this.onScroll = () => {
-      if (!this.pin || !this.stage) return;
-      let step = 6;
+      if (!this.burn || !this.burnStage) return;
+      let p = 1;
       if (this.long) {
-        const r = this.pin.getBoundingClientRect();
-        const span = r.height - this.stage.offsetHeight;
-        const p = Math.max(0, Math.min(1, -r.top / (span || 1)));
-        step = Math.min(6, Math.floor(p * 7.2));
+        const r = this.burn.getBoundingClientRect();
+        p = Math.max(0, Math.min(1, -r.top / ((r.height - this.burnStage.offsetHeight) || 1)));
       }
-      if (step !== this.state.step) this.setState({ step });
+      p = Math.round(p * 200) / 200;
+      if (p !== this.state.bp) this.setState({ bp: p });
     };
     this.onResize = () => { this.layout(); this.onScroll(); };
     this.layout();
     document.addEventListener('scroll', this.onScroll, true);
     window.addEventListener('resize', this.onResize);
-    this.setState({ step: this.long ? 0 : 6 });
     this.onScroll();
   }
 
   componentWillUnmount() {
     if (this.glitchT) clearInterval(this.glitchT);
+    if (this.termT) clearInterval(this.termT);
     ['rvIO', 'scIO', 'secIO'].forEach((k) => { if (this[k]) this[k].disconnect(); });
     if (this.root && this.onOver) this.root.removeEventListener('mouseover', this.onOver);
     if (this.onScroll) { document.removeEventListener('scroll', this.onScroll, true); window.removeEventListener('resize', this.onResize); }
   }
 
   renderVals() {
-    const menu = this.state.menu, obs = this.state.mode === 'observe', st = this.state.step, op = this.state.open;
+    const menu = this.state.menu, tl = this.state.tl, p = this.state.bp;
+    const eur = (n) => '€' + (n < 100 ? n.toFixed(2) : Math.round(n).toLocaleString('en-GB'));
+    const grow = (q) => (Math.exp(q * 9) - 1) / (Math.exp(9) - 1);
+    const costA = 4180 * grow(p), CAP = 50;
+    const costB = Math.min(CAP, costA), stopped = costA >= CAP;
+    const mins = 182 + Math.round(p * 238), clock = String(Math.floor(mins / 60)).padStart(2, '0') + ':' + String(mins % 60).padStart(2, '0');
+    const path = (capped) => {
+      let d = '';
+      for (let i = 0; i <= 50; i++) {
+        const q = (i / 50) * p, c = 4180 * grow(q);
+        const y = capped ? 38 - Math.min(c, CAP) / CAP * 4 : 38 - c / 4180 * 36;
+        d += (i ? ' L ' : 'M ') + ((i / 50) * p * 100).toFixed(2) + ' ' + y.toFixed(2);
+      }
+      return d;
+    };
     const v = {
-      rootRef: this.setRoot, pinRef: this.setPin, stageRef: this.setStage,
+      rootRef: this.setRoot, burnRef: this.setBurn, burnStageRef: this.setBurnStage,
       sec: this.state.sec, secName: this.state.secName,
       menu, menuOpen: menu ? 'true' : 'false', menuLabel: menu ? 'Close' : 'Menu', toggleMenu: this.toggleMenu,
-      pickObserve: this.pickObserve, pickEnforce: this.pickEnforce,
-      obsPressed: obs ? 'true' : 'false', enfPressed: obs ? 'false' : 'true',
-      obsCls: obs ? 'on' : 'off', enfCls: obs ? 'off' : 'on'
+      clock, costA: eur(costA), costB: eur(costB),
+      tokA: Math.round(costA * 10000).toLocaleString('en-GB'), tokB: Math.round(costB * 10000).toLocaleString('en-GB'),
+      callA: Math.round(costA * 50).toLocaleString('en-GB'), callB: Math.round(costB * 50).toLocaleString('en-GB'),
+      pathA: path(false), pathB: path(true), stopCls: stopped ? 'on' : '',
+      noteA: p < 1 ? 'Still running. Nobody approved this.' : 'Found at 07:00. Nobody approved this.',
+      noteB: stopped ? 'Capped at €50. Loop stopped. Every call on record.' : 'Inside the envelope. Running.'
     };
-    for (let i = 0; i < 6; i++) {
-      const on = i < st, cur = i === st - 1 && st < 6;
-      v['f' + i] = (on ? 'on' : '') + (cur ? ' cur' : '');
-      v['r' + i] = (on ? 'on' : '') + (cur ? ' cur' : '');
-      v['a' + i] = op === i ? 'open' : '';
-      v['e' + i] = op === i ? 'true' : 'false';
-      v['t' + i] = this.tog[i];
-    }
+    for (let i = 0; i < 9; i++) v['L' + i] = tl > i ? 'on' : '';
     return v;
   }
 }

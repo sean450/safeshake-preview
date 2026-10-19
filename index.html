@@ -128,8 +128,6 @@ a{color:#f2f2f2;text-decoration:none}a:hover{color:#b0def5}
 @media (max-width:900px){.wrap{padding:0 20px}.hide-m{display:none !important}.cols{grid-template-columns:minmax(0,1fr);row-gap:28px}.cols>*{grid-column:1 / -1 !important}.story{left:20px;right:20px;top:auto;bottom:80px;height:230px;transform:none}.story h2{font-size:32px}.track{--cw:88%}.mcard{height:440px}.ml,.ml>span{display:inline;overflow:visible;padding:0;margin:0}.ml+.ml::before{content:' '}.js .mk .ml>span{transform:none}.js [data-rv].mk{opacity:0;transform:translateY(32px)}.js [data-rv].mk.in{opacity:1;transform:none}.panel{margin:0 6px}.stagebar.bottom{left:20px !important;right:20px !important}}
 @media (min-width:901px){.show-m{display:none !important}}
 @media (prefers-reduced-motion:reduce){.js [data-rv],.js .mk .ml>span{transform:none !important;opacity:1 !important;transition:none !important}.js .hero-in,.cue{animation:none}.track{transition:none}}
-.steps{grid-template-columns:repeat(6,minmax(0,1fr))}
-.story{height:330px}
 .vis{position:absolute;left:48px;width:calc(54% - 60px);top:130px;bottom:96px;pointer-events:none;--vs:1}
 .v{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden}
 .vin{position:relative;flex:0 0 auto;width:540px;height:520px;transform:scale(var(--vs));transform-origin:center}
@@ -310,7 +308,7 @@ a{color:#f2f2f2;text-decoration:none}a:hover{color:#b0def5}
 .badge b{font-weight:300;font-size:clamp(26px,2.2vw,34px);letter-spacing:-.02em;line-height:1.1}
 .badge::before,.badge::after{content:'';position:absolute;width:6px;height:6px;background:#b0def5}
 .badge::before{left:-3px;top:-3px}.badge::after{right:-3px;bottom:-3px}
-@media (max-width:900px){.vis{left:10px;right:10px;width:auto;top:66px;bottom:auto;height:calc(100% - 410px)}.story{bottom:62px;height:290px}.story h2{font-size:30px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.sbar{grid-template-columns:1fr}.sbar>div+div{display:none}.flow{grid-template-columns:minmax(0,1fr)}.node+.node::before,.flow.on::after{display:none}.pinstage{position:static;height:auto;padding-bottom:60px}.anat{grid-template-columns:minmax(0,1fr);gap:16px}.acard{max-width:300px;margin:0 auto}.js .ftag{opacity:1;transform:none}.ftag::after{display:none}.acc button{grid-template-columns:44px minmax(0,1fr) 40px}.acc button .mono.r{display:none}.badges{grid-template-columns:1fr 1fr}.tstats div{min-width:130px}}
+@media (max-width:900px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.sbar{grid-template-columns:1fr}.sbar>div+div{display:none}.flow{grid-template-columns:minmax(0,1fr)}.node+.node::before,.flow.on::after{display:none}.pinstage{position:static;height:auto;padding-bottom:60px}.anat{grid-template-columns:minmax(0,1fr);gap:16px}.acard{max-width:300px;margin:0 auto}.js .ftag{opacity:1;transform:none}.ftag::after{display:none}.acc button{grid-template-columns:44px minmax(0,1fr) 40px}.acc button .mono.r{display:none}.badges{grid-template-columns:1fr 1fr}.tstats div{min-width:130px}}
 @media (prefers-reduced-motion:reduce){.agt,.agt i,.pass,.pass::before,.psig path,.stamp,.wire,.prail i,.xpill::after,.rcpt,.aroll,.spokes line,.tun i,.tmq span,.flow.on::after,.rogue .vin,.mag i{animation:none !important}.psig path{stroke-dashoffset:0}.js .ftag{opacity:1;transform:none}.js .tl{opacity:1}}
 </style>
 </helmet>
@@ -351,109 +349,30 @@ a{color:#f2f2f2;text-decoration:none}a:hover{color:#b0def5}
 <div data-hero style="position: absolute; inset: 0; pointer-events: none">
 <div aria-hidden="true" style="position: absolute; inset: 0; background: radial-gradient(90% 75% at 0% 100%, rgba(6,12,17,.95), rgba(6,12,17,.55) 45%, rgba(6,12,17,0) 78%)"></div>
 <div class="wrap" style="position: relative; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 56px; pointer-events: auto">
-<h1 class="h1 hero-in" style="animation-delay: 3.4s; max-width: 14ch">The missing <span class="it">authorisation</span> layer for the <span class="it">agentic economy.</span></h1>
+<h1 class="h1 hero-in" style="animation-delay: 3.1s; max-width: 14ch">The missing <span class="it">authorisation</span> layer for the <span class="it">agentic economy.</span></h1>
 <div style="display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between; align-items: flex-end; margin-top: 40px">
-<div class="hero-in" style="animation-delay: 3.8s; display: flex; gap: 12px; flex-wrap: wrap"><a class="btn solid" href="#access">Get access</a><a class="btn" href="Product.dc.html">For developers</a></div>
-<div class="hero-in mono hide-m" style="animation-delay: 4.2s; display: flex; align-items: center; gap: 14px; color: rgba(242,242,242,.6)"><div class="cue"></div>Scroll to see how it works</div>
+<div class="hero-in" style="animation-delay: 3.5s; display: flex; gap: 12px; flex-wrap: wrap"><a class="btn solid" href="#access">Get access</a><a class="btn" href="Product.dc.html">How it works</a></div>
+<div class="hero-in mono hide-m" style="animation-delay: 4s; display: flex; align-items: center; gap: 14px; color: rgba(242,242,242,.6)"><div class="cue"></div>Scroll to see how it works</div>
 </div>
 </div>
 </div>
 
 <div class="stagebar {{barCls}} hide-m" style="position: absolute; left: 48px; right: 48px; top: 92px; display: flex; justify-content: space-between" aria-hidden="true">
 <span class="mono" style="color: rgba(242,242,242,.6)"><span class="sq" style="color: #b0def5"></span>What SafeShake does</span>
-<span class="mono" style="color: rgba(242,242,242,.6)">Step {{stepNo}} / 06</span>
-</div>
-
-<div class="vis" ref="{{visRef}}" aria-hidden="true">
-<div class="v {{rogueCls}}" data-v="1,2"><div class="vin">
-<div class="tool {{tool0}}" style="left: 10px; top: 110px">Browser</div>
-<div class="tool {{tool1}}" style="left: 160px; top: 120px">Email</div>
-<div class="tool {{tool2}}" style="left: 0px; top: 392px">Calendar</div>
-<div class="tool {{tool3}}" style="left: 165px; top: 392px">Code</div>
-<div class="tool {{tool4}}" style="left: 62px; top: 466px">Payments</div>
-<div class="agt" style="left: 40px; top: 200px"><i></i><i></i></div>
-<div class="agname" style="left: 40px; top: 334px">{{agLabel}}</div>
-<div class="wire" style="left: 166px; top: 259px; width: 70px"></div>
-<div class="tlog {{tk}}"><div class="hd"><span>{{logHead}}</span><span>Live</span></div>
-<div class="trow"><div>{{lt0}}<small>{{ls0}}</small></div><span class="st {{lc0}}">{{lst0}}</span></div>
-<div class="trow"><div>{{lt1}}<small>{{ls1}}</small></div><span class="st {{lc1}}">{{lst1}}</span></div>
-<div class="trow"><div>{{lt2}}<small>{{ls2}}</small></div><span class="st {{lc2}}">{{lst2}}</span></div>
-<div class="trow"><div>{{lt3}}<small>{{ls3}}</small></div><span class="st {{lc3}}">{{lst3}}</span></div>
-</div>
-</div></div>
-<div class="v" data-v="3"><div class="vin" style="display: flex; flex-direction: column; align-items: center; padding-top: 6px">
-<div class="pscene"><div class="pass">
-<div class="ptop"><svg class="mk2" viewBox="388.809 265.285 64.16 63.984" style="width: 30px; height: 30px; color: #f2f2f2" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M 447.363281 265.285156 L 447.363281 284.03125 L 434.324219 284.03125 C 434.789062 284.53125 435.203125 285.148438 435.667969 285.640625 C 444.023438 294.492188 456.167969 301.570312 452.195312 315.863281 C 450.523438 321.886719 443.207031 329.269531 436.667969 329.269531 L 394.179688 329.269531 L 394.179688 310.828125 L 394.484375 310.523438 L 407.425781 310.523438 L 393.5625 296.570312 C 385.363281 287.390625 388.101562 272.574219 399.207031 267.15625 C 400.558594 266.496094 403.863281 265.285156 405.285156 265.285156 Z M 433.914062 284.03125 L 407.832031 284.03125 L 420.773438 297.082031 Z M 433.914062 310.523438 L 420.773438 297.472656 L 407.628906 310.523438 Z"></path></svg><div><div class="mono" style="font-size: 11px">SafeShake envelope</div><div class="mono" style="font-size: 9px; color: rgba(242,242,242,.5); margin-top: 4px">Delegated authority</div></div></div>
-<div style="margin-top: 8px">
-<div class="pf"><span>Holder</span><b>Agent 07</b></div>
-<div class="pf"><span>Issued by</span><b>Head of Legal</b></div>
-<div class="pf"><span>Authority</span><b>€8,000 / month</b></div>
-<div class="pf"><span>May</span><b>Travel · suppliers</b></div>
-<div class="pf no"><span>May not</span><b>New payees</b></div>
-<div class="pf"><span>Valid</span><b>05-20 → 06-20</b></div>
-</div>
-<div class="psig"><svg viewBox="0 0 200 44" width="200" height="44" aria-hidden="true"><path d="M4 30 C 20 6, 30 6, 34 26 S 52 40, 60 18 S 80 4, 86 28 S 104 38, 112 20 C 118 8, 128 12, 126 26 C 124 36, 140 34, 150 22 S 172 14, 196 24"></path></svg></div>
-<div class="mono" style="font-size: 9px; color: rgba(242,242,242,.5); margin-top: 2px">Signed by a human</div>
-<div class="stamp">Signed · ed25519</div>
-<div class="mrz">P&lt;SSK&lt;ENV001&lt;&lt;AGENT07&lt;&lt;&lt;&lt;&lt;&lt;<br>8000EUR&lt;M&lt;0520&lt;0620&lt;&lt;ED25519&lt;</div>
-</div></div>
-<div class="typed">{{typed}}</div>
-</div></div>
-<div class="v" data-v="4"><div class="vin">
-<svg width="540" height="520" style="position: absolute; inset: 0" aria-hidden="true" class="spokes"><line x1="92" y1="96" x2="270" y2="150"></line><line x1="270" y1="96" x2="270" y2="150"></line><line x1="448" y1="96" x2="270" y2="150"></line><line x1="270" y1="280" x2="270" y2="310"></line></svg>
-<div class="mag {{m0}}" style="left: 60px; top: 30px"><i></i><i></i></div><div class="agname" style="left: 50px; width: 84px; text-align: center; top: 104px">Agent 07</div>
-<div class="mag {{m1}}" style="left: 238px; top: 30px"><i></i><i></i></div><div class="agname" style="left: 228px; width: 84px; text-align: center; top: 104px">Agent 12</div>
-<div class="mag {{m2}}" style="left: 416px; top: 30px"><i></i><i></i></div><div class="agname" style="left: 406px; width: 84px; text-align: center; top: 104px">Agent 31</div>
-<div class="mpass"><svg class="mk2" viewBox="388.809 265.285 64.16 63.984" style="width: 30px; height: 30px; color: #f2f2f2" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M 447.363281 265.285156 L 447.363281 284.03125 L 434.324219 284.03125 C 434.789062 284.53125 435.203125 285.148438 435.667969 285.640625 C 444.023438 294.492188 456.167969 301.570312 452.195312 315.863281 C 450.523438 321.886719 443.207031 329.269531 436.667969 329.269531 L 394.179688 329.269531 L 394.179688 310.828125 L 394.484375 310.523438 L 407.425781 310.523438 L 393.5625 296.570312 C 385.363281 287.390625 388.101562 272.574219 399.207031 267.15625 C 400.558594 266.496094 403.863281 265.285156 405.285156 265.285156 Z M 433.914062 284.03125 L 407.832031 284.03125 L 420.773438 297.082031 Z M 433.914062 310.523438 L 420.773438 297.472656 L 407.628906 310.523438 Z"></path></svg><span class="mono" style="font-size: 9px; color: #b0def5">ENV_001</span><span class="mono" style="font-size: 9px; color: rgba(242,242,242,.5)">Shared</span></div>
-<div class="sstate">
-<div class="srow"><span>Spent this month</span><b>{{spent}} / €8,000</b></div>
-<div class="sbarr"><i style="width: {{pct}}"></i></div>
-<div class="srow"><span>History</span><b>{{hist}} events · chained</b></div>
-<div class="sreq"><span>{{reqWho}}</span><span class="mono" style="color: #b0def5">{{reqWhat}}</span></div>
-<div class="chk"><span class="{{c0}}">Identity</span><span class="{{c1}}">State</span><span class="{{c2}}">History</span></div>
-<div class="verd {{vc}}">{{verd}}</div>
-</div>
-</div></div>
-<div class="v" data-v="5"><div class="vin">
-<div class="mono" style="position: absolute; left: 0; right: 0; top: 0; text-align: center; color: #b0def5">Total tracked · {{tot}}</div>
-<svg width="540" height="520" style="position: absolute; inset: 0" aria-hidden="true" class="spokes"><line x1="270" y1="210" x2="270" y2="75"></line><line x1="270" y1="210" x2="415" y2="116"></line><line x1="270" y1="210" x2="475" y2="215"></line><line x1="270" y1="210" x2="415" y2="314"></line><line x1="270" y1="210" x2="270" y2="355"></line><line x1="270" y1="210" x2="125" y2="314"></line><line x1="270" y1="210" x2="65" y2="215"></line><line x1="270" y1="210" x2="125" y2="116"></line></svg>
-<div class="hub"><svg class="mk2" viewBox="388.809 265.285 64.16 63.984" style="width: 42px; height: 42px; color: #f2f2f2" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M 447.363281 265.285156 L 447.363281 284.03125 L 434.324219 284.03125 C 434.789062 284.53125 435.203125 285.148438 435.667969 285.640625 C 444.023438 294.492188 456.167969 301.570312 452.195312 315.863281 C 450.523438 321.886719 443.207031 329.269531 436.667969 329.269531 L 394.179688 329.269531 L 394.179688 310.828125 L 394.484375 310.523438 L 407.425781 310.523438 L 393.5625 296.570312 C 385.363281 287.390625 388.101562 272.574219 399.207031 267.15625 C 400.558594 266.496094 403.863281 265.285156 405.285156 265.285156 Z M 433.914062 284.03125 L 407.832031 284.03125 L 420.773438 297.082031 Z M 433.914062 310.523438 L 420.773438 297.472656 L 407.628906 310.523438 Z"></path></svg></div>
-<div class="pl8" style="left: 224px; top: 55px">OpenAI<b>{{k0}}</b></div>
-<div class="pl8" style="left: 369px; top: 96px">Anthropic<b>{{k1}}</b></div>
-<div class="pl8" style="left: 429px; top: 195px">Gemini<b>{{k2}}</b></div>
-<div class="pl8" style="left: 369px; top: 294px">LangChain<b>{{k3}}</b></div>
-<div class="pl8" style="left: 224px; top: 335px">CrewAI<b>{{k4}}</b></div>
-<div class="pl8" style="left: 79px; top: 294px">MCP<b>{{k5}}</b></div>
-<div class="pl8" style="left: 19px; top: 195px">AWS<b>{{k6}}</b></div>
-<div class="pl8" style="left: 79px; top: 96px">Azure<b>{{k7}}</b></div>
-<div class="audit"><div class="hd"><span>Audit log · tamper-evident</span><span>Export ↓</span></div><div class="arw"><div class="aroll"><div><span>09:41:07</span><span>Agent 07</span><span>OpenAI</span><span>€0.42</span><span>Allowed · sig ✓</span></div><div><span>09:41:08</span><span>Agent 12</span><span>AWS</span><span>€18.00</span><span>Allowed · sig ✓</span></div><div><span>09:41:08</span><span>Agent 31</span><span>Anthropic</span><span>€0.61</span><span>Allowed · sig ✓</span></div><div><span>09:41:09</span><span>Agent 07</span><span>MCP</span><span>€240</span><span>Held · sig ✓</span></div><div><span>09:41:10</span><span>Agent 19</span><span>Azure</span><span>€4,100</span><span>Blocked · sig ✓</span></div><div><span>09:41:11</span><span>Agent 12</span><span>Gemini</span><span>€0.08</span><span>Allowed · sig ✓</span></div><div><span>09:41:07</span><span>Agent 07</span><span>OpenAI</span><span>€0.42</span><span>Allowed · sig ✓</span></div><div><span>09:41:08</span><span>Agent 12</span><span>AWS</span><span>€18.00</span><span>Allowed · sig ✓</span></div><div><span>09:41:08</span><span>Agent 31</span><span>Anthropic</span><span>€0.61</span><span>Allowed · sig ✓</span></div><div><span>09:41:09</span><span>Agent 07</span><span>MCP</span><span>€240</span><span>Held · sig ✓</span></div><div><span>09:41:10</span><span>Agent 19</span><span>Azure</span><span>€4,100</span><span>Blocked · sig ✓</span></div><div><span>09:41:11</span><span>Agent 12</span><span>Gemini</span><span>€0.08</span><span>Allowed · sig ✓</span></div></div></div></div>
-</div></div>
-<div class="v" data-v="6"><div class="vin">
-<div class="mono" style="position: absolute; left: 0; right: 0; top: 62px; text-align: center; color: rgba(242,242,242,.5)">Not needed</div>
-<div class="xpill" style="left: 22px">Card numbers</div>
-<div class="xpill" style="left: 214px">Wallets</div>
-<div class="xpill" style="left: 372px">API keys</div>
-<div class="prail"><i></i></div>
-<div class="pnode" style="left: 0px"><div class="mag" style="position: relative; left: 0; top: 0; width: 44px; height: 44px; gap: 8px"><i style="width: 6px; height: 9px"></i><i style="width: 6px; height: 9px"></i></div><span>Agent</span></div>
-<div class="pnode" style="left: 143px"><div style="width: 30px; height: 40px; border-radius: 5px; border: 1px solid #b0def5; background: linear-gradient(165deg,rgba(176,222,245,.3),rgba(10,38,56,.9))"></div><span>Envelope</span></div>
-<div class="pnode" style="left: 285px"><svg class="mk2" viewBox="388.809 265.285 64.16 63.984" style="width: 34px; height: 34px; color: #f2f2f2" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M 447.363281 265.285156 L 447.363281 284.03125 L 434.324219 284.03125 C 434.789062 284.53125 435.203125 285.148438 435.667969 285.640625 C 444.023438 294.492188 456.167969 301.570312 452.195312 315.863281 C 450.523438 321.886719 443.207031 329.269531 436.667969 329.269531 L 394.179688 329.269531 L 394.179688 310.828125 L 394.484375 310.523438 L 407.425781 310.523438 L 393.5625 296.570312 C 385.363281 287.390625 388.101562 272.574219 399.207031 267.15625 C 400.558594 266.496094 403.863281 265.285156 405.285156 265.285156 Z M 433.914062 284.03125 L 407.832031 284.03125 L 420.773438 297.082031 Z M 433.914062 310.523438 L 420.773438 297.472656 L 407.628906 310.523438 Z"></path></svg><span>Neutral layer</span></div>
-<div class="pnode" style="left: 428px"><div style="width: 40px; height: 30px; border: 1px solid #f2f2f2; border-radius: 3px; position: relative"><i style="position: absolute; left: 6px; right: 6px; top: 8px; height: 1px; background: #f2f2f2"></i><i style="position: absolute; left: 6px; right: 14px; top: 16px; height: 1px; background: #f2f2f2"></i></div><span>Supplier Ltd</span></div>
-<div class="rcpt">Settled ✓<b>€240.00</b>Supplier Ltd · no credentials shared</div>
-</div></div>
+<span class="mono" style="color: rgba(242,242,242,.6)">Step {{stepNo}} / 05</span>
 </div>
 
 <div class="story">
-<div data-step-text="1"><div class="mono" style="color: #b0def5"><span class="sq"></span>01 / Agents</div><h2>Agents do more for us <span class="it">every day.</span></h2><p class="lede" style="margin-top: 18px">They book, research, email, write code and pay, on a loop.</p></div>
-<div data-step-text="2"><div class="mono" style="color: #b0def5"><span class="sq"></span>02 / The risk</div><h2>The only thing bounding an agent <span class="it">is the agent itself.</span></h2><p class="lede" style="margin-top: 18px">One bad prompt, and it does what it was never meant to.</p></div>
-<div data-step-text="3"><div class="mono" style="color: #b0def5"><span class="sq"></span>03 / SafeShake changes that</div><h2>Introducing <span class="it">the envelope.</span></h2><p class="lede" style="margin-top: 18px">A portable, delegated authority object. It empowers the agent and bounds the action.</p></div>
-<div data-step-text="4"><div class="mono" style="color: #b0def5"><span class="sq"></span>04 / State and history</div><h2>Authorised by <span class="it">state and history,</span> not just identity.</h2><p class="lede" style="margin-top: 18px">One envelope, shared across many agents. Every action is checked against what has already happened.</p></div>
-<div data-step-text="5"><div class="mono" style="color: #b0def5"><span class="sq"></span>05 / Observability</div><h2>Compliance-grade <span class="it">observability.</span></h2><p class="lede" style="margin-top: 18px">Cumulative enforcement beyond runtime, with counters across every platform, model and framework. All from the same object.</p></div>
-<div data-step-text="6"><div class="mono" style="color: #b0def5"><span class="sq"></span>06 / Payments</div><h2>Credentialless, <span class="it">safe payments.</span></h2><p class="lede" style="margin-top: 18px">Enabled by a neutral layer. No wallets, no shared card numbers and no complicated integrations.</p></div>
+<div data-step-text="1"><div class="mono" style="color: #b0def5"><span class="sq"></span>01 / Agents</div><h2>Agents are starting <span class="it">to spend.</span></h2><p class="lede" style="margin-top: 18px">They buy, book and call paid tools on their own.</p></div>
+<div data-step-text="2"><div class="mono" style="color: #b0def5"><span class="sq"></span>02 / The risk</div><h2>Nothing bounds <span class="it">what they can do.</span></h2><p class="lede" style="margin-top: 18px">A fooled agent can spend like anyone else.</p></div>
+<div data-step-text="3"><div class="mono" style="color: #b0def5"><span class="sq"></span>03 / The envelope</div><h2>SafeShake gives each one <span class="it">an envelope.</span></h2><p class="lede" style="margin-top: 18px">Signed limits: what, from whom, and how much.</p></div>
+<div data-step-text="4"><div class="mono" style="color: #b0def5"><span class="sq"></span>04 / The check</div><h2>Every action is <span class="it">checked first.</span></h2><p class="lede" style="margin-top: 18px">Inside the envelope, it runs. Outside, it doesn't.</p></div>
+<div data-step-text="5"><div class="mono" style="color: #b0def5"><span class="sq"></span>05 / The record</div><h2>Every decision <span class="it">becomes proof.</span></h2><p class="lede" style="margin-top: 18px">A record anyone can verify, without us.</p></div>
 </div>
 
 <div class="stagebar bottom {{barCls}}" style="position: absolute; left: 48px; right: 48px; bottom: 28px" aria-hidden="true">
 <div style="height: 1px; background: rgba(242,242,242,.16); position: relative"><div data-fill style="position: absolute; inset: 0; background: #b0def5; transform: scaleX(0); transform-origin: left center"></div></div>
-<div class="steps mono hide-m"><span class="{{s1}}">01 Agents</span><span class="{{s2}}">02 The risk</span><span class="{{s3}}">03 Envelope</span><span class="{{s4}}">04 State</span><span class="{{s5}}">05 Observe</span><span class="{{s6}}">06 Payments</span></div>
+<div class="steps mono hide-m"><span class="{{s1}}">01 Agents</span><span class="{{s2}}">02 The risk</span><span class="{{s3}}">03 Envelope</span><span class="{{s4}}">04 Check</span><span class="{{s5}}">05 Record</span></div>
 </div>
 </div>
 </section>
@@ -910,7 +829,7 @@ class Component extends DCLogic {
       this.setState({ step: 0, tfin: true, typed: TYPED[TYPED.length - 1] });
       return;
     }
-    this.timers = [setInterval(() => this.tickLog(), 1500), setInterval(() => this.tickType(), 55), setInterval(() => this.tickShared(), 650), setInterval(() => this.tickObs(), 320), setInterval(() => this.tickTrip(), 380)];
+    this.timers = [setInterval(() => this.tickTrip(), 380)];
 
     this.rvIO = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
@@ -938,7 +857,7 @@ class Component extends DCLogic {
       const vh = window.innerHeight || 800, vw = window.innerWidth || 1200;
       this.long = vh < 1600;
       this.wide = this.long && vw > 900;
-      if (this.wrap && this.inner) this.wrap.style.height = this.long ? (this.inner.offsetHeight * 8) + 'px' : '';
+      if (this.wrap && this.inner) this.wrap.style.height = this.long ? (this.inner.offsetHeight * 7) + 'px' : '';
       if (this.pin && this.stage) this.pin.style.height = this.wide ? (this.stage.offsetHeight * 3.2) + 'px' : '';
       if (this.trip && this.tripStage) this.trip.style.height = this.long ? (this.tripStage.offsetHeight * 3.6) + 'px' : '';
       if (this.vis) {
@@ -951,16 +870,16 @@ class Component extends DCLogic {
       const cl = (v) => Math.max(0, Math.min(1, v));
       if (this.wrap && this.inner && this.long) {
         const r = this.wrap.getBoundingClientRect();
-        this.s = Math.max(0, Math.min(7, -r.top / (this.inner.offsetHeight || 1)));
+        this.s = Math.max(0, Math.min(6, -r.top / (this.inner.offsetHeight || 1)));
       } else this.s = 0;
       const s = this.s;
       if (this.heroText) {
-        const a = 1 - cl(s / 0.35);
+        const a = 1 - cl(s / 0.4);
         this.heroText.style.opacity = String(a);
         this.heroText.style.transform = 'translateY(' + (-s * 90) + 'px)';
         this.heroText.style.visibility = a < 0.01 ? 'hidden' : 'visible';
       }
-      const span = (a0, b0) => cl((s - (a0 - 0.2)) / 0.3) * (b0 < 6 ? 1 - cl((s - (b0 + 0.72)) / 0.25) : 1);
+      const span = (a0, b0) => cl((s - (a0 - 0.2)) / 0.3) * (b0 < 5 ? 1 - cl((s - (b0 + 0.72)) / 0.25) : 1);
       this.steps.forEach((el) => {
         const i = Number(el.getAttribute('data-step-text'));
         const a = span(i, i);
@@ -974,8 +893,8 @@ class Component extends DCLogic {
         v.el.style.transform = 'scale(' + (0.94 + 0.06 * a) + ')';
         v.el.style.visibility = a < 0.01 ? 'hidden' : 'visible';
       });
-      if (this.fill) this.fill.style.transform = 'scaleX(' + cl((s - 0.8) / 5.6) + ')';
-      const step = Math.max(0, Math.min(6, Math.floor(s + 0.2)));
+      if (this.fill) this.fill.style.transform = 'scaleX(' + cl((s - 0.8) / 4.6) + ')';
+      const step = Math.max(0, Math.min(5, Math.floor(s + 0.2)));
       const up = {};
       if (step !== this.state.step) up.step = step;
       if (this.pin && this.stage) {
@@ -1028,6 +947,7 @@ class Component extends DCLogic {
     const lerp = (a, b, k) => a + (b - a) * k;
     const io = (p) => { p = clamp(p); return p < .5 ? 8 * p ** 4 : 1 - Math.pow(-2 * p + 2, 4) / 2; };
     const smooth = (p) => { p = clamp(p); return p * p * (3 - 2 * p); };
+    const hash = (a, n) => { const x = Math.sin(a * 127.1 + n * 311.7) * 43758.5453; return x - Math.floor(x); };
     let seed = 7;
     const rnd = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
     const F = 900, ZN = 1.1, ZF = 70;
@@ -1037,10 +957,17 @@ class Component extends DCLogic {
     for (let i = 0; i < 340; i++) { const lane = lanes[Math.floor(rnd() * lanes.length)]; pulses.push({ lane, phase: rnd(), period: 2.6 + rnd() * 3.6, len: .12 + rnd() * .22, w: .8 + rnd() * 1.2, bright: .55 + rnd() * .45, white: rnd() < .3 }); }
     const motes = [];
     for (let i = 0; i < 420; i++) motes.push({ x: (rnd() * 2 - 1) * 18, z: ZN * Math.pow(ZF / ZN, rnd()), tw: rnd() * 6.28, r: .5 + rnd() });
-    const stars = [];
-    for (let i = 0; i < 220; i++) stars.push({ x: rnd() * 1920, y: rnd() * 1300 - 200, r: .4 + rnd() * 1.1, tw: rnd() * 6.28 });
-    const drift = [];
-    for (let i = 0; i < 70; i++) drift.push({ x: rnd(), y: rnd(), v: .01 + rnd() * .03, r: .6 + rnd() * 1.2, tw: rnd() * 6.28 });
+    const AG = [
+      { name: 'AGENT 01', rule: '≤ €500 / DAY', lim: 500 },
+      { name: 'AGENT 02', rule: 'SAAS ONLY', lim: 300 },
+      { name: 'AGENT 03', rule: '≤ €2K / MONTH', lim: 2000 },
+      { name: 'AGENT 04', rule: 'TRAVEL ≤ €900', lim: 900 },
+      { name: 'AGENT 05', rule: '≤ €80 / CALL', lim: 80 }
+    ];
+    const DS = ['CLOUD API', 'FLIGHTS', 'SUPPLIER', 'SAAS', 'ADS'];
+    const UA = .16, UG = .56, UD = .96;
+    const log = [], seen = {};
+    let recNo = 411;
     const HZ = [176, 222, 245], CL = [242, 242, 242];
     const rgba = (r, a) => 'rgba(' + r[0] + ',' + r[1] + ',' + r[2] + ',' + a + ')';
     const mark = new Path2D('M 447.363281 265.285156 L 447.363281 284.03125 L 434.324219 284.03125 C 434.789062 284.53125 435.203125 285.148438 435.667969 285.640625 C 444.023438 294.492188 456.167969 301.570312 452.195312 315.863281 C 450.523438 321.886719 443.207031 329.269531 436.667969 329.269531 L 394.179688 329.269531 L 394.179688 310.828125 L 394.484375 310.523438 L 407.425781 310.523438 L 393.5625 296.570312 C 385.363281 287.390625 388.101562 272.574219 399.207031 267.15625 C 400.558594 266.496094 403.863281 265.285156 405.285156 265.285156 Z M 433.914062 284.03125 L 407.832031 284.03125 L 420.773438 297.082031 Z M 433.914062 310.523438 L 420.773438 297.472656 L 407.628906 310.523438 Z');
@@ -1054,21 +981,13 @@ class Component extends DCLogic {
       k = Math.max(W / 1920, H / 1080); ox = (W - 1920 * k) / 2; oy = (H - 1080 * k) / 2;
     };
 
-    // the light floor, seen from a camera that tilts down onto it
-    const floor = (t, vy) => {
-      const vx = 960, hc = lerp(1.18, .96, io(t / 7.2));
+    const floor = (t) => {
+      const vx = 960, vy = lerp(352, 470, io(t / 7.2)), hc = lerp(1.18, .96, io(t / 7.2));
       const sx = (x, z) => vx + F * x / z, sy = (z) => vy + F * hc / z;
-      const arrive = smooth((t - .6) / 2.8);
-      let g = c.createLinearGradient(0, vy - 900, 0, vy + 40);
-      g.addColorStop(0, '#05080c'); g.addColorStop(.75, '#0a1c2a'); g.addColorStop(1, '#0d2c40');
+      const arrive = smooth((t - .4) / 2.6);
+      let g = c.createLinearGradient(0, 0, 0, vy + 40);
+      g.addColorStop(0, '#0b0f14'); g.addColorStop(.7, '#0a1c2a'); g.addColorStop(1, '#0d2c40');
       c.fillStyle = g; c.fillRect(-400, -400, 2720, vy + 401);
-      for (const st of stars) {
-        const y = st.y + (vy - 470) * .45;
-        if (y > vy - 6 || y < -20 || y > 1100) continue;
-        c.fillStyle = rgba(CL, (.25 + .35 * (1 + Math.sin(t * 1.4 + st.tw)) / 2) * clamp((vy - y) / 300));
-        c.fillRect(st.x, y, st.r, st.r);
-      }
-      if (vy > 1100) return;
       g = c.createLinearGradient(0, vy, 0, 1080);
       g.addColorStop(0, '#0d2a3c'); g.addColorStop(.35, '#081a26'); g.addColorStop(1, '#060f16');
       c.fillStyle = g; c.fillRect(-400, vy, 2720, 1480 - vy);
@@ -1095,7 +1014,7 @@ class Component extends DCLogic {
         c.fillStyle = rgba(HZ, a);
         c.beginPath(); c.arc(x, y, m.r * clamp(3 / z, .4, 1.6), 0, 6.283); c.fill();
       }
-      const flow = smooth((t - .4) / 1.6);
+      const flow = smooth(t / 1.2);
       const ga = c.globalAlpha;
       for (const p of pulses) {
         const u = ((t / p.period + p.phase) % 1 + 1) % 1;
@@ -1117,6 +1036,210 @@ class Component extends DCLogic {
       g.addColorStop(0, rgba(HZ, 0)); g.addColorStop(.42, rgba(HZ, hl * .5)); g.addColorStop(.5, rgba(CL, hl)); g.addColorStop(.58, rgba(HZ, hl * .5)); g.addColorStop(1, rgba(HZ, 0));
       c.fillStyle = g; c.fillRect(vx - 900, vy - .75, 1800, 1.5);
       c.globalCompositeOperation = 'source-over';
+      return vy;
+    };
+
+    const label = (txt, x, y, a, align, col, px) => {
+      c.font = (px || 11) + 'px "IBM Plex Mono", ui-monospace, monospace';
+      c.textAlign = align || 'left';
+      c.fillStyle = rgba(col || HZ, a);
+      c.fillText(txt, x, y);
+    };
+    const money = (v) => '€' + (v >= 1000 ? (Math.round(v / 100) * 100).toLocaleString('en-GB') : String(Math.max(1, Math.round(v))));
+    const geo = () => {
+      if (W < 900) {
+        const X0 = 30, X1 = W - 30, Y0 = 124, Y1 = Math.max(Y0 + 190, H - 420);
+        return { mob: true, X0, X1, Y0, Y1, na: 4, nd: 4, P: (u, v) => [X0 + v * (X1 - X0), Y0 + u * (Y1 - Y0)] };
+      }
+      const X0 = 72, X1 = W * .5, Y0 = H * .2, Y1 = H * .68;
+      return { mob: false, X0, X1, Y0, Y1, na: 5, nd: 5, P: (u, v) => [X0 + u * (X1 - X0), Y0 + v * (Y1 - Y0)] };
+    };
+    const av = (G, i) => .06 + i * (.88 / (G.na - 1));
+    const dv = (G, j) => j < 0 ? (G.mob ? .96 : 1) : (G.mob ? .04 + j * (.66 / (G.nd - 1)) : .06 + j * (.74 / (G.nd - 1)));
+    const bz = (a, b, d, e, t) => { const m = 1 - t; return m * m * m * a + 3 * m * m * t * b + 3 * m * t * t * d + t * t * t * e; };
+    const pathPt = (G, va, vd, t) => G.P(bz(UA, UA + .25, UD - .25, UD, t), bz(va, va, vd, vd, t));
+    const rrect = (x, y, w, h, r) => { c.beginPath(); if (c.roundRect) c.roundRect(x, y, w, h, r); else c.rect(x, y, w, h); };
+    const pay = (i, n, G, bad) => {
+      const h1 = hash(i + 1, n), h2 = hash(i + 11, n * 3 + 1), h3 = hash(i + 21, n + 7);
+      let j = Math.floor(h1 * G.nd), amt = AG[i].lim * (.06 + h2 * .6), type = '';
+      if (bad && h3 < .34) {
+        if (h3 < .17) { j = -1; type = 'NEW PAYEE'; } else { amt = AG[i].lim * (3 + h2 * 9); type = 'OVER LIMIT'; }
+      }
+      return { j, amt, type };
+    };
+
+    const flow = (t, s, A, G) => {
+      c.save();
+      c.globalAlpha = A;
+      const risk = s >= 1.75 && s < 2.75;
+      const env = clamp((s - 2.75) / .8), chk = clamp((s - 3.7) / .5), rec = clamp((s - 4.7) / .6);
+      const riskA = clamp((s - 1.75) / .3) * (1 - clamp((s - 2.55) / .3));
+      const rogueA = clamp((s - 1.6) / .4) * (chk > 0 ? .55 + .45 * chk : 1 - .6 * env);
+      const gc = G.P(UG, .5), g0 = G.P(UG, -.06), g1 = G.P(UG, 1.06);
+      const sm = G.mob ? 10 : 11;
+
+      // owner signs the limits, envelopes close around each agent
+      if (env > 0) {
+        const o = G.P(G.mob ? -.15 : 0, .5);
+        c.strokeStyle = rgba(CL, .9 * env); c.lineWidth = 1.2;
+        c.beginPath(); c.arc(o[0], o[1] - 4, 3.6, 0, 6.283); c.stroke();
+        c.beginPath(); c.arc(o[0], o[1] + 9, 7.5, Math.PI * 1.08, Math.PI * 1.92); c.stroke();
+        c.beginPath(); c.arc(o[0], o[1] + 1, 15, 0, 6.283); c.strokeStyle = rgba(HZ, .35 * env); c.stroke();
+        if (G.mob) label('OWNER · SIGNS THE LIMITS', o[0] + 24, o[1] + 4, .85 * env, 'left', CL, 10);
+        else { label('OWNER', o[0], o[1] - 26, .85 * env, 'center', CL); label('SIGNS', o[0], o[1] + 36, .6 * env, 'center'); }
+        for (let i = 0; i < G.na; i++) {
+          const a = G.P(UA, av(G, i));
+          const pb = clamp(env * 2 - i * .14);
+          if (pb <= 0) continue;
+          const sx0 = o[0] + (a[0] - o[0]) * .14, sy0 = o[1] + (a[1] - o[1]) * .14;
+          const ex = lerp(sx0, a[0], pb * .8), ey = lerp(sy0, a[1], pb * .8);
+          c.strokeStyle = rgba(HZ, pb < 1 ? .55 : .2); c.lineWidth = 1;
+          c.setLineDash([2, 4]); c.lineDashOffset = -t * 8;
+          c.beginPath(); c.moveTo(sx0, sy0); c.lineTo(ex, ey); c.stroke();
+          c.setLineDash([]);
+          if (pb < 1) { c.fillStyle = rgba(CL, .95); c.beginPath(); c.arc(ex, ey, 2, 0, 6.283); c.fill(); }
+        }
+      }
+
+      // the faint dotted routes, one per agent per payment
+      const P = [];
+      for (let i = 0; i < G.na; i++) {
+        let per = 2.3 + hash(i, 99) * 1.5;
+        if (risk) per *= .55;
+        const v = t / per + hash(i, 55), n = Math.floor(v), u = v - n;
+        const p = pay(i, n, G, risk || s >= 3.75);
+        const va = av(G, i), vd = dv(G, p.j);
+        P.push({ i, n, u, p, va, vd });
+        const c0 = G.P(UA, va), c1 = G.P(UA + .25, va), c2 = G.P(UD - .25, vd), c3 = G.P(UD, vd);
+        c.setLineDash([2, 6]); c.lineDashOffset = -t * 12;
+        c.strokeStyle = rgba(p.type ? CL : HZ, p.type ? .2 : .16); c.lineWidth = 1;
+        c.beginPath(); c.moveTo(c0[0], c0[1]); c.bezierCurveTo(c1[0], c1[1], c2[0], c2[1], c3[0], c3[1]); c.stroke();
+      }
+      c.setLineDash([]);
+
+      // payees
+      for (let j = -1; j < G.nd; j++) {
+        const a = j < 0 ? rogueA : 1;
+        if (a <= .01) continue;
+        const [x, y] = G.P(UD, dv(G, j));
+        const fl = j < 0 && risk ? .6 + .4 * Math.sin(t * 9) : 1;
+        c.fillStyle = 'rgba(176,222,245,' + (.12 * a) + ')'; c.beginPath(); c.arc(x, y, 9, 0, 6.283); c.fill();
+        if (j < 0) { c.strokeStyle = rgba(CL, .7 * a * fl); c.setLineDash([2, 3]); c.beginPath(); c.arc(x, y, 9, 0, 6.283); c.stroke(); c.setLineDash([]); }
+        c.fillStyle = rgba(CL, .95 * a * fl); c.fillRect(x - 3, y - 3, 6, 6);
+        const name = j < 0 ? 'UNKNOWN PAYEE' : DS[j];
+        if (G.mob && j < 0) { label('UNKNOWN', x, y + 24, .7 * a, 'center', CL, 9); label('PAYEE', x, y + 35, .7 * a, 'center', CL, 9); }
+        else if (G.mob) label(name, x, y + 24, .7 * a, 'center', HZ, 9);
+        else label(name, x + 16, y + 4, .7 * a, 'left', j < 0 ? CL : HZ);
+      }
+
+      // agents, with their envelopes
+      for (let i = 0; i < G.na; i++) {
+        const [x, y] = G.P(UA, av(G, i));
+        const blink = (t * .7 + hash(i, 3)) % 1 < .05;
+        c.fillStyle = '#0b1822'; c.strokeStyle = rgba(HZ, .7); c.lineWidth = 1;
+        rrect(x - 13, y - 13, 26, 26, 6); c.fill(); c.stroke();
+        c.fillStyle = rgba(CL, .95);
+        const eh = blink ? .8 : 4.5;
+        c.fillRect(x - 7, y - eh / 2 - 1, 3.5, eh); c.fillRect(x + 3.5, y - eh / 2 - 1, 3.5, eh);
+        label(AG[i].name, x, y - 31, .6, 'center', HZ, G.mob ? 9 : 11);
+        const pf = clamp((env - .4) / .45 - i * .06);
+        if (pf > 0) {
+          c.save();
+          c.strokeStyle = rgba(HZ, 1); c.lineWidth = 1.8; c.shadowColor = 'rgba(176,222,245,.9)'; c.shadowBlur = 12 * dpr;
+          if (pf < 1) c.setLineDash([176 * pf, 400]); else { c.setLineDash([6, 4]); c.lineDashOffset = -t * 10; }
+          rrect(x - 22, y - 22, 44, 44, 10); c.stroke();
+          c.restore();
+          label(AG[i].rule, x, y + 38, .8 * pf, 'center', CL, G.mob ? 9 : 10);
+        }
+      }
+
+      // the checkpoint
+      if (riskA > 0) label('NOTHING CHECKS THIS', gc[0] + (G.mob ? 0 : 0), gc[1] + (G.mob ? -22 : -34), .9 * riskA, 'center', CL);
+      if (chk > 0) {
+        c.strokeStyle = rgba(HZ, .45 * chk); c.lineWidth = 1;
+        for (let k2 = 0; k2 <= 40; k2++) {
+          const [x, y] = G.P(UG, -.06 + k2 * 1.12 / 40);
+          const l2 = k2 % 5 ? 4 : 8;
+          c.beginPath();
+          if (G.mob) { c.moveTo(x, y - l2); c.lineTo(x, y + l2); } else { c.moveTo(x - l2, y); c.lineTo(x + l2, y); }
+          c.stroke();
+        }
+        if (G.mob) label('SAFESHAKE CHECK', g0[0], g0[1] - 14, .9 * chk, 'left', HZ, 9);
+        else label('SAFESHAKE CHECK', g0[0], g0[1] - 16, .9 * chk, 'center');
+      }
+
+      // payments
+      c.globalCompositeOperation = 'lighter';
+      for (const it of P) {
+        const { i, n, u, p, va, vd } = it;
+        if (u > .8) continue;
+        const q = u / .8;
+        const blocked = chk > .5 && !!p.type;
+        const tt = blocked ? Math.min(q, .5) : q;
+        if (chk > .5 && q >= .5 && seen[i] !== n) {
+          seen[i] = n;
+          const g = pathPt(G, va, vd, .5);
+          log.unshift({ no: ++recNo, ok: !blocked, amt: p.amt, dest: p.j < 0 ? 'UNKNOWN PAYEE' : DS[p.j], type: p.type, t, x: g[0], y: g[1] });
+          if (log.length > 8) log.pop();
+        }
+        const [px, py] = pathPt(G, va, vd, tt);
+        const [qx, qy] = pathPt(G, va, vd, Math.max(0, tt - .07));
+        const col = p.type && !blocked ? CL : HZ;
+        let al = smooth(q / .05) * (1 - smooth((q - .9) / .1));
+        if (blocked && q > .5) al = 1 - (q - .5) * 2;
+        let g = c.createLinearGradient(qx, qy, px, py);
+        g.addColorStop(0, rgba(col, 0)); g.addColorStop(1, rgba(col, .95 * al));
+        c.strokeStyle = g; c.lineWidth = 1.8;
+        c.beginPath(); c.moveTo(qx, qy); c.lineTo(px, py); c.stroke();
+        c.fillStyle = rgba(col, al); c.beginPath(); c.arc(px, py, 2.2, 0, 6.283); c.fill();
+        if (p.type || (i + n) % 2 === 0) label(money(p.amt), px + 9, py - 9, .8 * al, 'left', p.type ? CL : HZ, sm);
+        if (blocked && q > .5) {
+          const k3 = (q - .5) * 2;
+          c.strokeStyle = rgba(CL, .85 * (1 - k3)); c.lineWidth = 1.2;
+          c.beginPath(); c.arc(px, py, 4 + k3 * 20, 0, 6.283); c.stroke();
+          label('BLOCKED · ' + p.type, px + 12, py + (G.mob ? 22 : -14), .95 * (1 - k3), 'left', CL, sm);
+        } else if (chk > .5 && q > .5 && q < .64) {
+          const k3 = (q - .5) / .14;
+          c.strokeStyle = rgba(HZ, .8 * (1 - k3)); c.lineWidth = 1;
+          const [gx, gy] = pathPt(G, va, vd, .5);
+          c.beginPath(); c.arc(gx, gy, 3 + k3 * 12, 0, 6.283); c.stroke();
+          if (i % 2 === 0) label('ALLOWED', gx + 12, gy + (G.mob ? 22 : 16), .8 * (1 - k3), 'left', HZ, sm);
+        }
+      }
+      c.globalCompositeOperation = 'source-over';
+
+      // the record
+      if (rec > 0) {
+        const rows = G.mob ? (H > 760 ? 2 : 0) : (H > 760 ? 4 : 2);
+        const lx = G.X0, lw = G.X1 - G.X0 + (G.mob ? 0 : 60);
+        const ly = G.mob ? G.Y1 + 54 : G.Y1 + 64;
+        if (G.mob) label('RECORD #0' + recNo + ' ✓', g1[0], g1[1] - 14, .9 * rec, 'right', HZ, 9);
+        else label('RECORD #0' + recNo + ' ✓', g1[0], g1[1] + 22, .9 * rec, 'center');
+        if (rows > 0) {
+          label(G.mob ? 'THE RECORD · ANYONE CAN VERIFY' : 'THE RECORD · SIGNED · ANYONE CAN VERIFY IT', lx, ly, .9 * rec, 'left', CL, G.mob ? 9 : 11);
+          c.fillStyle = rgba(CL, .18 * rec); c.fillRect(lx, ly + 8, lw, 1);
+          for (let r = 0; r < rows && r < log.length; r++) {
+            const e = log[r], y = ly + 26 + r * (G.mob ? 16 : 19), age = t - e.t;
+            const a = rec * (r === 0 ? smooth(age / .35) : 1) * (1 - r * .16);
+            const f = G.mob ? 9 : 11, col = e.ok ? HZ : CL;
+            label('#0' + e.no, lx, y, a * .6, 'left', HZ, f);
+            label(e.ok ? 'ALLOWED' : 'BLOCKED', lx + (G.mob ? 48 : 70), y, a, 'left', col, f);
+            label(money(e.amt), lx + (G.mob ? 106 : 160), y, a, 'left', col, f);
+            if (!G.mob) label(e.ok ? '→ ' + e.dest : e.type, lx + 250, y, a * .8, 'left', col, f);
+            label('SIG ✓', lx + lw, y, a * .7, 'right', HZ, f);
+          }
+          c.globalCompositeOperation = 'lighter';
+          for (const e of log) {
+            const age = t - e.t;
+            if (age > .6) continue;
+            const k4 = smooth(age / .6);
+            const x = lerp(e.x, lx - 8, k4), y = lerp(e.y, ly + 22, k4);
+            c.fillStyle = rgba(CL, rec * (1 - k4 * .5)); c.fillRect(x - 2, y - 2, 4, 4);
+          }
+          c.globalCompositeOperation = 'source-over';
+        }
+      }
+      c.restore();
     };
 
     const draw = (t) => {
@@ -1124,51 +1247,51 @@ class Component extends DCLogic {
       c.setTransform(dpr, 0, 0, dpr, 0, 0);
       c.globalCompositeOperation = 'source-over'; c.globalAlpha = 1;
       c.fillStyle = '#060c11'; c.fillRect(0, 0, W, H);
-      // intro: the camera pans down from the sky until the mark, already sitting above the horizon, comes into view
-      const vy = lerp(1340, 470, io((t - .15) / 3.4));
-      const my = vy - 132;
-      const zs = io(clamp(s / .8));
-      const heroA = 1 - smooth((s - .66) / .12);
+      const heroA = 1 - smooth(s / .9);
+      let vy = lerp(352, 470, io(t / 7.2));
       if (heroA > .01) {
-        // on scroll: push in towards the mark and the horizon
-        const Z = Math.pow(18, zs), fx = 960, fy = lerp(my, vy - 20, zs * .7);
-        c.save(); c.globalAlpha = heroA;
-        c.setTransform(dpr * k * Z, 0, 0, dpr * k * Z, dpr * (ox + k * (fx - fx * Z)), dpr * (oy + k * (fy - fy * Z)));
-        floor(t, vy);
-        const ma = clamp((t - .2) / 1.1), ms = 96, sc = ms / MB[3];
+        c.save(); c.globalAlpha = heroA; c.setTransform(dpr * k, 0, 0, dpr * k, dpr * ox, dpr * oy);
+        vy = floor(t);
+        c.restore();
+      }
+      c.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const G = geo();
+      const gc = G.P(UG, .5), g0 = G.P(UG, -.06), g1 = G.P(UG, 1.06);
+      const e = smooth((s - .05) / .85);
+      const diagA = smooth((s - .3) / .7);
+      if (diagA > .01) flow(t, s, diagA, G);
+      const chk = clamp((s - 3.7) / .5);
+      const lineA = Math.max(1 - .86 * smooth((s - .9) / .45), chk);
+      if (s > .02) {
+        const hx = ox + 960 * k, hy = oy + vy * k;
+        c.save(); c.globalCompositeOperation = 'lighter'; c.globalAlpha = lineA;
+        c.strokeStyle = rgba(HZ, .9); c.lineWidth = lerp(1.5, 2.2, e);
+        c.shadowColor = 'rgba(176,222,245,.85)'; c.shadowBlur = 16 * dpr;
+        if (chk > 0) { c.setLineDash([9, 5]); c.lineDashOffset = -t * 14; }
+        c.beginPath(); c.moveTo(lerp(hx - 900 * k, g0[0], e), lerp(hy, g0[1], e)); c.lineTo(lerp(hx + 900 * k, g1[0], e), lerp(hy, g1[1], e)); c.stroke();
+        c.restore();
+      }
+      const ma = clamp((t - .9) / 1.4);
+      if (ma > 0) {
+        const rr = io((t - .9) / 3.2), topF = lerp(vy + 6, vy - 88 - 34, rr);
+        const hmx = ox + 960 * k, hmy = oy + (topF + 44) * k, hms = 88 * k;
+        const fs = G.mob ? 26 : 34;
+        const mx = lerp(hmx, gc[0], e), my = lerp(hmy, gc[1], e), ms = lerp(hms, fs, e);
+        const mA = ma * (s < .9 ? 1 : Math.max(lineA, .1));
+        if (e > .3) {
+          c.save(); c.globalAlpha = smooth((e - .3) / .5) * Math.max(lineA, .4);
+          c.fillStyle = '#060c11'; c.beginPath(); c.arc(mx, my, ms * .95, 0, 6.283); c.fill();
+          if (chk > 0) { c.strokeStyle = rgba(HZ, .9 * chk); c.lineWidth = 1.5; c.shadowColor = 'rgba(176,222,245,.9)'; c.shadowBlur = 12 * dpr; c.stroke(); }
+          c.restore();
+        }
+        const sc = ms / MB[3];
         c.save();
-        c.globalAlpha = heroA * ma;
-        c.shadowColor = 'rgba(176,222,245,.6)'; c.shadowBlur = 26 * dpr;
-        c.translate(960 - MB[2] * sc / 2 - MB[0] * sc, my - MB[3] * sc / 2 - MB[1] * sc); c.scale(sc, sc);
+        if (s < .02) { c.beginPath(); c.rect(0, 0, W, oy + (vy + .5) * k); c.clip(); }
+        c.globalAlpha = mA;
+        c.shadowColor = 'rgba(176,222,245,.55)'; c.shadowBlur = 24 * dpr;
+        c.translate(mx - MB[2] * sc / 2 - MB[0] * sc, my - MB[3] * sc / 2 - MB[1] * sc); c.scale(sc, sc);
         c.fillStyle = '#f2f2f2'; c.fill(mark, 'evenodd');
         c.restore();
-        c.restore();
-      }
-      // behind the story: a quiet field of light
-      const bgA = smooth((s - .68) / .15);
-      if (bgA > .01) {
-        c.setTransform(dpr, 0, 0, dpr, 0, 0);
-        c.save(); c.globalAlpha = bgA;
-        const mob = W < 900, gx = mob ? W / 2 : W * .3, gy = mob ? H * .3 : H * .52;
-        let g = c.createRadialGradient(gx, gy, 0, gx, gy, Math.max(W, H) * .6);
-        g.addColorStop(0, 'rgba(41,87,102,.42)'); g.addColorStop(.45, 'rgba(10,38,56,.2)'); g.addColorStop(1, 'rgba(0,0,0,0)');
-        c.fillStyle = g; c.fillRect(0, 0, W, H);
-        for (let x = 18; x < W; x += 36) for (let y = 18; y < H; y += 36) {
-          const a = .05 + .05 * Math.sin(t * .8 + x * .013 + y * .021);
-          c.fillStyle = rgba(HZ, a); c.fillRect(x, y, 1.2, 1.2);
-        }
-        for (const d of drift) {
-          const y = ((d.y - t * d.v) % 1 + 1) % 1 * H, x = d.x * W + Math.sin(t * .4 + d.tw) * 20;
-          c.fillStyle = rgba(HZ, .25 + .25 * Math.sin(t * 1.3 + d.tw));
-          c.beginPath(); c.arc(x, y, d.r, 0, 6.283); c.fill();
-        }
-        c.restore();
-      }
-      // the flash as we pass through the horizon
-      const fa = s < .74 ? smooth((s - .5) / .24) : 1 - smooth((s - .74) / .2);
-      if (fa > .01) {
-        c.setTransform(dpr, 0, 0, dpr, 0, 0);
-        c.fillStyle = 'rgba(242,242,242,' + (.95 * fa) + ')'; c.fillRect(0, 0, W, H);
       }
     };
 
