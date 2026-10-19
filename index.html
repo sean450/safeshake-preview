@@ -363,6 +363,59 @@ a{color:#f2f2f2;text-decoration:none}a:hover{color:#b0def5}
 @media (max-width:900px){.mcopy{left:20px;right:20px;width:auto;top:auto;bottom:30px;transform:none}.mhead{font-size:34px}.mlist li{min-height:44px;font-size:16px}.mcap{display:none}.itrack{padding:0 20px}.ibar{margin:22px 20px 0}.istage{padding-top:70px}.vcopy{left:20px;right:20px;top:84px;width:auto}.vterm{left:20px;right:20px;width:auto;bottom:24px;font-size:10px;padding:14px 16px}.vbig{right:20px;bottom:auto;top:46%;font-size:64px}}
 @media (prefers-reduced-motion:reduce){.icard.ss::before{animation:none}}
 @media (max-width:900px){[data-sec^="005"] .dshade{background:linear-gradient(180deg,rgba(13,13,13,0) 22%,rgba(13,13,13,.82) 48%,rgba(13,13,13,.95)) !important}[data-sec^="007"] .dshade{background:linear-gradient(180deg,rgba(13,13,13,.92) 0,rgba(13,13,13,.35) 34%,rgba(13,13,13,.25) 58%,rgba(13,13,13,.92) 78%) !important}}
+.mtop{position:absolute;left:0;right:0;top:clamp(84px,11vh,120px);display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 20px}
+.mtop .mhead{width:min(900px,100%);height:1.1em;margin-top:18px}
+.mtop .mhead>span{left:0;right:0}
+.mtop .msw{margin-top:22px}
+.mbot{position:absolute;left:50%;bottom:clamp(36px,6vh,64px);transform:translateX(-50%);width:min(980px,calc(100% - 40px));text-align:center}
+.mrow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:0;padding:0;list-style:none}
+.mrow li{position:relative;padding:16px 10px 0;border-top:1px solid rgba(242,242,242,.16);color:rgba(242,242,242,.35);font-size:17px;line-height:1.3;transition:color .5s,border-color .5s}
+.mrow li .mono{display:block;margin-bottom:8px;color:inherit}
+.mrow li::before{content:'';position:absolute;left:50%;top:-4px;width:7px;height:7px;margin-left:-3.5px;border-radius:50%;background:rgba(242,242,242,.25);transition:background .4s,box-shadow .4s}
+.mrow li.on{color:#f2f2f2;border-color:rgba(176,222,245,.6)}
+.mrow li.on::before{background:#b0def5;box-shadow:0 0 14px #b0def5}
+.mbot .mcap2{margin-top:18px}
+@media (max-width:900px){.mtop{top:76px}.mtop .mhead{font-size:32px}.mrow{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:14px}.mrow li{font-size:14px;padding-top:12px}.mbot .mcap2{display:none}}
+.ipanel{position:relative;background:#0d0d0d;margin-top:12px}
+.ipanel::before{content:'';position:absolute;inset:0;background:radial-gradient(60% 50% at 70% 70%,rgba(41,87,102,.28),rgba(13,13,13,0) 70%);pointer-events:none}
+.ipanel .istage{z-index:1}
+.ipanel .icard{background:linear-gradient(170deg,rgba(242,242,242,.045),rgba(242,242,242,.015));border:1px solid rgba(242,242,242,.12);color:#f2f2f2}
+.ipanel .icard:hover{box-shadow:0 30px 70px rgba(0,0,0,.45);border-color:rgba(176,222,245,.35)}
+.ipanel .icard .num{color:rgba(176,222,245,.55)}
+.ipanel .icard p{color:rgba(242,242,242,.6)}
+.ipanel .icard .istk i{background:rgba(242,242,242,.1)}
+.ipanel .icard .istk i.on{background:rgba(242,242,242,.85)}
+.ipanel .icard.ss{background:linear-gradient(165deg,rgba(176,222,245,.14),rgba(41,87,102,.22) 40%,rgba(10,38,56,.85));border-color:rgba(176,222,245,.4);box-shadow:0 0 70px rgba(176,222,245,.08)}
+.ipanel .icard.ss .num{color:#b0def5}
+.ipanel .icard.ss::before{background-image:radial-gradient(circle,rgba(176,222,245,.35) 0 1px,transparent 1.6px)}
+.ipanel .icard.ss .istk i.on{background:#b0def5}
+.ipanel .ibar .ln{background:rgba(242,242,242,.14)}
+.ipanel .ibar .ln i{background:#b0def5}
+.chain{position:absolute;right:48px;top:50%;transform:translateY(-50%);width:min(540px,42%)}
+.chd{display:flex;justify-content:space-between;gap:12px;padding-bottom:14px;color:rgba(242,242,242,.55)}
+.chd b{font-weight:400;color:#b0def5}
+.chd b.no{color:#f2f2f2}
+.blk{border:1px solid rgba(242,242,242,.12);border-radius:6px;background:rgba(242,242,242,.03);padding:13px 16px;transition:border-color .5s,background .5s,box-shadow .5s,opacity .5s;opacity:.55}
+.blk.ok{opacity:1;border-color:rgba(176,222,245,.42);background:linear-gradient(165deg,rgba(176,222,245,.1),rgba(10,38,56,.55))}
+.blk.scan{opacity:1;box-shadow:0 0 0 1px #b0def5,0 0 34px rgba(176,222,245,.22)}
+.blk.bad{opacity:1;border-color:rgba(242,242,242,.75);background:rgba(242,242,242,.06)}
+.br{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:12px;align-items:center;font-size:16px}
+.br .mono{color:rgba(242,242,242,.5)}
+.bs{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(242,242,242,.35);white-space:nowrap}
+.blk.ok .bs{color:#b0def5}
+.blk.bad .bs{color:#f2f2f2}
+.bh{margin-top:7px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;color:rgba(242,242,242,.38)}
+.bh s{color:#f2f2f2;text-decoration-thickness:1px}
+.lk{position:relative;width:1px;height:20px;margin:0 auto;background:repeating-linear-gradient(180deg,rgba(242,242,242,.25) 0 3px,transparent 3px 6px);transition:background .5s}
+.lk.ok{background:#b0def5;box-shadow:0 0 8px rgba(176,222,245,.6)}
+.lk.broken{background:none}
+.lk.broken::before,.lk.broken::after{content:'';position:absolute;left:0;width:1px;height:7px;background:#f2f2f2}
+.lk.broken::before{top:0;transform:rotate(-24deg)}
+.lk.broken::after{bottom:0;transform:rotate(24deg)}
+.tamp{display:inline-flex;align-items:center;gap:10px;margin-top:18px;min-height:40px;padding:0 16px;border-radius:999px;border:1px solid rgba(242,242,242,.25);background:none;color:rgba(242,242,242,.8);font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:background .3s,color .3s,border-color .3s}
+.tamp:hover{background:#f2f2f2;color:#0a2638;border-color:#f2f2f2}
+.vsec2 .vterm{background:rgba(5,8,11,.6);border-color:rgba(242,242,242,.1)}
+@media (max-width:900px){.chain{left:20px;right:20px;width:auto;top:auto;bottom:24px;transform:none}.vsec2 .vterm{display:none}.br{font-size:14px;grid-template-columns:52px minmax(0,1fr) auto}.blk{padding:10px 12px}.bh{display:none}.lk{height:12px}}
 </style>
 </helmet>
 <div class="ss" ref="{{rootRef}}">
@@ -534,67 +587,80 @@ a{color:#f2f2f2;text-decoration:none}a:hover{color:#b0def5}
 
 <section class="dsec" ref="{{mRef}}" data-sec="005|Two modes">
 <div class="dstage" ref="{{mStageRef}}">
-<iframe class="dframe" data-dots="modes" title="" aria-hidden="true" tabindex="-1" loading="lazy" src="dots/index.html?scene=envelope&amp;embed&amp;notext&amp;scrub&amp;q=0.6"></iframe>
-<div class="dshade" aria-hidden="true" style="background: linear-gradient(90deg, rgba(13,13,13,0) 35%, rgba(13,13,13,.75) 62%, rgba(13,13,13,.9))"></div>
-<div class="mcopy">
+<iframe class="dframe" data-dots="modes" data-scene="reach" title="" aria-hidden="true" tabindex="-1"></iframe>
+<div class="dshade" aria-hidden="true" style="background: linear-gradient(180deg, rgba(13,13,13,.85) 0%, rgba(13,13,13,.15) 30%, rgba(13,13,13,0) 50%, rgba(13,13,13,.2) 68%, rgba(13,13,13,.88) 100%)"></div>
+<div class="mtop">
 <span class="mono" style="color: #b0def5"><span class="sq"></span>005 / Two modes</span>
 <h2 class="mhead"><span class="{{hObs}}">Observe <span class="it">first.</span></span><span class="{{hEnf}}">Enforce <span class="it">when ready.</span></span></h2>
 <div class="msw {{swCls}}" role="group" aria-label="Mode"><i aria-hidden="true"></i><button type="button" aria-pressed="{{obsPressed}}" onClick="{{pickObserve}}">Observe</button><button type="button" aria-pressed="{{enfPressed}}" onClick="{{pickEnforce}}">Enforce</button></div>
-<ol class="mlist">
-<li class="{{ml0}}"><span class="mono">01</span><span>{{mt0}}</span><i aria-hidden="true"></i></li>
-<li class="{{ml1}}"><span class="mono">02</span><span>{{mt1}}</span><i aria-hidden="true"></i></li>
-<li class="{{ml2}}"><span class="mono">03</span><span>{{mt2}}</span><i aria-hidden="true"></i></li>
-<li class="{{ml3}}"><span class="mono">04</span><span>{{mt3}}</span><i aria-hidden="true"></i></li>
-</ol>
 </div>
-<p class="mcap mono dim">{{mCap}}</p>
+<div class="mbot">
+<ol class="mrow">
+<li class="{{ml0}}"><span class="mono">01</span>{{mt0}}</li>
+<li class="{{ml1}}"><span class="mono">02</span>{{mt1}}</li>
+<li class="{{ml2}}"><span class="mono">03</span>{{mt2}}</li>
+<li class="{{ml3}}"><span class="mono">04</span>{{mt3}}</li>
+</ol>
+<p class="mono dim mcap2">{{mCap}}</p>
+</div>
 </div>
 </section>
 
 <section class="isec" ref="{{iRef}}" data-sec="006|Integration" style="padding-top: 12px">
-<div class="panel" style="overflow: visible">
+<div class="ipanel">
 <div class="istage" ref="{{iStageRef}}">
 <div class="wrap">
-<div class="mono" style="display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; color: rgba(10,38,56,.75)"><span><span class="sq"></span>006 / Integration</span><span class="hide-m">Every control keeps its job</span></div>
+<div class="mono" style="display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; color: rgba(242,242,242,.6)"><span><span class="sq" style="color: #b0def5"></span>006 / Integration</span><span class="hide-m">Every control keeps its job</span></div>
 <div class="cols" style="padding-top: 34px; align-items: end">
-<h2 class="h2 mk" data-rv style="grid-column: 1 / span 8; color: #0a2638"><span class="ml"><span>Sits beside</span></span><span class="ml"><span style="font-family: 'Erode', Georgia, serif; font-style: italic; color: #295766">what you already run.</span></span></h2>
-<p class="mono" data-rv style="grid-column: 9 / span 4; line-height: 1.8; margin: 0; color: rgba(10,38,56,.7)">One layer is missing from the stack: delegated authority. Scroll along it.</p>
+<h2 class="h2 mk" data-rv style="grid-column: 1 / span 8"><span class="ml"><span>Sits beside</span></span><span class="ml"><span class="it">what you already run.</span></span></h2>
+<p class="mono" data-rv style="grid-column: 9 / span 4; line-height: 1.8; margin: 0; color: rgba(242,242,242,.55)">One layer is missing from the stack: delegated authority. Scroll along it.</p>
 </div>
 </div>
 <div style="margin-top: 40px; overflow: hidden">
 <div class="itrack" data-itrack>
-<article class="icard"><div class="istk" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div><span class="num">01</span><div><span class="mono" style="color: #295766">Who the agent is</span><h3 style="margin-top: 12px">Identity provider</h3><p>Envelopes name owners and bind to identities you already issue.</p></div></article>
+<article class="icard"><div class="istk" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div><span class="num">01</span><div><span class="mono" style="color: rgba(176,222,245,.75)">Who the agent is</span><h3 style="margin-top: 12px">Identity provider</h3><p>Envelopes name owners and bind to identities you already issue.</p></div></article>
 <article class="icard ss"><div class="istk" aria-hidden="true"><i class=""></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div><span class="num">02</span><div><span class="mono" style="color: #b0def5">Delegated authority</span><h3 style="margin-top: 12px">SafeShake</h3><p>Self-hosted in your environment. Checks the envelope, holds the evidence.</p></div></article>
-<article class="icard"><div class="istk" aria-hidden="true"><i class=""></i><i class=""></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></div><span class="num">03</span><div><span class="mono" style="color: #295766">Routes, limits keys</span><h3 style="margin-top: 12px">AI gateway</h3><p>A gateway policy asks SafeShake before forwarding.</p></div></article>
-<article class="icard"><div class="istk" aria-hidden="true"><i class=""></i><i class=""></i><i class=""></i><i class="on"></i><i class=""></i><i class=""></i></div><span class="num">04</span><div><span class="mono" style="color: #295766">Orchestrate</span><h3 style="margin-top: 12px">Agent frameworks</h3><p>Hooks or middleware ask before each model and tool call.</p></div></article>
-<article class="icard"><div class="istk" aria-hidden="true"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class="on"></i><i class=""></i></div><span class="num">05</span><div><span class="mono" style="color: #295766">Consumed</span><h3 style="margin-top: 12px">Models, tools, MCP</h3><p>An MCP server and local proxy see the calls hooks miss.</p></div></article>
+<article class="icard"><div class="istk" aria-hidden="true"><i class=""></i><i class=""></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></div><span class="num">03</span><div><span class="mono" style="color: rgba(176,222,245,.75)">Routes, limits keys</span><h3 style="margin-top: 12px">AI gateway</h3><p>A gateway policy asks SafeShake before forwarding.</p></div></article>
+<article class="icard"><div class="istk" aria-hidden="true"><i class=""></i><i class=""></i><i class=""></i><i class="on"></i><i class=""></i><i class=""></i></div><span class="num">04</span><div><span class="mono" style="color: rgba(176,222,245,.75)">Orchestrate</span><h3 style="margin-top: 12px">Agent frameworks</h3><p>Hooks or middleware ask before each model and tool call.</p></div></article>
+<article class="icard"><div class="istk" aria-hidden="true"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class="on"></i><i class=""></i></div><span class="num">05</span><div><span class="mono" style="color: rgba(176,222,245,.75)">Consumed</span><h3 style="margin-top: 12px">Models, tools, MCP</h3><p>An MCP server and local proxy see the calls hooks miss.</p></div></article>
 <article class="icard ss"><div class="istk" aria-hidden="true"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class="on"></i></div><span class="num">06</span><div><span class="mono" style="color: #b0def5">Owned, settled, proven</span><h3 style="margin-top: 12px">Economic record</h3><p>Removable. The evidence stays usable without us.</p></div></article>
 </div>
 </div>
-<div class="ibar mono" style="color: #0a2638"><span>{{iNo}} / 06</span><span class="ln"><i data-ibar></i></span><span>Layer in the stack</span></div>
+<div class="ibar mono" style="color: rgba(242,242,242,.6)"><span>{{iNo}} / 06</span><span class="ln"><i data-ibar></i></span><span>Layer in the stack</span></div>
 </div>
 </div>
 </section>
 
-<section class="dsec" ref="{{vRef}}" data-sec="007|Verification">
+<section class="dsec vsec2" ref="{{vRef}}" data-sec="007|Verification">
 <div class="dstage" ref="{{vStageRef}}">
-<iframe class="dframe" data-dots="verify" title="" aria-hidden="true" tabindex="-1" loading="lazy" src="dots/index.html?scene=mark&amp;embed&amp;notext&amp;scrub&amp;q=0.6"></iframe>
-<div class="dshade" aria-hidden="true" style="background: linear-gradient(90deg, rgba(13,13,13,.92), rgba(13,13,13,.55) 40%, rgba(13,13,13,0) 60%)"></div>
+<div class="dshade" aria-hidden="true" style="background: radial-gradient(55% 70% at 74% 52%, rgba(41,87,102,.32), rgba(13,13,13,0) 72%)"></div>
 <div class="vcopy">
 <span class="mono" style="color: #b0def5"><span class="sq"></span>007 / Verification</span>
 <h2 class="h2" style="margin-top: 22px">Anyone can <span class="it">check the record.</span></h2>
-<p class="lede" style="margin-top: 18px; max-width: 26em">Checked offline, with no access to SafeShake. Edits and deletions show up.</p>
+<p class="lede" style="margin-top: 18px; max-width: 26em">Checked offline, with no access to SafeShake. Every entry is chained to the one before, so edits and deletions show up.</p>
 </div>
 <div class="vterm" role="img" aria-label="Terminal: safeshake verify passes five checks and prints VERIFIED">
 <span class="{{v0}}" style="color: rgba(242,242,242,.55)">$ safeshake verify legal-october.json</span>
 <span class="{{v1}}"> </span>
 <span class="{{v2}}" style="color: #b0def5">PASS envelope id is the content hash of its body</span>
 <span class="{{v3}}" style="color: #b0def5">PASS envelope signed by the declared principal key</span>
-<span class="{{v4}}" style="color: #b0def5">PASS hash chain is continuous</span>
-<span class="{{v5}}" style="color: #b0def5">PASS event hashes recompute from their contents</span>
+<span class="{{v4}}" style="color: #b0def5">{{vl4}}</span>
+<span class="{{v5}}" style="color: #b0def5">{{vl5}}</span>
 <span class="{{v6}}" style="color: #b0def5">PASS event signatures verify against the public key</span>
 </div>
-<div class="vbig {{vBig}}" aria-hidden="true">VERIFIED</div>
+<div class="chain">
+<div class="chd mono"><span>legal-october.json</span><b class="{{chCls}}">{{chSum}}</b></div>
+<div class="blk {{bk0}}"><div class="br"><span class="mono">#0410</span><span>{{bt0}}</span><span class="bs">{{bs0}}</span></div><div class="bh">{{bh0}}</div></div>
+<div class="lk {{lk0}}" aria-hidden="true"></div>
+<div class="blk {{bk1}}"><div class="br"><span class="mono">#0411</span><span>{{bt1}}</span><span class="bs">{{bs1}}</span></div><div class="bh">{{bh1}}</div></div>
+<div class="lk {{lk1}}" aria-hidden="true"></div>
+<div class="blk {{bk2}}"><div class="br"><span class="mono">#0412</span><span>{{bt2}}</span><span class="bs">{{bs2}}</span></div><div class="bh">{{bh2}}</div></div>
+<div class="lk {{lk2}}" aria-hidden="true"></div>
+<div class="blk {{bk3}}"><div class="br"><span class="mono">#0413</span><span>{{bt3}}</span><span class="bs">{{bs3}}</span></div><div class="bh">{{bh3}}</div></div>
+<div class="lk {{lk3}}" aria-hidden="true"></div>
+<div class="blk {{bk4}}"><div class="br"><span class="mono">#0414</span><span>{{bt4}}</span><span class="bs">{{bs4}}</span></div><div class="bh">{{bh4}}</div></div>
+<button type="button" class="tamp" onClick="{{toggleTamper}}">{{tamLabel}}</button>
+</div>
 </div>
 </section>
 
@@ -705,7 +771,7 @@ class Component extends DCLogic {
       log: [], tool: -1, tk: 'ka', typed: '',
       sh: { who: -1, what: 'Waiting for a request', c: [0, 0, 0], v: '', ok: true, spent: 6420, hist: 412 },
       k: [1284, 920, 344, 2210, 610, 4120, 8830, 2975],
-      tword: 'THIS', timg: 0, tfin: false, astep: 6, open: 1, mode: 'observe', mp: 1, ip: 0, vp: 1
+      tword: 'THIS', timg: 0, tfin: false, astep: 6, open: 1, mode: 'observe', mp: 1, ip: 0, vp: 1, tam: false
     };
     this.root = null; this.cv = null; this.wrap = null; this.inner = null; this.vis = null; this.s = 0; this.long = false;
     this.setRoot = (el) => { this.root = el; };
@@ -723,6 +789,7 @@ class Component extends DCLogic {
     this.setIStage = (el) => { this.iStage = el; };
     this.setV = (el) => { this.vSec = el; };
     this.setVStage = (el) => { this.vStage = el; };
+    this.toggleTamper = () => this.setState({ tam: !this.state.tam });
     this.jump = (half) => { if (!this.mSec || !this.mStage || !this.long) { this.setState({ mp: half ? 1 : 0.2 }); return; } const r = this.mSec.getBoundingClientRect(), span = r.height - this.mStage.offsetHeight; window.scrollTo({ top: window.scrollY + r.top + span * (half ? 0.78 : 0.2), behavior: 'smooth' }); };
     this.toggleMenu = () => this.setState({ menu: !this.state.menu });
     this.closeMenu = () => this.setState({ menu: false });
@@ -882,9 +949,9 @@ class Component extends DCLogic {
       const r = f.getBoundingClientRect(), on = r.bottom > -50 && r.top < vh + 50;
       let d;
       // envelope: the hand gathers while observing, the sphere wakes once enforcing
-      if (f.getAttribute('data-dots') === 'modes') d = mp < 0.5 ? 0.1 + (mp / 0.5) * 0.18 : 0.32 + ((mp - 0.5) / 0.5) * 0.66;
+      if (f.getAttribute('data-dots') === 'modes') d = mp < 0.5 ? 0.05 + (mp / 0.5) * 0.37 : 0.42 + ((mp - 0.5) / 0.5) * 0.4;
       // mark: dust gathers into the mark and holds; never blows away here
-      else d = 0.02 + vp * 0.6;
+      else return;
       try { w.postMessage({ dots: d, pause: !on }, '*'); } catch (e) {}
     });
   }
@@ -913,6 +980,7 @@ class Component extends DCLogic {
     this.fill = root.querySelector('[data-fill]');
     this.tbg = root.querySelector('[data-tbg]');
     this.dots = Array.prototype.slice.call(root.querySelectorAll('[data-dots]'));
+    this.dots.forEach((f) => { const sc = f.getAttribute('data-scene'); if (sc && !f.getAttribute('src')) f.setAttribute('src', 'dots/index.html?scene=' + sc + '&embed&notext&scrub&q=0.6' + ((window.innerWidth || 1200) < 900 ? '&f=tall' : '')); });
     this.itrack = root.querySelector('[data-itrack]');
     this.ibar = root.querySelector('[data-ibar]');
     // the dot scenes follow the scroll; keep telling them where to be, and pause them off screen
@@ -1464,8 +1532,28 @@ class Component extends DCLogic {
       mRef: this.setM, mStageRef: this.setMStage, iRef: this.setI, iStageRef: this.setIStage, vRef: this.setV, vStageRef: this.setVStage,
       hObs: enf ? 'out' : 'in', hEnf: enf ? 'in' : 'out', swCls: enf ? 'enf' : '',
       mCap: enf ? 'Enforce · the envelope reserves before anything runs' : 'Observe · see every action, nothing is blocked',
-      iNo: '0' + Math.max(1, this.state.ip), vBig: this.state.vp > 0.86 ? 'on' : ''
+      iNo: '0' + Math.max(1, this.state.ip), toggleTamper: this.toggleTamper
     };
+    // the chain: the verifier walks down it as you scroll; editing one entry breaks every link after it
+    const EV = [['Legal', '€240', 'Cloud API'], ['Legal', '€1,190', 'Supplier Ltd'], ['Legal', '€412', 'Flights'], ['Legal', '€90', 'SaaS'], ['Legal', '€38', 'Data API']];
+    const HS = ['a3f9c2', '7c1e04', 'e81d5a', '0b77fe', 'c4d290'];
+    const tam = this.state.tam, TI = 2;
+    const n = Math.max(0, Math.min(5, Math.floor((this.state.vp - 0.12) / 0.15) + 1));
+    for (let i = 0; i < 5; i++) {
+      const seen = i < n, cur = i === n && n < 5, broken = tam && i >= TI;
+      const amt = tam && i === TI ? '€4,120' : EV[i][1];
+      const h = tam && i === TI ? '5b0f13' : HS[i];
+      v['bt' + i] = amt + ' → ' + EV[i][2];
+      v['bk' + i] = (seen ? (broken ? 'bad' : 'ok') : '') + (cur ? ' scan' : '');
+      v['bs' + i] = !seen ? (cur ? 'Checking' : '·') : broken ? (i === TI ? 'Edited ✗' : 'Broken ✗') : 'Verified ✓';
+      v['bh' + i] = 'hash ' + h + '…  ·  prev ' + (i ? (tam && i === TI + 1 ? 'e81d5a ≠ 5b0f13' : HS[i - 1]) : 'genesis') + '…';
+      if (i < 4) v['lk' + i] = i + 1 < n ? (tam && i >= TI ? 'broken' : 'ok') : '';
+    }
+    v.chSum = tam ? (n > TI ? 'Edit detected at #041' + TI : 'Checking ' + Math.min(n + 1, 5) + ' of 5') : n >= 5 ? '5 of 5 intact · offline' : 'Checking ' + (n + 1) + ' of 5';
+    v.chCls = tam && n > TI ? 'no' : '';
+    v.tamLabel = tam ? 'Undo the edit' : 'Try editing an entry';
+    v.vl4 = tam ? 'FAIL hash chain breaks after #0411' : 'PASS hash chain is continuous';
+    v.vl5 = tam ? 'FAIL #0412 does not match its hash' : 'PASS event hashes recompute from their contents';
     const ML = enf ? ['Is this allowed?', 'Reserve the authority', 'Run, steer or escalate', 'Settle'] : ['Would this be allowed?', 'Record the decision', 'Run anyway', 'Settle'];
     const half = enf ? (this.state.mp - 0.5) / 0.5 : this.state.mp / 0.5;
     for (let i = 0; i < 4; i++) { v['mt' + i] = ML[i]; v['ml' + i] = half * 4.4 > i + 0.2 ? 'on' : ''; }
