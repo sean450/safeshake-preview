@@ -16,6 +16,10 @@
   const quality = Math.min(1, Math.max(0.3, Number(q.get('q')) || 1));
   const [W, H] = fmt === 'tall' ? [1080, 1920] : fmt === 'square' ? [1080, 1080] : [1920, 1080];
   const scene = window.SCENES[name];
+  // website copy: ?warm=0.3 dials back the blue around the subject, ?boost=1.2 lifts the dots, ?grain=1.3 adds grain
+  if (q.has('warm')) window.DOTS.WARM = Number(q.get('warm'));
+  if (q.has('boost')) window.DOTS.BOOST = Number(q.get('boost'));
+  if (q.has('grain')) window.DOTS.GRAIN = Number(q.get('grain'));
   const look = q.get('look') || scene.look || 'dots', brand = q.get('palette') !== 'mono';
 
   const stage = document.getElementById('stage'), canvas = document.getElementById('c');

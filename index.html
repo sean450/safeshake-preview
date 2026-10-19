@@ -313,6 +313,7 @@ a{color:#f2f2f2;text-decoration:none}a:hover{color:#b0def5}
 .dsec{position:relative;background:#0d0d0d}
 .dstage{position:sticky;top:0;height:clamp(640px,100vh,960px);overflow:hidden;background:#0d0d0d}
 .dframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;pointer-events:none}
+[data-scene="reach"]{left:-24px;width:calc(100% + 48px);filter:drop-shadow(0 0 5px rgba(176,222,245,.28))}
 .dshade{position:absolute;inset:0;pointer-events:none}
 .mcopy{position:absolute;right:48px;top:50%;transform:translateY(-50%);width:min(520px,40%)}
 .mhead{position:relative;height:2.2em;font-size:clamp(40px,4.4vw,72px);font-weight:300;letter-spacing:-.025em;line-height:1.02;margin:22px 0 0}
@@ -369,10 +370,10 @@ a{color:#f2f2f2;text-decoration:none}a:hover{color:#b0def5}
 .mtop .msw{margin-top:22px}
 .mbot{position:absolute;left:50%;bottom:clamp(36px,6vh,64px);transform:translateX(-50%);width:min(980px,calc(100% - 40px));text-align:center}
 .mrow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:0;padding:0;list-style:none}
-.mrow li{position:relative;padding:16px 10px 0;border-top:1px solid rgba(242,242,242,.16);color:rgba(242,242,242,.35);font-size:17px;line-height:1.3;transition:color .5s,border-color .5s}
+.mrow li{position:relative;padding:16px 10px 0;color:rgba(242,242,242,.35);font-size:17px;line-height:1.3;transition:color .5s,border-color .5s}
 .mrow li .mono{display:block;margin-bottom:8px;color:inherit}
 .mrow li::before{content:'';position:absolute;left:50%;top:-4px;width:7px;height:7px;margin-left:-3.5px;border-radius:50%;background:rgba(242,242,242,.25);transition:background .4s,box-shadow .4s}
-.mrow li.on{color:#f2f2f2;border-color:rgba(176,222,245,.6)}
+.mrow li.on{color:#f2f2f2}
 .mrow li.on::before{background:#b0def5;box-shadow:0 0 14px #b0def5}
 .mbot .mcap2{margin-top:18px}
 @media (max-width:900px){.mtop{top:76px}.mtop .mhead{font-size:32px}.mrow{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:14px}.mrow li{font-size:14px;padding-top:12px}.mbot .mcap2{display:none}}
@@ -416,6 +417,7 @@ a{color:#f2f2f2;text-decoration:none}a:hover{color:#b0def5}
 .tamp:hover{background:#f2f2f2;color:#0a2638;border-color:#f2f2f2}
 .vsec2 .vterm{background:rgba(5,8,11,.6);border-color:rgba(242,242,242,.1)}
 @media (max-width:900px){.chain{left:20px;right:20px;width:auto;top:auto;bottom:24px;transform:none}.vsec2 .vterm{display:none}.br{font-size:14px;grid-template-columns:52px minmax(0,1fr) auto}.blk{padding:10px 12px}.bh{display:none}.lk{height:12px}}
+@media (max-width:900px){.para .tile{width:50% !important;opacity:.7}.para>div[style*="sticky"]{z-index:5 !important;text-shadow:0 2px 24px rgba(4,7,10,.9)}.para .tile .stat{flex-direction:column;align-items:flex-start;gap:4px;left:12px;right:12px;bottom:12px}.para .tile .stat b{font-size:26px}}
 </style>
 </helmet>
 <div class="ss" ref="{{rootRef}}">
@@ -588,7 +590,7 @@ a{color:#f2f2f2;text-decoration:none}a:hover{color:#b0def5}
 <section class="dsec" ref="{{mRef}}" data-sec="005|Two modes">
 <div class="dstage" ref="{{mStageRef}}">
 <iframe class="dframe" data-dots="modes" data-scene="reach" title="" aria-hidden="true" tabindex="-1"></iframe>
-<div class="dshade" aria-hidden="true" style="background: linear-gradient(180deg, rgba(13,13,13,.85) 0%, rgba(13,13,13,.15) 30%, rgba(13,13,13,0) 50%, rgba(13,13,13,.2) 68%, rgba(13,13,13,.88) 100%)"></div>
+<div class="dshade" aria-hidden="true" style="background: linear-gradient(180deg, #0d0d0d 0%, rgba(13,13,13,.55) 14%, rgba(13,13,13,.1) 32%, rgba(13,13,13,0) 50%, rgba(13,13,13,.25) 70%, rgba(13,13,13,.85) 88%, #0d0d0d 100%)"></div>
 <div class="mtop">
 <span class="mono" style="color: #b0def5"><span class="sq"></span>005 / Two modes</span>
 <h2 class="mhead"><span class="{{hObs}}">Observe <span class="it">first.</span></span><span class="{{hEnf}}">Enforce <span class="it">when ready.</span></span></h2>
@@ -664,29 +666,29 @@ a{color:#f2f2f2;text-decoration:none}a:hover{color:#b0def5}
 </div>
 </section>
 
-<section data-sec="008|Limits that hold" data-par class="para" style="height: 1800px; margin-top: 12px">
+<section data-sec="008|The line is yours" data-par class="para" style="height: 1800px; margin-top: 12px">
 <div class="stars" aria-hidden="true"></div>
 <div class="planet" aria-hidden="true"></div>
 <div style="position: sticky; top: 0; height: clamp(600px, 100vh, 900px); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; z-index: 2; pointer-events: none; padding: 0 20px">
-<span class="mono" style="padding: 5px 10px; border: 1px solid rgba(242,242,242,.5)">Proof, not promises</span>
-<h2 class="h2" style="margin-top: 24px">Limits that <span class="it">hold.</span></h2>
-<p class="lede" style="margin-top: 18px">When an agent pushes, the envelope doesn't move. And the record shows it.</p>
+<span class="mono" style="padding: 5px 10px; border: 1px solid rgba(242,242,242,.5)">Delegate, don't surrender</span>
+<h2 class="h2" style="margin-top: 24px">The line is <span class="it">yours.</span></h2>
+<p class="lede" style="margin-top: 18px; max-width: 30em">A person sets the limits. The agent can be fooled and still can't cross them: it only asks, it never holds the keys.</p>
 </div>
 <div class="tile" data-speed="-420" style="left: 4%; top: 140px; width: min(30%, 420px); aspect-ratio: 4 / 3; z-index: 3">
 <img src="img/stage.jpg" alt="An audience in front of a SafeShake screen" style="object-position: 50% 60%"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i>
-<div class="stat"><b>591</b><span class="mono">Automated tests</span></div>
+<div class="stat"><b>Built</b><span class="mono">And working</span></div>
 </div>
 <div class="tile" data-speed="-180" style="right: 7%; top: 80px; width: min(20%, 280px); aspect-ratio: 3 / 4; z-index: 1">
 <img src="img/card.jpg" alt="The SafeShake glass card" style="object-position: 50% 65%"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i>
-<div class="stat"><b>ed25519</b><span class="mono">Signed by the owner</span></div>
+<div class="stat"><b>You</b><span class="mono">Set the limits</span></div>
 </div>
 <div class="tile" data-speed="-560" style="left: 16%; top: 1000px; width: min(32%, 460px); aspect-ratio: 16 / 10; z-index: 3">
 <img src="img/walker.jpg" alt="A figure crossing the SafeShake mark" style="object-position: 50% 65%"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i>
-<div class="stat"><b>Offline</b><span class="mono">Anyone can verify</span></div>
+<div class="stat"><b>Every act</b><span class="mono">Answerable after</span></div>
 </div>
 <div class="tile" data-speed="-260" style="right: 10%; top: 1100px; width: min(24%, 340px); aspect-ratio: 1; z-index: 1">
 <img src="img/hands.jpg" alt="Robotic and human hands" style="object-position: 40% 50%"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i>
-<div class="stat"><b>In-house</b><span class="mono">Self-hosted</span></div>
+<div class="stat"><b>0 keys</b><span class="mono">Held by the agent</span></div>
 </div>
 </section>
 
@@ -980,7 +982,7 @@ class Component extends DCLogic {
     this.fill = root.querySelector('[data-fill]');
     this.tbg = root.querySelector('[data-tbg]');
     this.dots = Array.prototype.slice.call(root.querySelectorAll('[data-dots]'));
-    this.dots.forEach((f) => { const sc = f.getAttribute('data-scene'); if (sc && !f.getAttribute('src')) f.setAttribute('src', 'dots/index.html?scene=' + sc + '&embed&notext&scrub&q=0.6' + ((window.innerWidth || 1200) < 900 ? '&f=tall' : '')); });
+    this.dots.forEach((f) => { const sc = f.getAttribute('data-scene'); if (sc && !f.getAttribute('src')) f.setAttribute('src', 'dots/index.html?scene=' + sc + '&embed&notext&scrub&q=0.6&warm=0.3&grain=1.35' + ((window.innerWidth || 1200) < 900 ? '&f=tall&boost=1.6' : '&boost=1.25')); });
     this.itrack = root.querySelector('[data-itrack]');
     this.ibar = root.querySelector('[data-ibar]');
     // the dot scenes follow the scroll; keep telling them where to be, and pause them off screen
@@ -1023,6 +1025,11 @@ class Component extends DCLogic {
       if (this.wrap && this.inner) this.wrap.style.height = this.long ? (this.inner.offsetHeight * 7) + 'px' : '';
       if (this.pin && this.stage) this.pin.style.height = this.wide ? (this.stage.offsetHeight * 3.2) + 'px' : '';
       if (this.trip && this.tripStage) this.trip.style.height = this.long ? (this.tripStage.offsetHeight * 3.6) + 'px' : '';
+      this.dots && this.dots.forEach((f) => {
+        if (f.getAttribute('data-scene') !== 'reach' || (window.innerWidth || 1200) < 900) { f.style.transform = ''; return; }
+        const sc = Math.max(f.offsetWidth / 1920, f.offsetHeight / 1080);
+        f.style.transform = 'translateX(' + (14.7 * sc).toFixed(1) + 'px)';
+      });
       if (this.mSec && this.mStage) this.mSec.style.height = this.long ? (this.mStage.offsetHeight * 3.4) + 'px' : '';
       if (this.vSec && this.vStage) this.vSec.style.height = this.long ? (this.vStage.offsetHeight * 3) + 'px' : '';
       if (this.iSec && this.iStage) this.iStage.parentNode.style.height = this.wide ? (this.iStage.offsetHeight * 3.2) + 'px' : '';

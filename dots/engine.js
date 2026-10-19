@@ -152,7 +152,7 @@
       this.glowA = null; this.glowB = null; // optional fixed glows, added with a strength
       const rnd = E.rng(7);
       this.grain = new Float32Array(512 * 512);
-      for (let i = 0; i < this.grain.length; i++) this.grain[i] = (rnd() + rnd() - 1) * 7;
+      for (let i = 0; i < this.grain.length; i++) this.grain[i] = (rnd() + rnd() - 1) * 7 * (E.GRAIN || 1);
     }
     clear() { this.A.fill(0); this.B.fill(0); }
 
@@ -213,7 +213,7 @@
           const dx = (x - focus.x) / focus.r, dy = (y - focus.y) / (focus.ry || focus.r);
           w = 0.78 * Math.exp(-(dx * dx + dy * dy) / 2) + 0.1 * (y / H);
         } else if (brand) w = 0.2 + 0.2 * (y / H);
-        w = Math.min(1, w);
+        w = Math.min(1, w * (E.WARM == null ? 1 : E.WARM));
         this.bgR[i] = sr + (dr - sr) * w; this.bgG[i] = sg + (dg - sg) * w; this.bgB[i] = sb + (db - sb) * w;
       }
     }
@@ -241,7 +241,7 @@
         const grow = ((y + oy) & 511) << 9, row = y * W;
         for (let x = 0; x < W; x++) {
           const i = row + x;
-          let a = A[i], b = B[i];
+          let a = A[i] * (E.BOOST || 1), b = B[i] * (E.BOOST || 1);
           if (gA && ga) a += gA[i] * ga;
           if (gB && gb) b += gB[i] * gb;
           u32[i] = this.mix(i, a, b, grain[grow + ((x + ox) & 511)]);
