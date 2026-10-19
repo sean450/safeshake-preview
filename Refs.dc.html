@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SafeShake Reference Mockups</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:'Satoshi';src:url(fonts/Satoshi-Light.otf) format('opentype');font-weight:300}
+@font-face{font-family:'Satoshi';src:url(fonts/Satoshi-Regular.otf) format('opentype');font-weight:400}
+@font-face{font-family:'Satoshi';src:url(fonts/Satoshi-Medium.otf) format('opentype');font-weight:500}
+@font-face{font-family:'Erode';src:url(fonts/Erode-LightItalic.otf) format('opentype');font-weight:300;font-style:italic}
+body{margin:0;background:#0d0d0d}
+.ss{font-family:'Satoshi',system-ui,sans-serif;color:#f2f2f2;background:#0d0d0d;-webkit-font-smoothing:antialiased;min-height:100vh;padding-bottom:120px}
+.ss *{box-sizing:border-box}
+.wrap{max-width:1440px;margin:0 auto;padding:0 40px}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.sq{display:inline-block;width:7px;height:7px;background:currentColor;margin-right:10px;vertical-align:1px}
+.it{font-family:'Erode',Georgia,serif;font-style:italic;font-weight:300;color:#b0def5}
+.dim{color:rgba(242,242,242,.55)}
+.small{font-size:15px;line-height:1.55;margin:0}
+.top{padding:72px 0 40px;border-bottom:1px solid rgba(242,242,242,.12)}
+.top h1{font-size:clamp(40px,5vw,76px);font-weight:300;letter-spacing:-.025em;line-height:1.02;margin:18px 0 16px}
+.row{padding:64px 0 24px}
+.rhead{display:grid;grid-template-columns:120px minmax(0,1fr) minmax(0,1.3fr);gap:24px;align-items:baseline;margin-bottom:24px}
+.rhead h2{margin:0;font-size:clamp(26px,2.4vw,38px);font-weight:400;letter-spacing:-.02em}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+figure{margin:0}
+figcaption{margin-bottom:10px}
+.tag{display:inline-block;padding:4px 9px;border:1px solid rgba(242,242,242,.3);border-radius:2px}
+.tag.new{border-color:#b0def5;color:#b0def5}
+.pane{position:relative;aspect-ratio:660/412;border-radius:6px;overflow:hidden;background:#060c11;border:1px solid rgba(242,242,242,.1)}
+.pane.plain{background:radial-gradient(70% 70% at 30% 52%,rgba(41,87,102,.4),rgba(6,12,17,1) 70%)}
+.pane.dots{background-color:#000}
+.pane.dots::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,#000 0%,#02060c 32%,#06305a 62%,#3c74a3 82%,#e4eef4 100%)}
+.pane.dots::after{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(242,242,242,.95) 0 1.1px,transparent 1.8px);background-size:30px 30px;background-position:15px 15px;-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.75) 60%,#000);mask-image:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.75) 60%,#000);animation:twk 4s ease-in-out infinite}
+@keyframes twk{50%{opacity:.7}}
+.pane>*{position:relative;z-index:1}
+.fwrap{position:absolute;left:3%;top:6%;width:56%;height:80%}
+.fl{display:block;width:100%;height:100%}
+.ftxt{position:absolute;left:62%;right:5%;top:30%}
+.ftxt h3{font-size:clamp(20px,2vw,30px);font-weight:300;letter-spacing:-.02em;line-height:1.05;margin:12px 0 10px}
+.steps2{position:absolute;left:4%;right:4%;bottom:5%;display:grid;grid-template-columns:repeat(5,1fr);gap:8px;font-size:8px;color:rgba(242,242,242,.38);border-top:1px solid rgba(242,242,242,.16);padding-top:8px}
+.steps2 .on{color:#b0def5}
+.pills2{position:absolute;left:4%;right:4%;bottom:5%;display:flex;gap:8px;justify-content:space-between}
+.pills2 span{flex:1;text-align:center;padding:7px 0;border:1.5px dotted rgba(242,242,242,.75);border-radius:999px;font-family:'Satoshi',sans-serif;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#f2f2f2}
+.pills2 span.on{border-color:#ffffff;background:rgba(242,242,242,.12)}
+.rt{fill:none;stroke:rgba(176,222,245,.28);stroke-width:1;stroke-dasharray:2 5;animation:rt 1.6s linear infinite}
+@keyframes rt{to{stroke-dashoffset:-14}}
+.ag{fill:#0b1822;stroke:rgba(176,222,245,.75);stroke-width:1}
+.lb{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.12em;fill:rgba(176,222,245,.85)}
+.lb.wt{fill:#f2f2f2}
+.gate{stroke:#b0def5;stroke-width:1.6;stroke-dasharray:8 4;animation:rt 1s linear infinite}
+.dot{filter:drop-shadow(0 0 4px #b0def5)}
+.hl{fill:none;stroke:rgba(242,242,242,.75);stroke-width:1}
+.hl.f{stroke:rgba(242,242,242,.3)}
+.hl.dsh{stroke:rgba(176,222,245,.5);stroke-dasharray:2 7}
+.hl.b{stroke:#f2f2f2;stroke-width:1.4}
+.grid{stroke:rgba(242,242,242,.06);stroke-width:1}
+.spin{animation:spin 30s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.chev{animation:chev 1.6s ease-in-out infinite}
+@keyframes chev{0%,100%{opacity:.25}50%{opacity:1}}
+.hero2{position:absolute;inset:0}
+.floor2{position:absolute;left:-10%;right:-10%;bottom:-40%;height:70%;background:radial-gradient(50% 50% at 50% 0%,rgba(176,222,245,.5),rgba(64,150,185,.16) 45%,rgba(0,0,0,0) 72%);filter:blur(10px)}
+.htxt{position:absolute}
+.htxt.c{left:0;right:0;top:12%;text-align:center;display:flex;flex-direction:column;align-items:center}
+.htxt.l{left:6%;bottom:9%;width:46%}
+.htxt h3{font-size:clamp(22px,2.6vw,40px);font-weight:500;letter-spacing:-.03em;line-height:1.02;margin:10px 0 8px}
+.htxt.c h3{max-width:13ch}
+.tb{margin-top:16px;width:62%;text-align:left;border:1px solid rgba(176,222,245,.3);border-radius:6px;background:rgba(5,8,11,.85);padding:0 0 10px;font-family:'IBM Plex Mono',monospace;font-size:9px;line-height:1.9}
+.tbr{display:flex;gap:5px;padding:7px 10px;border-bottom:1px solid rgba(242,242,242,.1);margin-bottom:6px}
+.tbr i{width:6px;height:6px;border-radius:50%;background:rgba(242,242,242,.2)}
+.tb span{display:block;padding:0 12px;color:rgba(242,242,242,.6)}
+.tb .ok{color:#b0def5}
+.beam{position:absolute;inset:0;width:100%;height:100%}
+.bfan{animation:breathe 6s ease-in-out infinite;transform-origin:250px 206px}
+@keyframes breathe{50%{opacity:.75;transform:scaleY(1.06)}}
+.orb{fill:none;stroke:rgba(242,242,242,.32);stroke-width:1}
+.pills{display:flex;gap:8px;margin-top:14px}
+.pb{padding:8px 12px;border:1px solid rgba(242,242,242,.4);font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase}
+.pb.s{background:#f2f2f2;color:#0a2638;border-color:#f2f2f2}
+@media (max-width:900px){.wrap{padding:0 16px}.rhead{grid-template-columns:1fr;gap:8px}.pair{grid-template-columns:1fr}.pills2 span{font-size:8px;padding:5px 0}}
+@media (prefers-reduced-motion:reduce){.spin,.chev,.rt,.gate,.bfan,.pane.dots::after{animation:none}}
+</style>
+</helmet>
+<div class="ss">
+<div class="wrap">
+<header class="top"><span class="mono dim"><span class="sq" style="color: #b0def5"></span>SafeShake · reference mockups</span><h1>Now, and with <span class="it">the references.</span></h1><p class="small dim" style="max-width: 44em">Three ideas from the reference images, each shown next to how the site looks today. The horizon line in the hero is left untouched until Zack explains his note.</p></header>
+<section class="row" data-rv>
+<div class="rhead"><span class="mono" style="color: #b0def5"><span class="sq"></span>01</span><h2>Dotted grid backgrounds</h2><p class="small dim">From the first reference: a field of dots that fades from black, through brand blue, to near-white, with dotted pill labels. Shown on the Home scroll story.</p></div>
+<div class="pair">
+<figure><figcaption class="mono"><span class="tag">Now</span></figcaption><div class="pane plain"><div class="fwrap"><svg class="fl" viewBox="0 0 520 400" aria-hidden="true"><path d="M 92 60 C 220 60, 300 60, 430 60" class="rt"></path><path d="M 92 60 C 220 60, 300 270, 430 270" class="rt"></path><path d="M 92 130 C 220 130, 300 200, 430 200" class="rt"></path><path d="M 92 200 C 220 200, 300 130, 430 130" class="rt"></path><path d="M 92 200 C 220 200, 300 340, 430 340" class="rt"></path><path d="M 92 270 C 220 270, 300 60, 430 60" class="rt"></path><path d="M 92 270 C 220 270, 300 270, 430 270" class="rt"></path><path d="M 92 340 C 220 340, 300 200, 430 200" class="rt"></path><rect x="58" y="47" width="26" height="26" rx="6" class="ag"></rect><rect x="64" y="56" width="4" height="8" fill="#f2f2f2"></rect><rect x="74" y="56" width="4" height="8" fill="#f2f2f2"></rect><text x="71" y="38" class="lb" text-anchor="middle">AGENT 01</text><rect x="436" y="57" width="6" height="6" fill="#f2f2f2"></rect><text x="452" y="64" class="lb">CLOUD API</text><rect x="58" y="117" width="26" height="26" rx="6" class="ag"></rect><rect x="64" y="126" width="4" height="8" fill="#f2f2f2"></rect><rect x="74" y="126" width="4" height="8" fill="#f2f2f2"></rect><text x="71" y="108" class="lb" text-anchor="middle">AGENT 02</text><rect x="436" y="127" width="6" height="6" fill="#f2f2f2"></rect><text x="452" y="134" class="lb">FLIGHTS</text><rect x="58" y="187" width="26" height="26" rx="6" class="ag"></rect><rect x="64" y="196" width="4" height="8" fill="#f2f2f2"></rect><rect x="74" y="196" width="4" height="8" fill="#f2f2f2"></rect><text x="71" y="178" class="lb" text-anchor="middle">AGENT 03</text><rect x="436" y="197" width="6" height="6" fill="#f2f2f2"></rect><text x="452" y="204" class="lb">SUPPLIER</text><rect x="58" y="257" width="26" height="26" rx="6" class="ag"></rect><rect x="64" y="266" width="4" height="8" fill="#f2f2f2"></rect><rect x="74" y="266" width="4" height="8" fill="#f2f2f2"></rect><text x="71" y="248" class="lb" text-anchor="middle">AGENT 04</text><rect x="436" y="267" width="6" height="6" fill="#f2f2f2"></rect><text x="452" y="274" class="lb">SAAS</text><rect x="58" y="327" width="26" height="26" rx="6" class="ag"></rect><rect x="64" y="336" width="4" height="8" fill="#f2f2f2"></rect><rect x="74" y="336" width="4" height="8" fill="#f2f2f2"></rect><text x="71" y="318" class="lb" text-anchor="middle">AGENT 05</text><rect x="436" y="337" width="6" height="6" fill="#f2f2f2"></rect><text x="452" y="344" class="lb">ADS</text><line x1="262" y1="26" x2="262" y2="374" class="gate"></line><circle cx="180" cy="130" r="2.5" fill="#f2f2f2" class="dot d1"></circle><circle cx="330" cy="270" r="2.5" fill="#f2f2f2" class="dot d2"></circle><text x="262" y="16" class="lb" text-anchor="middle">SAFESHAKE CHECK</text><text x="274" y="296" class="lb wt">BLOCKED · NEW PAYEE</text><circle cx="262" cy="200" r="24" fill="#060c11" stroke="#b0def5" stroke-width="1.5"></circle><g transform="translate(248.0 186.0) scale(0.4376) translate(-388.809 -265.285)"><path fill="#f2f2f2" fill-rule="evenodd" d="M 447.363281 265.285156 L 447.363281 284.03125 L 434.324219 284.03125 C 434.789062 284.53125 435.203125 285.148438 435.667969 285.640625 C 444.023438 294.492188 456.167969 301.570312 452.195312 315.863281 C 450.523438 321.886719 443.207031 329.269531 436.667969 329.269531 L 394.179688 329.269531 L 394.179688 310.828125 L 394.484375 310.523438 L 407.425781 310.523438 L 393.5625 296.570312 C 385.363281 287.390625 388.101562 272.574219 399.207031 267.15625 C 400.558594 266.496094 403.863281 265.285156 405.285156 265.285156 Z M 433.914062 284.03125 L 407.832031 284.03125 L 420.773438 297.082031 Z M 433.914062 310.523438 L 420.773438 297.472656 L 407.628906 310.523438 Z"></path></g></svg></div><div class="ftxt"><span class="mono" style="color: #b0def5"><span class="sq"></span>04 / The check</span><h3>Every action is <span class="it">checked first.</span></h3><p class="small">Inside the envelope, it runs. Outside, it doesn't.</p></div><div class="steps2 mono"><span class="">01 Agents</span><span class="">02 The risk</span><span class="">03 Envelope</span><span class="on">04 Check</span><span class="">05 Record</span></div></div></figure>
+<figure><figcaption class="mono"><span class="tag new">With the reference</span></figcaption><div class="pane dots"><div class="fwrap"><svg class="fl" viewBox="0 0 520 400" aria-hidden="true"><path d="M 92 60 C 220 60, 300 60, 430 60" class="rt"></path><path d="M 92 60 C 220 60, 300 270, 430 270" class="rt"></path><path d="M 92 130 C 220 130, 300 200, 430 200" class="rt"></path><path d="M 92 200 C 220 200, 300 130, 430 130" class="rt"></path><path d="M 92 200 C 220 200, 300 340, 430 340" class="rt"></path><path d="M 92 270 C 220 270, 300 60, 430 60" class="rt"></path><path d="M 92 270 C 220 270, 300 270, 430 270" class="rt"></path><path d="M 92 340 C 220 340, 300 200, 430 200" class="rt"></path><rect x="58" y="47" width="26" height="26" rx="6" class="ag"></rect><rect x="64" y="56" width="4" height="8" fill="#f2f2f2"></rect><rect x="74" y="56" width="4" height="8" fill="#f2f2f2"></rect><text x="71" y="38" class="lb" text-anchor="middle">AGENT 01</text><rect x="436" y="57" width="6" height="6" fill="#f2f2f2"></rect><text x="452" y="64" class="lb">CLOUD API</text><rect x="58" y="117" width="26" height="26" rx="6" class="ag"></rect><rect x="64" y="126" width="4" height="8" fill="#f2f2f2"></rect><rect x="74" y="126" width="4" height="8" fill="#f2f2f2"></rect><text x="71" y="108" class="lb" text-anchor="middle">AGENT 02</text><rect x="436" y="127" width="6" height="6" fill="#f2f2f2"></rect><text x="452" y="134" class="lb">FLIGHTS</text><rect x="58" y="187" width="26" height="26" rx="6" class="ag"></rect><rect x="64" y="196" width="4" height="8" fill="#f2f2f2"></rect><rect x="74" y="196" width="4" height="8" fill="#f2f2f2"></rect><text x="71" y="178" class="lb" text-anchor="middle">AGENT 03</text><rect x="436" y="197" width="6" height="6" fill="#f2f2f2"></rect><text x="452" y="204" class="lb">SUPPLIER</text><rect x="58" y="257" width="26" height="26" rx="6" class="ag"></rect><rect x="64" y="266" width="4" height="8" fill="#f2f2f2"></rect><rect x="74" y="266" width="4" height="8" fill="#f2f2f2"></rect><text x="71" y="248" class="lb" text-anchor="middle">AGENT 04</text><rect x="436" y="267" width="6" height="6" fill="#f2f2f2"></rect><text x="452" y="274" class="lb">SAAS</text><rect x="58" y="327" width="26" height="26" rx="6" class="ag"></rect><rect x="64" y="336" width="4" height="8" fill="#f2f2f2"></rect><rect x="74" y="336" width="4" height="8" fill="#f2f2f2"></rect><text x="71" y="318" class="lb" text-anchor="middle">AGENT 05</text><rect x="436" y="337" width="6" height="6" fill="#f2f2f2"></rect><text x="452" y="344" class="lb">ADS</text><line x1="262" y1="26" x2="262" y2="374" class="gate"></line><circle cx="180" cy="130" r="2.5" fill="#f2f2f2" class="dot d1"></circle><circle cx="330" cy="270" r="2.5" fill="#f2f2f2" class="dot d2"></circle><text x="262" y="16" class="lb" text-anchor="middle">SAFESHAKE CHECK</text><text x="274" y="296" class="lb wt">BLOCKED · NEW PAYEE</text><circle cx="262" cy="200" r="24" fill="#060c11" stroke="#b0def5" stroke-width="1.5"></circle><g transform="translate(248.0 186.0) scale(0.4376) translate(-388.809 -265.285)"><path fill="#f2f2f2" fill-rule="evenodd" d="M 447.363281 265.285156 L 447.363281 284.03125 L 434.324219 284.03125 C 434.789062 284.53125 435.203125 285.148438 435.667969 285.640625 C 444.023438 294.492188 456.167969 301.570312 452.195312 315.863281 C 450.523438 321.886719 443.207031 329.269531 436.667969 329.269531 L 394.179688 329.269531 L 394.179688 310.828125 L 394.484375 310.523438 L 407.425781 310.523438 L 393.5625 296.570312 C 385.363281 287.390625 388.101562 272.574219 399.207031 267.15625 C 400.558594 266.496094 403.863281 265.285156 405.285156 265.285156 Z M 433.914062 284.03125 L 407.832031 284.03125 L 420.773438 297.082031 Z M 433.914062 310.523438 L 420.773438 297.472656 L 407.628906 310.523438 Z"></path></g></svg></div><div class="ftxt"><span class="mono" style="color: #b0def5"><span class="sq"></span>04 / The check</span><h3>Every action is <span class="it">checked first.</span></h3><p class="small">Inside the envelope, it runs. Outside, it doesn't.</p></div><div class="pills2"><span class="">Agents</span><span class="">The risk</span><span class="">Envelope</span><span class="on">Check</span><span class="">Record</span></div></div></figure>
+</div>
+</section>
+<section class="row" data-rv>
+<div class="rhead"><span class="mono" style="color: #b0def5"><span class="sq"></span>02</span><h2>HUD framing</h2><p class="small dim">From the second reference: thin crosshair rings, corner brackets, chevrons and tick marks around the mark, over a soft blue glow. Shown on the SafeShake checkpoint.</p></div>
+<div class="pair">
+<figure><figcaption class="mono"><span class="tag">Now</span></figcaption><div class="pane plain"><svg class="fl" viewBox="0 0 660 412" aria-hidden="true"><line x1="330" y1="30" x2="330" y2="382" class="gate"></line><circle cx="330" cy="206" r="40" fill="#060c11" stroke="#b0def5" stroke-width="1.4"></circle><g transform="translate(307.0 183.0) scale(0.7189) translate(-388.809 -265.285)"><path fill="#f2f2f2" fill-rule="evenodd" d="M 447.363281 265.285156 L 447.363281 284.03125 L 434.324219 284.03125 C 434.789062 284.53125 435.203125 285.148438 435.667969 285.640625 C 444.023438 294.492188 456.167969 301.570312 452.195312 315.863281 C 450.523438 321.886719 443.207031 329.269531 436.667969 329.269531 L 394.179688 329.269531 L 394.179688 310.828125 L 394.484375 310.523438 L 407.425781 310.523438 L 393.5625 296.570312 C 385.363281 287.390625 388.101562 272.574219 399.207031 267.15625 C 400.558594 266.496094 403.863281 265.285156 405.285156 265.285156 Z M 433.914062 284.03125 L 407.832031 284.03125 L 420.773438 297.082031 Z M 433.914062 310.523438 L 420.773438 297.472656 L 407.628906 310.523438 Z"></path></g><text x="330" y="20" class="lb" text-anchor="middle">SAFESHAKE CHECK</text></svg></div></figure>
+<figure><figcaption class="mono"><span class="tag new">With the reference</span></figcaption><div class="pane"><svg class="fl" viewBox="0 0 660 412" aria-hidden="true"><defs><radialGradient id="hb" cx="50%" cy="100%" r="80%"><stop offset="0" stop-color="#d6ebf5" stop-opacity=".85"></stop><stop offset=".35" stop-color="#4a8db5" stop-opacity=".55"></stop><stop offset=".7" stop-color="#0a2638" stop-opacity=".4"></stop><stop offset="1" stop-color="#060c11" stop-opacity="0"></stop></radialGradient></defs><rect width="660" height="412" fill="url(#hb)"></rect><line x1="0" y1="0" x2="0" y2="412" class="grid"></line><line x1="66" y1="0" x2="66" y2="412" class="grid"></line><line x1="132" y1="0" x2="132" y2="412" class="grid"></line><line x1="198" y1="0" x2="198" y2="412" class="grid"></line><line x1="264" y1="0" x2="264" y2="412" class="grid"></line><line x1="330" y1="0" x2="330" y2="412" class="grid"></line><line x1="396" y1="0" x2="396" y2="412" class="grid"></line><line x1="462" y1="0" x2="462" y2="412" class="grid"></line><line x1="528" y1="0" x2="528" y2="412" class="grid"></line><line x1="594" y1="0" x2="594" y2="412" class="grid"></line><line x1="0" y1="0" x2="660" y2="0" class="grid"></line><line x1="0" y1="66" x2="660" y2="66" class="grid"></line><line x1="0" y1="132" x2="660" y2="132" class="grid"></line><line x1="0" y1="198" x2="660" y2="198" class="grid"></line><line x1="0" y1="264" x2="660" y2="264" class="grid"></line><line x1="0" y1="330" x2="660" y2="330" class="grid"></line><line x1="0" y1="396" x2="660" y2="396" class="grid"></line><circle cx="330" cy="636" r="560" class="hl f"></circle><circle cx="330" cy="206" r="110" class="hl"></circle><circle cx="330" cy="206" r="104" class="hl f"></circle><line x1="220" y1="206" x2="440" y2="206" class="hl f"></line><line x1="330" y1="96" x2="330" y2="316" class="hl f"></line><g class="spin" style="transform-origin: 330px 206px"><circle cx="330" cy="206" r="128" class="hl dsh"></circle></g><path d="M 192 106 L 180 106 L 180 306 L 192 306" class="hl"></path><line x1="156" y1="150" x2="156" y2="262" class="hl"></line><circle cx="108" cy="196" r="1.6" fill="#f2f2f2"></circle><circle cx="108" cy="206" r="1.6" fill="#f2f2f2"></circle><circle cx="108" cy="216" r="1.6" fill="#f2f2f2"></circle><path d="M 45 276 l 5 -4 l 5 4" class="hl chev" style="animation-delay: 0.0s"></path><path d="M 45 282 l 5 -4 l 5 4" class="hl chev" style="animation-delay: 0.15s"></path><path d="M 45 288 l 5 -4 l 5 4" class="hl chev" style="animation-delay: 0.3s"></path><path d="M 45 294 l 5 -4 l 5 4" class="hl chev" style="animation-delay: 0.44999999999999996s"></path><line x1="100" y1="96" x2="112" y2="108" class="hl"></line><line x1="100" y1="316" x2="112" y2="304" class="hl"></line><path d="M 468 106 L 480 106 L 480 306 L 468 306" class="hl"></path><line x1="504" y1="150" x2="504" y2="262" class="hl"></line><circle cx="552" cy="196" r="1.6" fill="#f2f2f2"></circle><circle cx="552" cy="206" r="1.6" fill="#f2f2f2"></circle><circle cx="552" cy="216" r="1.6" fill="#f2f2f2"></circle><path d="M 605 276 l 5 -4 l 5 4" class="hl chev" style="animation-delay: 0.0s"></path><path d="M 605 282 l 5 -4 l 5 4" class="hl chev" style="animation-delay: 0.15s"></path><path d="M 605 288 l 5 -4 l 5 4" class="hl chev" style="animation-delay: 0.3s"></path><path d="M 605 294 l 5 -4 l 5 4" class="hl chev" style="animation-delay: 0.44999999999999996s"></path><line x1="560" y1="96" x2="548" y2="108" class="hl"></line><line x1="560" y1="316" x2="548" y2="304" class="hl"></line><path d="M 323 56 l 7 12 l 7 -12 z" class="hl"></path><path d="M 323 356 l 7 -12 l 7 12 z" class="hl"></path><line x1="24" y1="24" x2="29" y2="18" class="hl"></line><line x1="24" y1="394" x2="29" y2="388" class="hl"></line><line x1="33" y1="24" x2="38" y2="18" class="hl"></line><line x1="33" y1="394" x2="38" y2="388" class="hl"></line><line x1="42" y1="24" x2="47" y2="18" class="hl"></line><line x1="42" y1="394" x2="47" y2="388" class="hl"></line><line x1="51" y1="24" x2="56" y2="18" class="hl"></line><line x1="51" y1="394" x2="56" y2="388" class="hl"></line><line x1="60" y1="24" x2="65" y2="18" class="hl"></line><line x1="60" y1="394" x2="65" y2="388" class="hl"></line><line x1="69" y1="24" x2="74" y2="18" class="hl"></line><line x1="69" y1="394" x2="74" y2="388" class="hl"></line><line x1="586" y1="24" x2="591" y2="18" class="hl"></line><line x1="586" y1="394" x2="591" y2="388" class="hl"></line><line x1="595" y1="24" x2="600" y2="18" class="hl"></line><line x1="595" y1="394" x2="600" y2="388" class="hl"></line><line x1="604" y1="24" x2="609" y2="18" class="hl"></line><line x1="604" y1="394" x2="609" y2="388" class="hl"></line><line x1="613" y1="24" x2="618" y2="18" class="hl"></line><line x1="613" y1="394" x2="618" y2="388" class="hl"></line><line x1="622" y1="24" x2="627" y2="18" class="hl"></line><line x1="622" y1="394" x2="627" y2="388" class="hl"></line><line x1="631" y1="24" x2="636" y2="18" class="hl"></line><line x1="631" y1="394" x2="636" y2="388" class="hl"></line><rect x="26" y="40" width="5" height="5" fill="#f2f2f2"></rect><rect x="36" y="40" width="5" height="5" fill="#f2f2f2"></rect><rect x="26" y="366" width="5" height="5" fill="#f2f2f2"></rect><rect x="36" y="366" width="5" height="5" fill="#f2f2f2"></rect><rect x="620" y="40" width="5" height="5" fill="#f2f2f2"></rect><rect x="630" y="40" width="5" height="5" fill="#f2f2f2"></rect><rect x="620" y="366" width="5" height="5" fill="#f2f2f2"></rect><rect x="630" y="366" width="5" height="5" fill="#f2f2f2"></rect><circle cx="330" cy="206" r="40" fill="#060c11" stroke="#b0def5" stroke-width="1.4"></circle><g transform="translate(307.0 183.0) scale(0.7189) translate(-388.809 -265.285)"><path fill="#f2f2f2" fill-rule="evenodd" d="M 447.363281 265.285156 L 447.363281 284.03125 L 434.324219 284.03125 C 434.789062 284.53125 435.203125 285.148438 435.667969 285.640625 C 444.023438 294.492188 456.167969 301.570312 452.195312 315.863281 C 450.523438 321.886719 443.207031 329.269531 436.667969 329.269531 L 394.179688 329.269531 L 394.179688 310.828125 L 394.484375 310.523438 L 407.425781 310.523438 L 393.5625 296.570312 C 385.363281 287.390625 388.101562 272.574219 399.207031 267.15625 C 400.558594 266.496094 403.863281 265.285156 405.285156 265.285156 Z M 433.914062 284.03125 L 407.832031 284.03125 L 420.773438 297.082031 Z M 433.914062 310.523438 L 420.773438 297.472656 L 407.628906 310.523438 Z"></path></g><text x="330" y="44" class="lb" text-anchor="middle">SAFESHAKE CHECK · ENFORCE</text></svg></div></figure>
+</div>
+</section>
+<section class="row" data-rv>
+<div class="rhead"><span class="mono" style="color: #b0def5"><span class="sq"></span>03</span><h2>Glowing beam</h2><p class="small dim">From the third reference: a beam of light fanning out from a point, with thin orbits and moving dots. Shown on the Developers hero, so the Home hero stays as it is.</p></div>
+<div class="pair">
+<figure><figcaption class="mono"><span class="tag">Now</span></figcaption><div class="pane"><div class="hero2"><div class="floor2"></div>
+<div class="htxt c"><span class="mono" style="color: #b0def5"><span class="sq"></span>Developers</span><h3>Two minutes to bounded agents.</h3><p class="mono dim">Install. Sign an envelope. Wrap your agent.</p>
+<div class="tb"><div class="tbr"><i></i><i></i><i></i></div><span>$ npm install safeshake</span><span class="ok">✓ envelope env_001 created</span><span class="ok">✓ 14 tool calls now checked</span></div></div></div></div></figure>
+<figure><figcaption class="mono"><span class="tag new">With the reference</span></figcaption><div class="pane"><div class="hero2"><svg class="beam" viewBox="0 0 660 412" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<defs>
+<linearGradient id="bg1" x1="0" x2="1"><stop offset="0" stop-color="#ffffff"></stop><stop offset=".25" stop-color="#d6ebf5" stop-opacity=".95"></stop><stop offset=".7" stop-color="#6db3d6" stop-opacity=".55"></stop><stop offset="1" stop-color="#b0def5" stop-opacity=".9"></stop></linearGradient>
+<filter id="bl1" x="-30%" y="-60%" width="160%" height="220%"><feGaussianBlur stdDeviation="26"></feGaussianBlur></filter>
+<filter id="bl2" x="-30%" y="-60%" width="160%" height="220%"><feGaussianBlur stdDeviation="6"></feGaussianBlur></filter>
+<radialGradient id="bgr" cx="85%" cy="50%" r="70%"><stop offset="0" stop-color="#1d5a86"></stop><stop offset=".55" stop-color="#0a2638"></stop><stop offset="1" stop-color="#050b14"></stop></radialGradient>
+</defs>
+<rect width="660" height="412" fill="url(#bgr)"></rect>
+<path class="bfan" d="M 250 206 C 380 150, 520 30, 700 10 L 700 402 C 520 382, 380 262, 250 206 Z" fill="url(#bg1)" opacity=".55" filter="url(#bl1)"></path>
+<path d="M 250 206 C 380 190, 520 150, 700 120 L 700 292 C 520 262, 380 222, 250 206 Z" fill="url(#bg1)" opacity=".7" filter="url(#bl2)"></path>
+<path d="M 250 206 L 700 200 L 700 212 Z" fill="#ffffff" opacity=".9" filter="url(#bl2)"></path>
+<ellipse id="o1" cx="420" cy="206" rx="200" ry="70" class="orb"></ellipse>
+<ellipse id="o2" cx="400" cy="206" rx="170" ry="120" class="orb"></ellipse>
+<ellipse cx="380" cy="206" rx="140" ry="40" class="orb"></ellipse>
+<circle r="3" fill="#f2f2f2"><animateMotion dur="9s" repeatCount="indefinite" path="M 220 206 a 200 70 0 1 0 400 0 a 200 70 0 1 0 -400 0"></animateMotion></circle>
+<circle r="3" fill="#f2f2f2"><animateMotion dur="13s" repeatCount="indefinite" path="M 230 206 a 170 120 0 1 1 340 0 a 170 120 0 1 1 -340 0"></animateMotion></circle>
+<circle cx="220" cy="206" r="9" fill="none" stroke="#b0def5" stroke-width="1.2"></circle><circle cx="220" cy="206" r="3" fill="#f2f2f2"></circle>
+<circle cx="252" cy="206" r="7" fill="#ffffff" filter="url(#bl2)"></circle><circle cx="252" cy="206" r="4" fill="#ffffff"></circle>
+</svg>
+<div class="htxt l"><span class="mono" style="color: #b0def5"><span class="sq"></span>Developers</span><h3>Two minutes to bounded agents.</h3><p class="mono dim">Install. Sign an envelope. Wrap your agent.</p><div class="pills"><span class="pb s">Start building →</span><span class="pb">Join the Discord</span></div></div></div></div></figure>
+</div>
+</section>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1900}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>
