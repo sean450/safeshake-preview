@@ -1,0 +1,24 @@
+/* SafeShake dots. Colours and type from the SafeShake brand identity. */
+
+@font-face { font-family: 'Satoshi'; src: url('fonts/Satoshi-Light.otf'); font-weight: 300; }
+@font-face { font-family: 'Satoshi'; src: url('fonts/Satoshi-Regular.otf'); font-weight: 400; }
+@font-face { font-family: 'Satoshi'; src: url('fonts/Satoshi-Medium.otf'); font-weight: 500; }
+@font-face { font-family: 'Erode'; src: url('fonts/Erode-LightItalic.otf'); font-weight: 300; font-style: italic; }
+
+:root { --space: #0d0d0d; --deep: #0a2638; --current: #295766; --horizon: #b0def5; --cloud: #f2f2f2; }
+html, body { margin: 0; height: 100%; background: #070707; overflow: hidden; font-family: 'Satoshi', sans-serif; }
+#stage { position: absolute; left: 0; top: 0; transform-origin: 0 0; background: var(--space); overflow: hidden; }
+#c { position: absolute; left: 0; top: 0; width: 100%; height: 100%; display: block; }
+#overlay { position: absolute; inset: 0; pointer-events: none; }
+
+.txt { position: absolute; color: var(--cloud); font-weight: 300; line-height: 1.12; letter-spacing: -.022em; opacity: 0; white-space: nowrap; }
+.txt em { font-family: 'Erode', serif; font-style: italic; font-weight: 300; color: var(--horizon); letter-spacing: -.01em; }
+.txt .hi { color: var(--cloud); }
+.txt.pill { background: var(--cloud); color: var(--space); font-weight: 500; font-size: 24px; letter-spacing: 0; padding: 18px 34px; border-radius: 999px; }
+
+#ui { position: fixed; left: 0; right: 0; top: 0; height: 44px; display: flex; gap: 28px; align-items: center; padding: 0 20px; font-size: 13px; color: rgba(242,242,242,.5); z-index: 2; }
+#ui span { display: flex; gap: 4px; }
+#ui a { color: rgba(242,242,242,.55); text-decoration: none; padding: 6px 10px; border-radius: 999px; }
+#ui a:hover { color: var(--cloud); }
+#ui a.on { color: var(--space); background: var(--cloud); }
+body.bare #ui { display: none; }

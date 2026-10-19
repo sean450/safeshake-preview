@@ -310,6 +310,59 @@ a{color:#f2f2f2;text-decoration:none}a:hover{color:#b0def5}
 .badge::before{left:-3px;top:-3px}.badge::after{right:-3px;bottom:-3px}
 @media (max-width:900px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.sbar{grid-template-columns:1fr}.sbar>div+div{display:none}.flow{grid-template-columns:minmax(0,1fr)}.node+.node::before,.flow.on::after{display:none}.pinstage{position:static;height:auto;padding-bottom:60px}.anat{grid-template-columns:minmax(0,1fr);gap:16px}.acard{max-width:300px;margin:0 auto}.js .ftag{opacity:1;transform:none}.ftag::after{display:none}.acc button{grid-template-columns:44px minmax(0,1fr) 40px}.acc button .mono.r{display:none}.badges{grid-template-columns:1fr 1fr}.tstats div{min-width:130px}}
 @media (prefers-reduced-motion:reduce){.agt,.agt i,.pass,.pass::before,.psig path,.stamp,.wire,.prail i,.xpill::after,.rcpt,.aroll,.spokes line,.tun i,.tmq span,.flow.on::after,.rogue .vin,.mag i{animation:none !important}.psig path{stroke-dashoffset:0}.js .ftag{opacity:1;transform:none}.js .tl{opacity:1}}
+.dsec{position:relative;background:#0d0d0d}
+.dstage{position:sticky;top:0;height:clamp(640px,100vh,960px);overflow:hidden;background:#0d0d0d}
+.dframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;pointer-events:none}
+.dshade{position:absolute;inset:0;pointer-events:none}
+.mcopy{position:absolute;right:48px;top:50%;transform:translateY(-50%);width:min(520px,40%)}
+.mhead{position:relative;height:2.2em;font-size:clamp(40px,4.4vw,72px);font-weight:300;letter-spacing:-.025em;line-height:1.02;margin:22px 0 0}
+.mhead>span{position:absolute;left:0;top:0;transition:clip-path .9s cubic-bezier(.7,0,.2,1),opacity .9s,transform .9s cubic-bezier(.7,0,.2,1)}
+.mhead>span.out{clip-path:inset(0 0 100% 0);opacity:0;transform:translateY(-24px)}
+.mhead>span.in{clip-path:inset(0 0 0 0);opacity:1;transform:none}
+.msw{display:inline-flex;margin-top:30px;padding:4px;border-radius:999px;border:1px solid rgba(242,242,242,.25);position:relative}
+.msw button{position:relative;z-index:1;min-height:40px;padding:0 20px;border:0;background:none;color:rgba(242,242,242,.7);font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:color .5s}
+.msw button[aria-pressed="true"]{color:#0a2638}
+.msw i{position:absolute;top:4px;bottom:4px;left:4px;width:calc(50% - 4px);border-radius:999px;background:#f2f2f2;transition:transform .7s cubic-bezier(.7,0,.2,1),background .5s}
+.msw.enf i{transform:translateX(100%);background:#b0def5}
+.mlist{list-style:none;margin:30px 0 0;padding:0;border-top:1px solid rgba(242,242,242,.14)}
+.mlist li{display:grid;grid-template-columns:44px 1fr auto;align-items:center;gap:12px;min-height:58px;border-bottom:1px solid rgba(242,242,242,.14);font-size:19px;color:rgba(242,242,242,.35);transition:color .5s}
+.mlist li .mono{color:inherit}
+.mlist li i{width:8px;height:8px;border-radius:50%;background:rgba(242,242,242,.2);transition:background .4s,box-shadow .4s}
+.mlist li.on{color:#f2f2f2}
+.mlist li.on i{background:#b0def5;box-shadow:0 0 14px #b0def5}
+.mcap{position:absolute;left:48px;bottom:40px;max-width:30em}
+.isec{position:relative}
+.istage{position:sticky;top:0;height:clamp(640px,100vh,960px);overflow:hidden;display:flex;flex-direction:column;padding-top:76px}
+.itrack{display:flex;gap:20px;padding:0 48px;will-change:transform}
+.icard{position:relative;flex:0 0 min(400px,78vw);height:min(480px,58vh);border-radius:8px;border:1px solid rgba(10,38,56,.16);background:#fff;padding:26px 26px 24px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;transition:transform .6s cubic-bezier(.2,.8,.2,1),box-shadow .6s}
+.icard:hover{transform:translateY(-8px);box-shadow:0 30px 60px rgba(10,38,56,.14)}
+.icard .num{font-family:'Erode',Georgia,serif;font-style:italic;font-weight:300;font-size:clamp(90px,9vw,140px);line-height:.8;color:#295766;letter-spacing:-.04em}
+.icard h3{font-size:clamp(28px,2.4vw,38px);font-weight:400;letter-spacing:-.02em;line-height:1.05;margin:0}
+.icard p{font-size:15px;line-height:1.55;margin:10px 0 0;color:rgba(10,38,56,.7)}
+.istk{position:absolute;right:26px;top:30px;display:flex;flex-direction:column;gap:5px;width:70px}
+.istk i{display:block;height:6px;border-radius:2px;background:rgba(10,38,56,.12)}
+.istk i.on{background:#0a2638}
+.icard.ss{background:#0a2638;border-color:#0a2638;color:#f2f2f2}
+.icard.ss::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(176,222,245,.55) 0 1px,transparent 1.6px);background-size:14px 14px;-webkit-mask-image:radial-gradient(120% 90% at 100% 100%,#000,transparent 70%);mask-image:radial-gradient(120% 90% at 100% 100%,#000,transparent 70%);animation:twk 4s ease-in-out infinite;pointer-events:none}
+@keyframes twk{50%{opacity:.6}}
+.icard.ss .num{color:#b0def5}
+.icard.ss p{color:rgba(242,242,242,.72)}
+.icard.ss .istk i{background:rgba(242,242,242,.14)}
+.icard.ss .istk i.on{background:#b0def5;box-shadow:0 0 10px rgba(176,222,245,.7)}
+.icard>*{position:relative}
+.icard>.istk{position:absolute}
+.ibar{display:flex;align-items:center;gap:18px;margin:28px 48px 0}
+.ibar .ln{flex:1;height:1px;background:rgba(10,38,56,.16);position:relative}
+.ibar .ln i{position:absolute;left:0;top:0;bottom:0;width:100%;background:#0a2638;transform-origin:left;transform:scaleX(0)}
+.vcopy{position:absolute;left:48px;top:120px;width:min(560px,44%)}
+.vterm{position:absolute;left:48px;bottom:56px;width:min(560px,44%);padding:20px 22px;border-radius:6px;background:rgba(5,8,11,.82);border:1px solid rgba(176,222,245,.25);font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.95;backdrop-filter:blur(4px)}
+.vterm span{display:block;white-space:pre;opacity:.08;transition:opacity .3s,color .3s}
+.vterm span.on{opacity:1}
+.vbig{position:absolute;right:48px;bottom:40px;font-size:clamp(64px,10vw,170px);font-weight:500;letter-spacing:-.05em;line-height:.8;color:transparent;-webkit-text-stroke:1px rgba(176,222,245,.6);transition:color .8s,-webkit-text-stroke-color .8s,opacity .8s,transform 1s cubic-bezier(.2,.8,.2,1);opacity:0;transform:translateY(30px)}
+.vbig.on{opacity:1;transform:none;color:#f2f2f2;-webkit-text-stroke-color:#f2f2f2;text-shadow:0 0 60px rgba(176,222,245,.5)}
+@media (max-width:900px){.mcopy{left:20px;right:20px;width:auto;top:auto;bottom:30px;transform:none}.mhead{font-size:34px}.mlist li{min-height:44px;font-size:16px}.mcap{display:none}.itrack{padding:0 20px}.ibar{margin:22px 20px 0}.istage{padding-top:70px}.vcopy{left:20px;right:20px;top:84px;width:auto}.vterm{left:20px;right:20px;width:auto;bottom:24px;font-size:10px;padding:14px 16px}.vbig{right:20px;bottom:auto;top:46%;font-size:64px}}
+@media (prefers-reduced-motion:reduce){.icard.ss::before{animation:none}}
+@media (max-width:900px){[data-sec^="005"] .dshade{background:linear-gradient(180deg,rgba(13,13,13,0) 22%,rgba(13,13,13,.82) 48%,rgba(13,13,13,.95)) !important}[data-sec^="007"] .dshade{background:linear-gradient(180deg,rgba(13,13,13,.92) 0,rgba(13,13,13,.35) 34%,rgba(13,13,13,.25) 58%,rgba(13,13,13,.92) 78%) !important}}
 </style>
 </helmet>
 <div class="ss" ref="{{rootRef}}">
@@ -479,66 +532,79 @@ a{color:#f2f2f2;text-decoration:none}a:hover{color:#b0def5}
 </div>
 </section>
 
-<section data-sec="005|Two modes">
-<div class="panel dk">
-<div class="wrap" style="padding-bottom: 100px">
-<div class="sbar mono dim"><div><span><span class="sq"></span>005</span><span><span class="sq"></span><span class="scr" data-scr-in>Two modes</span></span></div><div class="hide-m"><span><span class="sq"></span>005</span><span><span class="sq"></span><span class="scr" data-scr-in>Switched on rule by rule</span></span></div></div>
-<div class="cols" style="padding: 72px 0 56px; align-items: end; row-gap: 28px">
-<h2 class="h2 mk" data-rv style="grid-column: 1 / span 8"><span class="ml"><span>Observe first.</span></span><span class="ml"><span class="it">Enforce when you're ready.</span></span></h2>
-<div data-rv style="grid-column: 9 / span 4; display: flex; justify-content: flex-end">
-<div class="seg" role="group" aria-label="Mode"><button type="button" aria-pressed="{{obsPressed}}" onClick="{{pickObserve}}">Observe</button><button type="button" aria-pressed="{{enfPressed}}" onClick="{{pickEnforce}}">Enforce</button></div>
+<section class="dsec" ref="{{mRef}}" data-sec="005|Two modes">
+<div class="dstage" ref="{{mStageRef}}">
+<iframe class="dframe" data-dots="modes" title="" aria-hidden="true" tabindex="-1" loading="lazy" src="dots/index.html?scene=envelope&amp;embed&amp;notext&amp;scrub&amp;q=0.6"></iframe>
+<div class="dshade" aria-hidden="true" style="background: linear-gradient(90deg, rgba(13,13,13,0) 35%, rgba(13,13,13,.75) 62%, rgba(13,13,13,.9))"></div>
+<div class="mcopy">
+<span class="mono" style="color: #b0def5"><span class="sq"></span>005 / Two modes</span>
+<h2 class="mhead"><span class="{{hObs}}">Observe <span class="it">first.</span></span><span class="{{hEnf}}">Enforce <span class="it">when ready.</span></span></h2>
+<div class="msw {{swCls}}" role="group" aria-label="Mode"><i aria-hidden="true"></i><button type="button" aria-pressed="{{obsPressed}}" onClick="{{pickObserve}}">Observe</button><button type="button" aria-pressed="{{enfPressed}}" onClick="{{pickEnforce}}">Enforce</button></div>
+<ol class="mlist">
+<li class="{{ml0}}"><span class="mono">01</span><span>{{mt0}}</span><i aria-hidden="true"></i></li>
+<li class="{{ml1}}"><span class="mono">02</span><span>{{mt1}}</span><i aria-hidden="true"></i></li>
+<li class="{{ml2}}"><span class="mono">03</span><span>{{mt2}}</span><i aria-hidden="true"></i></li>
+<li class="{{ml3}}"><span class="mono">04</span><span>{{mt3}}</span><i aria-hidden="true"></i></li>
+</ol>
 </div>
-</div>
-<div data-rv style="border-top: 1px solid rgba(242,242,242,.16)">
-<div class="flow {{obsCls}}"><div class="h3">Observe</div><div class="node">Would this be allowed?</div><div class="node">Record the decision</div><div class="node">Run anyway</div><div class="node">Settle</div></div>
-<div class="flow {{enfCls}}"><div class="h3" style="color: #b0def5">Enforce</div><div class="node">Is this allowed?</div><div class="node">Reserve the authority</div><div class="node">Run, steer or escalate</div><div class="node">Settle</div></div>
-</div>
-</div>
+<p class="mcap mono dim">{{mCap}}</p>
 </div>
 </section>
 
-<section data-sec="006|Integration" style="padding-top: 12px">
-<div class="panel">
+<section class="isec" ref="{{iRef}}" data-sec="006|Integration" style="padding-top: 12px">
+<div class="panel" style="overflow: visible">
+<div class="istage" ref="{{iStageRef}}">
 <div class="wrap">
-<div class="sbar mono"><div><span><span class="sq"></span>006</span><span><span class="sq"></span><span class="scr" data-scr-in>Integration</span></span></div><div class="hide-m"><span><span class="sq"></span>006</span><span><span class="sq"></span><span class="scr" data-scr-in>Every control keeps its job</span></span></div></div>
-<div class="cols" style="padding: 72px 0 56px; align-items: end">
-<h2 class="h2 mk" data-rv style="grid-column: 1 / span 7"><span class="ml"><span>Sits beside</span></span><span class="ml"><span>what you already run.</span></span></h2>
-<p class="mono ink" data-rv style="grid-column: 9 / span 4; line-height: 1.8; margin: 0">One layer is missing from the stack: delegated authority.</p>
-</div>
-<div data-rv style="padding-bottom: 96px">
-<div class="acc {{a0}}"><button type="button" onClick="{{t0}}" aria-expanded="{{e0}}"><span class="mono ink">[01]</span><span class="h3">Identity provider</span><span class="mono ink r">Who the agent is</span><span class="pl" aria-hidden="true">+</span></button><div class="accb"><div><p class="small ink" style="padding: 0 0 26px 86px; max-width: 46em">Envelopes name owners and bind to identities you already issue.</p></div></div></div>
-<div class="acc hi {{a1}}"><button type="button" onClick="{{t1}}" aria-expanded="{{e1}}"><span class="mono ink">[02]</span><span class="h3">SafeShake</span><span class="mono r" style="color: #295766">Delegated authority</span><span class="pl" aria-hidden="true">+</span></button><div class="accb"><div><p class="small ink" style="padding: 0 0 26px 86px; max-width: 46em">Self-hosted in your environment. Checks the envelope, holds the evidence.</p></div></div></div>
-<div class="acc {{a2}}"><button type="button" onClick="{{t2}}" aria-expanded="{{e2}}"><span class="mono ink">[03]</span><span class="h3">AI gateway</span><span class="mono ink r">Routes, limits keys</span><span class="pl" aria-hidden="true">+</span></button><div class="accb"><div><p class="small ink" style="padding: 0 0 26px 86px; max-width: 46em">A gateway policy asks SafeShake before forwarding.</p></div></div></div>
-<div class="acc {{a3}}"><button type="button" onClick="{{t3}}" aria-expanded="{{e3}}"><span class="mono ink">[04]</span><span class="h3">Agent frameworks</span><span class="mono ink r">Orchestrate</span><span class="pl" aria-hidden="true">+</span></button><div class="accb"><div><p class="small ink" style="padding: 0 0 26px 86px; max-width: 46em">Hooks or middleware ask before each model and tool call.</p></div></div></div>
-<div class="acc {{a4}}"><button type="button" onClick="{{t4}}" aria-expanded="{{e4}}"><span class="mono ink">[05]</span><span class="h3">Models, tools, MCP</span><span class="mono ink r">Consumed</span><span class="pl" aria-hidden="true">+</span></button><div class="accb"><div><p class="small ink" style="padding: 0 0 26px 86px; max-width: 46em">An MCP server and local proxy see the calls hooks miss.</p></div></div></div>
-<div class="acc hi {{a5}}"><button type="button" onClick="{{t5}}" aria-expanded="{{e5}}"><span class="mono ink">[06]</span><span class="h3">Economic record</span><span class="mono r" style="color: #295766">Owned, settled, proven</span><span class="pl" aria-hidden="true">+</span></button><div class="accb"><div><p class="small ink" style="padding: 0 0 26px 86px; max-width: 46em">Removable. The evidence stays usable without us.</p></div></div></div>
+<div class="mono" style="display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; color: rgba(10,38,56,.75)"><span><span class="sq"></span>006 / Integration</span><span class="hide-m">Every control keeps its job</span></div>
+<div class="cols" style="padding-top: 34px; align-items: end">
+<h2 class="h2 mk" data-rv style="grid-column: 1 / span 8; color: #0a2638"><span class="ml"><span>Sits beside</span></span><span class="ml"><span style="font-family: 'Erode', Georgia, serif; font-style: italic; color: #295766">what you already run.</span></span></h2>
+<p class="mono" data-rv style="grid-column: 9 / span 4; line-height: 1.8; margin: 0; color: rgba(10,38,56,.7)">One layer is missing from the stack: delegated authority. Scroll along it.</p>
 </div>
 </div>
+<div style="margin-top: 40px; overflow: hidden">
+<div class="itrack" data-itrack>
+<article class="icard"><div class="istk" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div><span class="num">01</span><div><span class="mono" style="color: #295766">Who the agent is</span><h3 style="margin-top: 12px">Identity provider</h3><p>Envelopes name owners and bind to identities you already issue.</p></div></article>
+<article class="icard ss"><div class="istk" aria-hidden="true"><i class=""></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div><span class="num">02</span><div><span class="mono" style="color: #b0def5">Delegated authority</span><h3 style="margin-top: 12px">SafeShake</h3><p>Self-hosted in your environment. Checks the envelope, holds the evidence.</p></div></article>
+<article class="icard"><div class="istk" aria-hidden="true"><i class=""></i><i class=""></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></div><span class="num">03</span><div><span class="mono" style="color: #295766">Routes, limits keys</span><h3 style="margin-top: 12px">AI gateway</h3><p>A gateway policy asks SafeShake before forwarding.</p></div></article>
+<article class="icard"><div class="istk" aria-hidden="true"><i class=""></i><i class=""></i><i class=""></i><i class="on"></i><i class=""></i><i class=""></i></div><span class="num">04</span><div><span class="mono" style="color: #295766">Orchestrate</span><h3 style="margin-top: 12px">Agent frameworks</h3><p>Hooks or middleware ask before each model and tool call.</p></div></article>
+<article class="icard"><div class="istk" aria-hidden="true"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class="on"></i><i class=""></i></div><span class="num">05</span><div><span class="mono" style="color: #295766">Consumed</span><h3 style="margin-top: 12px">Models, tools, MCP</h3><p>An MCP server and local proxy see the calls hooks miss.</p></div></article>
+<article class="icard ss"><div class="istk" aria-hidden="true"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class="on"></i></div><span class="num">06</span><div><span class="mono" style="color: #b0def5">Owned, settled, proven</span><h3 style="margin-top: 12px">Economic record</h3><p>Removable. The evidence stays usable without us.</p></div></article>
 </div>
-</section>
-
-<section data-sec="007|Verification" style="padding: 0 0 130px">
-<div class="wrap">
-<div class="sbar mono dim"><div><span><span class="sq"></span>007</span><span><span class="sq"></span><span class="scr" data-scr-in>Verification</span></span></div><div class="hide-m"><span><span class="sq"></span>007</span><span><span class="sq"></span><span class="scr" data-scr-in>Verifier built</span></span></div></div>
-<div class="cols" style="padding-top: 72px; row-gap: 48px; align-items: center">
-<div style="grid-column: 1 / span 5">
-<h2 class="h2 mk" data-rv><span class="ml"><span>Anyone can</span></span><span class="ml"><span class="it">check the record.</span></span></h2>
-<p class="mono dim" data-rv style="line-height: 1.8; margin-top: 28px; max-width: 28em">Checked offline, with no access to SafeShake. Edits and deletions show up.</p>
 </div>
-<div data-rv style="grid-column: 7 / span 6">
-<div class="term" role="img" aria-label="Terminal: safeshake verify passes five checks and prints VERIFIED"><span class="tl dim" style="transition-delay: .2s">$ safeshake verify legal-october.json</span><span class="tl" style="transition-delay: .9s"> </span><span class="tl" style="color: #b0def5; transition-delay: 1.3s">PASS envelope id is the content hash of its body</span><span class="tl" style="color: #b0def5; transition-delay: 1.7s">PASS envelope signed by the declared principal key</span><span class="tl" style="color: #b0def5; transition-delay: 2.1s">PASS hash chain is continuous</span><span class="tl" style="color: #b0def5; transition-delay: 2.5s">PASS event hashes recompute from their contents</span><span class="tl" style="color: #b0def5; transition-delay: 2.9s">PASS event signatures verify against the public key</span><span class="tl" style="transition-delay: 3.1s"> </span><span class="tl" style="color: #f2f2f2; font-weight: 500; transition-delay: 3.6s">VERIFIED</span></div>
-</div>
+<div class="ibar mono" style="color: #0a2638"><span>{{iNo}} / 06</span><span class="ln"><i data-ibar></i></span><span>Layer in the stack</span></div>
 </div>
 </div>
 </section>
 
-<section data-sec="008|Built to hold" data-par class="para" style="height: 1800px; margin-top: 12px">
+<section class="dsec" ref="{{vRef}}" data-sec="007|Verification">
+<div class="dstage" ref="{{vStageRef}}">
+<iframe class="dframe" data-dots="verify" title="" aria-hidden="true" tabindex="-1" loading="lazy" src="dots/index.html?scene=mark&amp;embed&amp;notext&amp;scrub&amp;q=0.6"></iframe>
+<div class="dshade" aria-hidden="true" style="background: linear-gradient(90deg, rgba(13,13,13,.92), rgba(13,13,13,.55) 40%, rgba(13,13,13,0) 60%)"></div>
+<div class="vcopy">
+<span class="mono" style="color: #b0def5"><span class="sq"></span>007 / Verification</span>
+<h2 class="h2" style="margin-top: 22px">Anyone can <span class="it">check the record.</span></h2>
+<p class="lede" style="margin-top: 18px; max-width: 26em">Checked offline, with no access to SafeShake. Edits and deletions show up.</p>
+</div>
+<div class="vterm" role="img" aria-label="Terminal: safeshake verify passes five checks and prints VERIFIED">
+<span class="{{v0}}" style="color: rgba(242,242,242,.55)">$ safeshake verify legal-october.json</span>
+<span class="{{v1}}"> </span>
+<span class="{{v2}}" style="color: #b0def5">PASS envelope id is the content hash of its body</span>
+<span class="{{v3}}" style="color: #b0def5">PASS envelope signed by the declared principal key</span>
+<span class="{{v4}}" style="color: #b0def5">PASS hash chain is continuous</span>
+<span class="{{v5}}" style="color: #b0def5">PASS event hashes recompute from their contents</span>
+<span class="{{v6}}" style="color: #b0def5">PASS event signatures verify against the public key</span>
+</div>
+<div class="vbig {{vBig}}" aria-hidden="true">VERIFIED</div>
+</div>
+</section>
+
+<section data-sec="008|Limits that hold" data-par class="para" style="height: 1800px; margin-top: 12px">
 <div class="stars" aria-hidden="true"></div>
 <div class="planet" aria-hidden="true"></div>
 <div style="position: sticky; top: 0; height: clamp(600px, 100vh, 900px); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; z-index: 2; pointer-events: none; padding: 0 20px">
 <span class="mono" style="padding: 5px 10px; border: 1px solid rgba(242,242,242,.5)">Proof, not promises</span>
-<h2 class="h2" style="margin-top: 24px">Built to <span class="it">hold.</span></h2>
-<p class="lede" style="margin-top: 18px">Tested hard, run on your own servers, and checkable by anyone, without us.</p>
+<h2 class="h2" style="margin-top: 24px">Limits that <span class="it">hold.</span></h2>
+<p class="lede" style="margin-top: 18px">When an agent pushes, the envelope doesn't move. And the record shows it.</p>
 </div>
 <div class="tile" data-speed="-420" style="left: 4%; top: 140px; width: min(30%, 420px); aspect-ratio: 4 / 3; z-index: 3">
 <img src="img/stage.jpg" alt="An audience in front of a SafeShake screen" style="object-position: 50% 60%"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i>
@@ -546,11 +612,11 @@ a{color:#f2f2f2;text-decoration:none}a:hover{color:#b0def5}
 </div>
 <div class="tile" data-speed="-180" style="right: 7%; top: 80px; width: min(20%, 280px); aspect-ratio: 3 / 4; z-index: 1">
 <img src="img/card.jpg" alt="The SafeShake glass card" style="object-position: 50% 65%"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i>
-<div class="stat"><b>1</b><span class="mono">Envelope per agent</span></div>
+<div class="stat"><b>ed25519</b><span class="mono">Signed by the owner</span></div>
 </div>
 <div class="tile" data-speed="-560" style="left: 16%; top: 1000px; width: min(32%, 460px); aspect-ratio: 16 / 10; z-index: 3">
 <img src="img/walker.jpg" alt="A figure crossing the SafeShake mark" style="object-position: 50% 65%"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i>
-<div class="stat"><b>Offline</b><span class="mono">Anyone can check the record</span></div>
+<div class="stat"><b>Offline</b><span class="mono">Anyone can verify</span></div>
 </div>
 <div class="tile" data-speed="-260" style="right: 10%; top: 1100px; width: min(24%, 340px); aspect-ratio: 1; z-index: 1">
 <img src="img/hands.jpg" alt="Robotic and human hands" style="object-position: 40% 50%"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i>
@@ -639,7 +705,7 @@ class Component extends DCLogic {
       log: [], tool: -1, tk: 'ka', typed: '',
       sh: { who: -1, what: 'Waiting for a request', c: [0, 0, 0], v: '', ok: true, spent: 6420, hist: 412 },
       k: [1284, 920, 344, 2210, 610, 4120, 8830, 2975],
-      tword: 'THIS', timg: 0, tfin: false, astep: 6, open: 1, mode: 'observe'
+      tword: 'THIS', timg: 0, tfin: false, astep: 6, open: 1, mode: 'observe', mp: 1, ip: 0, vp: 1
     };
     this.root = null; this.cv = null; this.wrap = null; this.inner = null; this.vis = null; this.s = 0; this.long = false;
     this.setRoot = (el) => { this.root = el; };
@@ -651,11 +717,18 @@ class Component extends DCLogic {
     this.setStage = (el) => { this.stage = el; };
     this.setTrip = (el) => { this.trip = el; };
     this.setTripStage = (el) => { this.tripStage = el; };
+    this.setM = (el) => { this.mSec = el; };
+    this.setMStage = (el) => { this.mStage = el; };
+    this.setI = (el) => { this.iSec = el; };
+    this.setIStage = (el) => { this.iStage = el; };
+    this.setV = (el) => { this.vSec = el; };
+    this.setVStage = (el) => { this.vStage = el; };
+    this.jump = (half) => { if (!this.mSec || !this.mStage || !this.long) { this.setState({ mp: half ? 1 : 0.2 }); return; } const r = this.mSec.getBoundingClientRect(), span = r.height - this.mStage.offsetHeight; window.scrollTo({ top: window.scrollY + r.top + span * (half ? 0.78 : 0.2), behavior: 'smooth' }); };
     this.toggleMenu = () => this.setState({ menu: !this.state.menu });
     this.closeMenu = () => this.setState({ menu: false });
     this.submit = (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ sent: true }); };
-    this.pickObserve = () => this.setState({ mode: 'observe' });
-    this.pickEnforce = () => this.setState({ mode: 'enforce' });
+    this.pickObserve = () => this.jump(0);
+    this.pickEnforce = () => this.jump(1);
     this.tog = [0, 1, 2, 3, 4, 5].map((i) => () => this.setState({ open: this.state.open === i ? -1 : i }));
     this.pick0 = () => this.setState({ slide: 0 });
     this.pick1 = () => this.setState({ slide: 1 });
@@ -799,6 +872,23 @@ class Component extends DCLogic {
     this.setState({ k });
   }
 
+  feedDots(up) {
+    if (!this.dots) return;
+    const vh = window.innerHeight || 800;
+    const mp = up && up.mp !== undefined ? up.mp : this.state.mp, vp = up && up.vp !== undefined ? up.vp : this.state.vp;
+    this.dots.forEach((f) => {
+      const w = f.contentWindow;
+      if (!w) return;
+      const r = f.getBoundingClientRect(), on = r.bottom > -50 && r.top < vh + 50;
+      let d;
+      // envelope: the hand gathers while observing, the sphere wakes once enforcing
+      if (f.getAttribute('data-dots') === 'modes') d = mp < 0.5 ? 0.1 + (mp / 0.5) * 0.18 : 0.32 + ((mp - 0.5) / 0.5) * 0.66;
+      // mark: dust gathers into the mark and holds; never blows away here
+      else d = 0.02 + vp * 0.6;
+      try { w.postMessage({ dots: d, pause: !on }, '*'); } catch (e) {}
+    });
+  }
+
   tickTrip() {
     if (!this.tripOn || this.state.tfin) return;
     this.setState({ timg: (this.state.timg + 1) % 6 });
@@ -822,6 +912,11 @@ class Component extends DCLogic {
     this.vs = Array.prototype.slice.call(root.querySelectorAll('[data-v]')).map((el) => { const r = el.getAttribute('data-v').split(',').map(Number); return { el, a: r[0], b: r[r.length - 1] }; });
     this.fill = root.querySelector('[data-fill]');
     this.tbg = root.querySelector('[data-tbg]');
+    this.dots = Array.prototype.slice.call(root.querySelectorAll('[data-dots]'));
+    this.itrack = root.querySelector('[data-itrack]');
+    this.ibar = root.querySelector('[data-ibar]');
+    // the dot scenes follow the scroll; keep telling them where to be, and pause them off screen
+    this.dotsT = setInterval(() => this.feedDots(), 400);
     this.par = Array.prototype.slice.call(root.querySelectorAll('[data-speed]')).map((el) => ({ el, sec: el.closest('[data-par]'), speed: Number(el.getAttribute('data-speed')) || 0 }));
     this.li = 0; this.lastBad = null; this.tyLine = 0; this.tyPos = 0; this.tyHold = 0; this.rq = 0; this.ph = 0;
     this.startStage();
@@ -860,6 +955,9 @@ class Component extends DCLogic {
       if (this.wrap && this.inner) this.wrap.style.height = this.long ? (this.inner.offsetHeight * 7) + 'px' : '';
       if (this.pin && this.stage) this.pin.style.height = this.wide ? (this.stage.offsetHeight * 3.2) + 'px' : '';
       if (this.trip && this.tripStage) this.trip.style.height = this.long ? (this.tripStage.offsetHeight * 3.6) + 'px' : '';
+      if (this.mSec && this.mStage) this.mSec.style.height = this.long ? (this.mStage.offsetHeight * 3.4) + 'px' : '';
+      if (this.vSec && this.vStage) this.vSec.style.height = this.long ? (this.vStage.offsetHeight * 3) + 'px' : '';
+      if (this.iSec && this.iStage) this.iStage.parentNode.style.height = this.wide ? (this.iStage.offsetHeight * 3.2) + 'px' : '';
       if (this.vis) {
         const r = this.vis.getBoundingClientRect();
         this.vis.style.setProperty('--vs', String(Math.max(.3, Math.min(r.width / 540, r.height / 520, 1.2))));
@@ -906,6 +1004,25 @@ class Component extends DCLogic {
         }
         if (as !== this.state.astep) up.astep = as;
       }
+      const pin = (sec, st) => {
+        if (!sec || !st) return 1;
+        if (!this.long) return 1;
+        const r = sec.getBoundingClientRect();
+        return cl(-r.top / ((r.height - st.offsetHeight) || 1));
+      };
+      const mp = Math.round(pin(this.mSec, this.mStage) * 200) / 200, vp = Math.round(pin(this.vSec, this.vStage) * 200) / 200;
+      if (mp !== this.state.mp) up.mp = mp;
+      if (vp !== this.state.vp) up.vp = vp;
+      if (this.itrack && this.iSec && this.iStage) {
+        const ip = this.wide ? pin(this.iSec, this.iStage) : 0;
+        const max = Math.max(0, this.itrack.scrollWidth - this.itrack.parentNode.offsetWidth);
+        this.itrack.style.transform = this.wide ? 'translate3d(' + (-ip * max).toFixed(1) + 'px,0,0)' : '';
+        this.itrack.parentNode.style.overflowX = this.wide ? 'hidden' : 'auto';
+        if (this.ibar) this.ibar.style.transform = 'scaleX(' + (this.wide ? ip : 1) + ')';
+        const no = Math.min(6, 1 + Math.floor(ip * 6));
+        if (no !== this.state.ip) up.ip = no;
+      }
+      this.feedDots(up);
       if (this.trip && this.tripStage) {
         const r = this.trip.getBoundingClientRect();
         this.tripOn = r.top < vh && r.bottom > 0;
@@ -936,6 +1053,7 @@ class Component extends DCLogic {
   componentWillUnmount() {
     if (this.glitchT) clearInterval(this.glitchT);
     (this.timers || []).forEach((t) => clearInterval(t));
+    if (this.dotsT) clearInterval(this.dotsT);
     ['rvIO', 'scIO', 'secIO', 'heroIO', 'ro'].forEach((k) => { if (this[k]) this[k].disconnect(); });
     if (this.raf) cancelAnimationFrame(this.raf);
     if (this.root && this.onOver) this.root.removeEventListener('mouseover', this.onOver);
@@ -1322,7 +1440,7 @@ class Component extends DCLogic {
 
   renderVals() {
     const st = this.state.step, menu = this.state.menu, sent = this.state.sent, sl = this.state.slide;
-    const sh = this.state.sh, k = this.state.k, as = this.state.astep, op = this.state.open, obs = this.state.mode === 'observe';
+    const sh = this.state.sh, k = this.state.k, as = this.state.astep, op = this.state.open, enf = this.state.mp >= 0.5;
     const cc = (n) => (n === 1 ? 'ok' : n === 2 ? 'no' : '');
     const v = {
       rootRef: this.setRoot, cvRef: this.setCv, wrapRef: this.setWrap, innerRef: this.setInner, visRef: this.setVis,
@@ -1342,8 +1460,16 @@ class Component extends DCLogic {
       tot: eur(k.reduce((a, b) => a + b, 0)),
       tword: this.state.tword, twCls: this.state.tword.length > 12 ? 'it2' : '', tFin: this.state.tfin ? 'on' : '', tOff: this.state.tfin ? 'off' : '',
       pickObserve: this.pickObserve, pickEnforce: this.pickEnforce,
-      obsPressed: obs ? 'true' : 'false', enfPressed: obs ? 'false' : 'true', obsCls: obs ? 'on' : 'off', enfCls: obs ? 'off' : 'on'
+      obsPressed: enf ? 'false' : 'true', enfPressed: enf ? 'true' : 'false',
+      mRef: this.setM, mStageRef: this.setMStage, iRef: this.setI, iStageRef: this.setIStage, vRef: this.setV, vStageRef: this.setVStage,
+      hObs: enf ? 'out' : 'in', hEnf: enf ? 'in' : 'out', swCls: enf ? 'enf' : '',
+      mCap: enf ? 'Enforce · the envelope reserves before anything runs' : 'Observe · see every action, nothing is blocked',
+      iNo: '0' + Math.max(1, this.state.ip), vBig: this.state.vp > 0.86 ? 'on' : ''
     };
+    const ML = enf ? ['Is this allowed?', 'Reserve the authority', 'Run, steer or escalate', 'Settle'] : ['Would this be allowed?', 'Record the decision', 'Run anyway', 'Settle'];
+    const half = enf ? (this.state.mp - 0.5) / 0.5 : this.state.mp / 0.5;
+    for (let i = 0; i < 4; i++) { v['mt' + i] = ML[i]; v['ml' + i] = half * 4.4 > i + 0.2 ? 'on' : ''; }
+    for (let i = 0; i < 7; i++) v['v' + i] = this.state.vp * 7.6 > i + 0.3 ? 'on' : '';
     for (let i = 1; i <= 6; i++) v['s' + i] = st === i ? 'on' : '';
     for (let i = 0; i < 5; i++) v['tool' + i] = this.state.tool === i ? 'on' : '';
     for (let i = 0; i < 4; i++) {
