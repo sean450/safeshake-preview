@@ -39,6 +39,8 @@ a{color:#f2f2f2;text-decoration:none}
 .navcta:hover{background:#b0def5;color:#0a2638;--sc:#0a2638}
 .menu-btn{min-height:44px;padding:0 18px;border-radius:2px;border:1px solid rgba(242,242,242,.3);background:transparent;color:#f2f2f2;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
 .scr{position:relative;display:inline-block}
+@keyframes glt{0%{transform:translate(0)}20%{transform:translate(-3px,1px);clip-path:inset(8% 0 58% 0)}40%{transform:translate(3px,-1px);clip-path:inset(62% 0 6% 0)}60%{transform:translate(-1px,0);clip-path:inset(32% 0 38% 0)}80%{transform:translate(2px,1px);clip-path:none}100%{transform:translate(0)}}
+.gl{animation:glt .34s steps(2) 1;text-shadow:3px 0 rgba(176,222,245,.75),-2px 0 rgba(242,242,242,.45)}
 .scr.run{color:transparent !important}
 .scr.run::after{content:attr(data-scr);position:absolute;left:0;top:0;white-space:pre;color:var(--sc)}
 .sheen{background:linear-gradient(100deg,#f2f2f2 0%,#f2f2f2 38%,#b0def5 46%,#ffffff 50%,#b0def5 54%,#f2f2f2 62%,#f2f2f2 100%);background-size:260% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sheen 7s ease-in-out infinite}
@@ -129,10 +131,10 @@ a{color:#f2f2f2;text-decoration:none}
 <div class="mono hide-m" style="color: rgba(242,242,242,.6); white-space: nowrap"><span class="sq" style="color: #b0def5"></span>{{sec}}<span style="display: inline-block; width: 18px"></span>{{secName}}</div>
 </div>
 <nav class="hide-m" aria-label="Main" style="display: flex; align-items: center; gap: 6px">
-<a class="navlink" data-hs href="Product.dc.html"><span class="scr">Product</span></a>
+<a class="navlink" data-hs href="Product.dc.html"><span class="scr">Developers</span></a>
 <a class="navlink" data-hs href="Enterprise.dc.html"><span class="scr">Enterprise</span></a>
-<a class="navlink cur" data-hs href="Challenge.dc.html" aria-current="page"><span class="scr">Break the Envelope</span></a>
-<a class="navlink" data-hs href="Company.dc.html"><span class="scr">Company</span></a>
+<a class="navlink cur" data-hs href="Challenge.dc.html" aria-current="page"><span class="scr">Hackathon</span></a>
+<a class="navlink" data-hs href="Company.dc.html"><span class="scr">Mission</span></a>
 <a class="navcta" data-hs href="#register" style="margin-left: 14px"><span class="scr">Register interest</span></a>
 </nav>
 <button class="menu-btn show-m" onClick="{{toggleMenu}}" aria-expanded="{{menuOpen}}">{{menuLabel}}</button>
@@ -140,10 +142,10 @@ a{color:#f2f2f2;text-decoration:none}
 <sc-if value="{{menu}}" hint-placeholder-val="{{false}}">
 <nav class="show-m" aria-label="Mobile" style="padding: 8px 20px 28px; display: flex; flex-direction: column; gap: 4px; border-top: 1px solid rgba(242,242,242,.08)">
 <a class="navlink" href="Main.dc.html" style="font-size: 16px; padding: 14px 10px">Home</a>
-<a class="navlink" href="Product.dc.html" style="font-size: 16px; padding: 14px 10px">Product</a>
+<a class="navlink" href="Product.dc.html" style="font-size: 16px; padding: 14px 10px">Developers</a>
 <a class="navlink" href="Enterprise.dc.html" style="font-size: 16px; padding: 14px 10px">Enterprise</a>
-<a class="navlink cur" href="Challenge.dc.html" style="font-size: 16px; padding: 14px 10px">Break the Envelope</a>
-<a class="navlink" href="Company.dc.html" style="font-size: 16px; padding: 14px 10px">Company</a>
+<a class="navlink cur" href="Challenge.dc.html" style="font-size: 16px; padding: 14px 10px">Hackathon</a>
+<a class="navlink" href="Company.dc.html" style="font-size: 16px; padding: 14px 10px">Mission</a>
 </nav>
 </sc-if>
 </header>
@@ -153,7 +155,7 @@ a{color:#f2f2f2;text-decoration:none}
 <div class="shade" aria-hidden="true"></div>
 <div class="wrap" style="position: relative; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 64px">
 <span class="mono hero-in" style="animation-delay: .2s; color: #b0def5"><span class="sq"></span><span class="scr" data-scr-in>SafeShake presents</span></span>
-<h1 class="h1 sheen hero-in" style="margin-top: 22px; animation-delay: .35s; max-width: 9ch">Break the <span class="it">Envelope.</span></h1>
+<h1 class="h1 sheen hero-in" style="margin-top: 22px; animation-delay: .35s; max-width: 11ch">Break the Envelope. <span class="it">Win the prize.</span></h1>
 <div class="hero-in" style="animation-delay: .6s; display: flex; flex-wrap: wrap; gap: 28px; align-items: flex-end; justify-content: space-between; margin-top: 32px">
 <p class="mono" style="margin: 0; max-width: 34em; line-height: 1.8; color: rgba(242,242,242,.75)">Take over our agent however you like. Make it spend outside its envelope, and the pot is yours.</p>
 <div style="display: flex; gap: 10px; flex-wrap: wrap"><a class="sbtn light" data-hs href="#register"><span class="scr">Register interest</span></a><a class="sbtn ghost" data-hs href="#rules"><span class="scr">Read the rules</span></a></div>
@@ -309,9 +311,9 @@ a{color:#f2f2f2;text-decoration:none}
 </div>
 <div class="wrap">
 <div class="fgrid">
-<div class="fcol"><span>Product</span><a data-hs href="Product.dc.html"><span class="scr">The envelope</span></a><a data-hs href="Enterprise.dc.html"><span class="scr">Enterprise</span></a></div>
-<div class="fcol"><span>Challenge</span><a data-hs href="Challenge.dc.html"><span class="scr">Break the Envelope</span></a><a data-hs href="Challenge.dc.html#register"><span class="scr">Register interest</span></a></div>
-<div class="fcol"><span>Company</span><a data-hs href="Company.dc.html"><span class="scr">About</span></a><a data-hs href="Company.dc.html#contact"><span class="scr">Contact</span></a></div>
+<div class="fcol"><span>Product</span><a data-hs href="Product.dc.html"><span class="scr">Developers</span></a><a data-hs href="Enterprise.dc.html"><span class="scr">Enterprise</span></a></div>
+<div class="fcol"><span>Hackathon</span><a data-hs href="Challenge.dc.html"><span class="scr">Break the Envelope</span></a><a data-hs href="Challenge.dc.html#register"><span class="scr">Register interest</span></a></div>
+<div class="fcol"><span>Mission</span><a data-hs href="Company.dc.html"><span class="scr">Our mission</span></a><a data-hs href="Company.dc.html#contact"><span class="scr">Contact</span></a></div>
 <div class="fsocial"><a data-hs href="https://www.linkedin.com"><span class="scr">LinkedIn</span></a><a data-hs href="https://x.com"><span class="scr">X</span></a><a data-hs href="Main.dc.html"><span class="scr">safeshake.ai</span></a></div>
 </div>
 <div class="flegal"><span>© 2026 SafeShake. All rights reserved. Patent pending.</span><span>[Terms]&nbsp;&nbsp;&nbsp;&nbsp;[Privacy]</span></div>
@@ -369,8 +371,29 @@ class Component extends DCLogic {
     requestAnimationFrame(tick);
   }
 
+  startGlitch(root) {
+    if (!root || this.glitchT || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+    this.glitchT = setInterval(() => {
+      if (document.hidden) return;
+      const vh = window.innerHeight || 800;
+      const els = Array.prototype.filter.call(root.querySelectorAll('h1,h2,h3,.mono,.lede,.navlink'), (el) => {
+        const r = el.getBoundingClientRect();
+        if (!r.width || r.bottom < 0 || r.top > vh) return false;
+        const cs = getComputedStyle(el);
+        return cs.animationName === 'none' && cs.visibility !== 'hidden' && Number(cs.opacity) > .2;
+      });
+      const n = Math.random() < .35 ? 2 : 1;
+      for (let i = 0; i < n && els.length; i++) {
+        const el = els.splice(Math.floor(Math.random() * els.length), 1)[0];
+        el.classList.add('gl');
+        setTimeout(() => el.classList.remove('gl'), 360);
+      }
+    }, 1600);
+  }
+
   componentDidMount() {
     const root = this.root;
+    this.startGlitch(root);
     if (!root) return;
     const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     this.motion = !reduce && typeof IntersectionObserver !== 'undefined';
@@ -408,6 +431,7 @@ class Component extends DCLogic {
   }
 
   componentWillUnmount() {
+    if (this.glitchT) clearInterval(this.glitchT);
     ['rvIO', 'scIO', 'secIO', 'heroIO', 'ro'].forEach((k) => { if (this[k]) this[k].disconnect(); });
     if (this.raf) cancelAnimationFrame(this.raf);
     if (this.root && this.onOver) this.root.removeEventListener('mouseover', this.onOver);
