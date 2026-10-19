@@ -152,7 +152,7 @@
       this.glowA = null; this.glowB = null; // optional fixed glows, added with a strength
       const rnd = E.rng(7);
       this.grain = new Float32Array(512 * 512);
-      for (let i = 0; i < this.grain.length; i++) this.grain[i] = (rnd() + rnd() - 1) * 7 * (E.GRAIN || 1);
+      for (let i = 0; i < this.grain.length; i++) this.grain[i] = (rnd() + rnd() - 1) * 7 * (E.GRAIN == null ? 1 : E.GRAIN);
     }
     clear() { this.A.fill(0); this.B.fill(0); }
 

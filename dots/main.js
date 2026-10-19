@@ -13,7 +13,7 @@
   const name = window.SCENES[q.get('scene')] ? q.get('scene') : 'reach';
   const fmt = q.get('f') || 'wide';
   const record = q.has('record'), embed = q.has('embed'), scrub = q.has('scrub');
-  const quality = Math.min(1, Math.max(0.3, Number(q.get('q')) || 1));
+  const quality = Math.min(1.5, Math.max(0.3, Number(q.get('q')) || 1));
   const [W, H] = fmt === 'tall' ? [1080, 1920] : fmt === 'square' ? [1080, 1080] : [1920, 1080];
   const scene = window.SCENES[name];
   // website copy: ?warm=0.3 dials back the blue around the subject, ?boost=1.2 lifts the dots, ?grain=1.3 adds grain
@@ -75,17 +75,19 @@
   // eases towards it, so scrolling down plays it forwards and scrolling up plays it back.
   //   iframe.contentWindow.postMessage({ dots: progress }, '*')
   if (scrub) {
-    let target = 0, cur = 0, clock = 0, last = performance.now(), paused = false;
+    let target = 0, cur = 0, clock = 0, last = performance.now(), paused = false, drawn = false;
     addEventListener('message', (e) => {
       if (!e.data) return;
-      if (typeof e.data.dots === 'number') target = Math.min(1, Math.max(0, e.data.dots)) * scene.duration;
+      if (typeof e.data.dots === 'number') { const nt = Math.min(1, Math.max(0, e.data.dots)) * scene.duration; if (nt !== target) drawn = false; target = nt; }
       if (typeof e.data.pause === 'boolean') paused = e.data.pause;
     });
     const tick = (now) => {
       const dt = Math.min(0.1, (now - last) / 1000); last = now; clock += dt;
       cur += (target - cur) * Math.min(1, dt * 6);
       // The scene's own time follows the scroll; idle shimmer keeps running underneath
-      if (!paused) draw(cur + (scene.loop === 'continuous' ? clock : 0));
+      // only redraw while the scene is moving, so it can run at full resolution
+      const moving = Math.abs(target - cur) > 0.002 || scene.loop === 'continuous';
+      if (!paused && (moving || !drawn)) { draw(cur + (scene.loop === 'continuous' ? clock : 0)); drawn = !moving; }
       requestAnimationFrame(tick);
     };
     requestAnimationFrame(tick);

@@ -313,7 +313,7 @@ a{color:#f2f2f2;text-decoration:none}a:hover{color:#b0def5}
 .dsec{position:relative;background:#0d0d0d}
 .dstage{position:sticky;top:0;height:clamp(640px,100vh,960px);overflow:hidden;background:#0d0d0d}
 .dframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;pointer-events:none}
-[data-scene="reach"]{left:-24px;width:calc(100% + 48px);filter:drop-shadow(0 0 5px rgba(176,222,245,.28))}
+[data-scene="reach"]{left:-24px;width:calc(100% + 48px)}
 .dshade{position:absolute;inset:0;pointer-events:none}
 .mcopy{position:absolute;right:48px;top:50%;transform:translateY(-50%);width:min(520px,40%)}
 .mhead{position:relative;height:2.2em;font-size:clamp(40px,4.4vw,72px);font-weight:300;letter-spacing:-.025em;line-height:1.02;margin:22px 0 0}
@@ -982,7 +982,7 @@ class Component extends DCLogic {
     this.fill = root.querySelector('[data-fill]');
     this.tbg = root.querySelector('[data-tbg]');
     this.dots = Array.prototype.slice.call(root.querySelectorAll('[data-dots]'));
-    this.dots.forEach((f) => { const sc = f.getAttribute('data-scene'); if (sc && !f.getAttribute('src')) f.setAttribute('src', 'dots/index.html?scene=' + sc + '&embed&notext&scrub&q=0.6&warm=0.3&grain=1.35' + ((window.innerWidth || 1200) < 900 ? '&f=tall&boost=1.6' : '&boost=1.25')); });
+    this.dots.forEach((f) => { const sc = f.getAttribute('data-scene'); if (sc && !f.getAttribute('src')) f.setAttribute('src', 'dots/index.html?scene=' + sc + '&embed&notext&scrub&warm=0.3&grain=0' + ((window.innerWidth || 1200) < 900 ? '&f=tall&q=1&boost=1.6' : '&q=1.25&boost=1.25')); });
     this.itrack = root.querySelector('[data-itrack]');
     this.ibar = root.querySelector('[data-ibar]');
     // the dot scenes follow the scroll; keep telling them where to be, and pause them off screen
