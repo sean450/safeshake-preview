@@ -500,9 +500,17 @@ class Component extends DCLogic {
     for (let i = 0; i < 340; i++) { const lane = lanes[Math.floor(rnd() * lanes.length)]; pulses.push({ lane, phase: rnd(), period: 2.6 + rnd() * 3.6, len: .12 + rnd() * .22, w: .8 + rnd() * 1.2, bright: .55 + rnd() * .45, white: rnd() < .3 }); }
     const motes = [];
     for (let i = 0; i < 420; i++) motes.push({ x: (rnd() * 2 - 1) * 18, z: ZN * Math.pow(ZF / ZN, rnd()), tw: rnd() * 6.28, r: .5 + rnd() });
-    const ORB = [.62, .8, 1.0, 1.25, 1.55];
-    const agents = [];
-    for (let i = 0; i < 16; i++) agents.push({ id: i + 1, o: i % ORB.length, a0: rnd() * 6.283, w: (rnd() < .5 ? -1 : 1) * (.05 + rnd() * .07), p: 2.2 + rnd() * 1.6, ph: rnd(), label: i % 3 === 0 });
+    const AG = [
+      { name: 'AGENT 01', rule: '≤ €500 / DAY', lim: 500 },
+      { name: 'AGENT 02', rule: 'SAAS ONLY', lim: 300 },
+      { name: 'AGENT 03', rule: '≤ €2K / MONTH', lim: 2000 },
+      { name: 'AGENT 04', rule: 'TRAVEL ≤ €900', lim: 900 },
+      { name: 'AGENT 05', rule: '≤ €80 / CALL', lim: 80 }
+    ];
+    const DS = ['CLOUD API', 'FLIGHTS', 'SUPPLIER', 'SAAS', 'ADS'];
+    const UA = .16, UG = .56, UD = .96;
+    const log = [], seen = {};
+    let recNo = 411;
     const HZ = [176, 222, 245], CL = [242, 242, 242];
     const rgba = (r, a) => 'rgba(' + r[0] + ',' + r[1] + ',' + r[2] + ',' + a + ')';
     const mark = new Path2D('M 447.363281 265.285156 L 447.363281 284.03125 L 434.324219 284.03125 C 434.789062 284.53125 435.203125 285.148438 435.667969 285.640625 C 444.023438 294.492188 456.167969 301.570312 452.195312 315.863281 C 450.523438 321.886719 443.207031 329.269531 436.667969 329.269531 L 394.179688 329.269531 L 394.179688 310.828125 L 394.484375 310.523438 L 407.425781 310.523438 L 393.5625 296.570312 C 385.363281 287.390625 388.101562 272.574219 399.207031 267.15625 C 400.558594 266.496094 403.863281 265.285156 405.285156 265.285156 Z M 433.914062 284.03125 L 407.832031 284.03125 L 420.773438 297.082031 Z M 433.914062 310.523438 L 420.773438 297.472656 L 407.628906 310.523438 Z');
@@ -574,109 +582,205 @@ class Component extends DCLogic {
       return vy;
     };
 
-    const label = (txt, x, y, a, align) => {
-      c.font = '11px "IBM Plex Mono", ui-monospace, monospace';
+    const label = (txt, x, y, a, align, col, px) => {
+      c.font = (px || 11) + 'px "IBM Plex Mono", ui-monospace, monospace';
       c.textAlign = align || 'left';
-      c.fillStyle = rgba(HZ, a);
+      c.fillStyle = rgba(col || HZ, a);
       c.fillText(txt, x, y);
     };
+    const money = (v) => '€' + (v >= 1000 ? (Math.round(v / 100) * 100).toLocaleString('en-GB') : String(Math.max(1, Math.round(v))));
+    const geo = () => {
+      if (W < 900) {
+        const X0 = 30, X1 = W - 30, Y0 = 124, Y1 = Math.max(Y0 + 190, H - 420);
+        return { mob: true, X0, X1, Y0, Y1, na: 4, nd: 4, P: (u, v) => [X0 + v * (X1 - X0), Y0 + u * (Y1 - Y0)] };
+      }
+      const X0 = 72, X1 = W * .5, Y0 = H * .2, Y1 = H * .68;
+      return { mob: false, X0, X1, Y0, Y1, na: 5, nd: 5, P: (u, v) => [X0 + u * (X1 - X0), Y0 + v * (Y1 - Y0)] };
+    };
+    const av = (G, i) => .06 + i * (.88 / (G.na - 1));
+    const dv = (G, j) => j < 0 ? (G.mob ? .96 : 1) : (G.mob ? .04 + j * (.66 / (G.nd - 1)) : .06 + j * (.74 / (G.nd - 1)));
+    const bz = (a, b, d, e, t) => { const m = 1 - t; return m * m * m * a + 3 * m * m * t * b + 3 * m * t * t * d + t * t * t * e; };
+    const pathPt = (G, va, vd, t) => G.P(bz(UA, UA + .25, UD - .25, UD, t), bz(va, va, vd, vd, t));
+    const rrect = (x, y, w, h, r) => { c.beginPath(); if (c.roundRect) c.roundRect(x, y, w, h, r); else c.rect(x, y, w, h); };
+    const pay = (i, n, G, bad) => {
+      const h1 = hash(i + 1, n), h2 = hash(i + 11, n * 3 + 1), h3 = hash(i + 21, n + 7);
+      let j = Math.floor(h1 * G.nd), amt = AG[i].lim * (.06 + h2 * .6), type = '';
+      if (bad && h3 < .34) {
+        if (h3 < .17) { j = -1; type = 'NEW PAYEE'; } else { amt = AG[i].lim * (3 + h2 * 9); type = 'OVER LIMIT'; }
+      }
+      return { j, amt, type };
+    };
 
-    const diagram = (t, s, A, cx, cy, R, Rp) => {
+    const flow = (t, s, A, G) => {
       c.save();
       c.globalAlpha = A;
-      let g = c.createRadialGradient(cx, cy, 0, cx, cy, Rp * 2.4);
-      g.addColorStop(0, 'rgba(176,222,245,.2)'); g.addColorStop(.45, 'rgba(41,87,102,.16)'); g.addColorStop(1, 'rgba(0,0,0,0)');
-      c.fillStyle = g; c.beginPath(); c.arc(cx, cy, Rp * 2.4, 0, 6.283); c.fill();
-      c.strokeStyle = 'rgba(176,222,245,.10)'; c.lineWidth = Rp * .38;
-      c.beginPath(); c.arc(cx, cy, Rp * 1.2, 0, 6.283); c.stroke();
-      c.lineWidth = 1;
-      ORB.forEach((o, i) => {
-        c.setLineDash(i % 2 ? [1, 7] : [3, 6]);
-        c.lineDashOffset = (i % 2 ? 1 : -1) * t * 6;
-        c.strokeStyle = 'rgba(176,222,245,' + (.5 - i * .06) + ')';
-        c.beginPath(); c.arc(cx, cy, R * o, 0, 6.283); c.stroke();
-      });
-      c.setLineDash([]);
-      label('PAYMENTS', cx + Rp * 1.05, cy + Rp * 1.05 + 8, .7);
-      label('AGENTS', cx + R * Math.cos(-.95) + 8, cy + R * Math.sin(-.95), .55);
-      const re = R * .46, rr = R * .37;
-      const env = clamp((s - 2.75) / .8);
+      const risk = s >= 1.75 && s < 2.75;
+      const env = clamp((s - 2.75) / .8), chk = clamp((s - 3.7) / .5), rec = clamp((s - 4.7) / .6);
+      const riskA = clamp((s - 1.75) / .3) * (1 - clamp((s - 2.55) / .3));
+      const rogueA = clamp((s - 1.6) / .4) * (chk > 0 ? .55 + .45 * chk : 1 - .6 * env);
+      const gc = G.P(UG, .5), g0 = G.P(UG, -.06), g1 = G.P(UG, 1.06);
+      const sm = G.mob ? 10 : 11;
+
+      // owner signs the limits, envelopes close around each agent
       if (env > 0) {
-        c.save();
-        c.strokeStyle = rgba(HZ, 1); c.lineWidth = 2.4;
-        c.shadowColor = 'rgba(176,222,245,.9)'; c.shadowBlur = 14 * dpr;
-        c.setLineDash([9, 5]); c.lineDashOffset = -t * 14;
-        c.beginPath(); c.arc(cx, cy, re, -Math.PI / 2, -Math.PI / 2 + 6.283 * env); c.stroke();
-        c.restore();
-        c.setLineDash([]);
-        c.fillStyle = 'rgba(176,222,245,' + (.06 * env) + ')';
-        c.beginPath(); c.arc(cx, cy, re, 0, 6.283); c.fill();
-        c.strokeStyle = rgba(HZ, .45); c.lineWidth = 1;
-        for (let i = 0; i < 90 * env; i++) {
-          const an = -Math.PI / 2 + i / 90 * 6.283, l2 = i % 5 ? 6 : 10;
-          c.beginPath(); c.moveTo(cx + Math.cos(an) * (re + 3), cy + Math.sin(an) * (re + 3)); c.lineTo(cx + Math.cos(an) * (re + l2), cy + Math.sin(an) * (re + l2)); c.stroke();
+        const o = G.P(G.mob ? -.15 : 0, .5);
+        c.strokeStyle = rgba(CL, .9 * env); c.lineWidth = 1.2;
+        c.beginPath(); c.arc(o[0], o[1] - 4, 3.6, 0, 6.283); c.stroke();
+        c.beginPath(); c.arc(o[0], o[1] + 9, 7.5, Math.PI * 1.08, Math.PI * 1.92); c.stroke();
+        c.beginPath(); c.arc(o[0], o[1] + 1, 15, 0, 6.283); c.strokeStyle = rgba(HZ, .35 * env); c.stroke();
+        if (G.mob) label('OWNER · SIGNS THE LIMITS', o[0] + 24, o[1] + 4, .85 * env, 'left', CL, 10);
+        else { label('OWNER', o[0], o[1] - 26, .85 * env, 'center', CL); label('SIGNS', o[0], o[1] + 36, .6 * env, 'center'); }
+        for (let i = 0; i < G.na; i++) {
+          const a = G.P(UA, av(G, i));
+          const pb = clamp(env * 2 - i * .14);
+          if (pb <= 0) continue;
+          const sx0 = o[0] + (a[0] - o[0]) * .14, sy0 = o[1] + (a[1] - o[1]) * .14;
+          const ex = lerp(sx0, a[0], pb * .8), ey = lerp(sy0, a[1], pb * .8);
+          c.strokeStyle = rgba(HZ, pb < 1 ? .55 : .2); c.lineWidth = 1;
+          c.setLineDash([2, 4]); c.lineDashOffset = -t * 8;
+          c.beginPath(); c.moveTo(sx0, sy0); c.lineTo(ex, ey); c.stroke();
+          c.setLineDash([]);
+          if (pb < 1) { c.fillStyle = rgba(CL, .95); c.beginPath(); c.arc(ex, ey, 2, 0, 6.283); c.fill(); }
         }
-        label('ENVELOPE / ENV_001', cx, cy - re - 18, .9 * env, 'center');
       }
-      const rec = clamp((s - 4.7) / .9);
-      if (rec > 0) {
-        c.strokeStyle = rgba(CL, .85); c.lineWidth = 1.2;
-        const n = 120;
-        for (let i = 0; i < n * rec; i++) {
-          const an = -Math.PI / 2 + i / n * 6.283;
-          c.beginPath(); c.moveTo(cx + Math.cos(an) * (rr - 4), cy + Math.sin(an) * (rr - 4)); c.lineTo(cx + Math.cos(an) * (rr + 4), cy + Math.sin(an) * (rr + 4)); c.stroke();
+
+      // the faint dotted routes, one per agent per payment
+      const P = [];
+      for (let i = 0; i < G.na; i++) {
+        let per = 2.3 + hash(i, 99) * 1.5;
+        if (risk) per *= .55;
+        const v = t / per + hash(i, 55), n = Math.floor(v), u = v - n;
+        const p = pay(i, n, G, risk || s >= 3.75);
+        const va = av(G, i), vd = dv(G, p.j);
+        P.push({ i, n, u, p, va, vd });
+        const c0 = G.P(UA, va), c1 = G.P(UA + .25, va), c2 = G.P(UD - .25, vd), c3 = G.P(UD, vd);
+        c.setLineDash([2, 6]); c.lineDashOffset = -t * 12;
+        c.strokeStyle = rgba(p.type ? CL : HZ, p.type ? .2 : .16); c.lineWidth = 1;
+        c.beginPath(); c.moveTo(c0[0], c0[1]); c.bezierCurveTo(c1[0], c1[1], c2[0], c2[1], c3[0], c3[1]); c.stroke();
+      }
+      c.setLineDash([]);
+
+      // payees
+      for (let j = -1; j < G.nd; j++) {
+        const a = j < 0 ? rogueA : 1;
+        if (a <= .01) continue;
+        const [x, y] = G.P(UD, dv(G, j));
+        const fl = j < 0 && risk ? .6 + .4 * Math.sin(t * 9) : 1;
+        c.fillStyle = 'rgba(176,222,245,' + (.12 * a) + ')'; c.beginPath(); c.arc(x, y, 9, 0, 6.283); c.fill();
+        if (j < 0) { c.strokeStyle = rgba(CL, .7 * a * fl); c.setLineDash([2, 3]); c.beginPath(); c.arc(x, y, 9, 0, 6.283); c.stroke(); c.setLineDash([]); }
+        c.fillStyle = rgba(CL, .95 * a * fl); c.fillRect(x - 3, y - 3, 6, 6);
+        const name = j < 0 ? 'UNKNOWN PAYEE' : DS[j];
+        if (G.mob && j < 0) { label('UNKNOWN', x, y + 24, .7 * a, 'center', CL, 9); label('PAYEE', x, y + 35, .7 * a, 'center', CL, 9); }
+        else if (G.mob) label(name, x, y + 24, .7 * a, 'center', HZ, 9);
+        else label(name, x + 16, y + 4, .7 * a, 'left', j < 0 ? CL : HZ);
+      }
+
+      // agents, with their envelopes
+      for (let i = 0; i < G.na; i++) {
+        const [x, y] = G.P(UA, av(G, i));
+        const blink = (t * .7 + hash(i, 3)) % 1 < .05;
+        c.fillStyle = '#0b1822'; c.strokeStyle = rgba(HZ, .7); c.lineWidth = 1;
+        rrect(x - 13, y - 13, 26, 26, 6); c.fill(); c.stroke();
+        c.fillStyle = rgba(CL, .95);
+        const eh = blink ? .8 : 4.5;
+        c.fillRect(x - 7, y - eh / 2 - 1, 3.5, eh); c.fillRect(x + 3.5, y - eh / 2 - 1, 3.5, eh);
+        label(AG[i].name, x, y - 31, .6, 'center', HZ, G.mob ? 9 : 11);
+        const pf = clamp((env - .4) / .45 - i * .06);
+        if (pf > 0) {
+          c.save();
+          c.strokeStyle = rgba(HZ, 1); c.lineWidth = 1.8; c.shadowColor = 'rgba(176,222,245,.9)'; c.shadowBlur = 12 * dpr;
+          if (pf < 1) c.setLineDash([176 * pf, 400]); else { c.setLineDash([6, 4]); c.lineDashOffset = -t * 10; }
+          rrect(x - 22, y - 22, 44, 44, 10); c.stroke();
+          c.restore();
+          label(AG[i].rule, x, y + 38, .8 * pf, 'center', CL, G.mob ? 9 : 10);
         }
-        if (rec > .95) label('RECORD / VERIFIED', cx, cy + rr + 22, .95, 'center');
       }
+
+      // the checkpoint
+      if (riskA > 0) label('NOTHING CHECKS THIS', gc[0] + (G.mob ? 0 : 0), gc[1] + (G.mob ? -22 : -34), .9 * riskA, 'center', CL);
+      if (chk > 0) {
+        c.strokeStyle = rgba(HZ, .45 * chk); c.lineWidth = 1;
+        for (let k2 = 0; k2 <= 40; k2++) {
+          const [x, y] = G.P(UG, -.06 + k2 * 1.12 / 40);
+          const l2 = k2 % 5 ? 4 : 8;
+          c.beginPath();
+          if (G.mob) { c.moveTo(x, y - l2); c.lineTo(x, y + l2); } else { c.moveTo(x - l2, y); c.lineTo(x + l2, y); }
+          c.stroke();
+        }
+        if (G.mob) label('SAFESHAKE CHECK', g0[0], g0[1] - 14, .9 * chk, 'left', HZ, 9);
+        else label('SAFESHAKE CHECK', g0[0], g0[1] - 16, .9 * chk, 'center');
+      }
+
+      // payments
       c.globalCompositeOperation = 'lighter';
-      for (const a of agents) {
-        const ang = a.a0 + t * a.w, rad = R * ORB[a.o];
-        const x = cx + Math.cos(ang) * rad, y = cy + Math.sin(ang) * rad;
-        c.fillStyle = 'rgba(176,222,245,.14)'; c.beginPath(); c.arc(x, y, 7, 0, 6.283); c.fill();
-        c.fillStyle = rgba(CL, .95); c.fillRect(x - 2, y - 2, 4, 4);
-        if (a.label) label('AGENT ' + (a.id < 10 ? '0' : '') + a.id, x + 10, y - 8, .6);
+      for (const it of P) {
+        const { i, n, u, p, va, vd } = it;
+        if (u > .8) continue;
+        const q = u / .8;
+        const blocked = chk > .5 && !!p.type;
+        const tt = blocked ? Math.min(q, .5) : q;
+        if (chk > .5 && q >= .5 && seen[i] !== n) {
+          seen[i] = n;
+          const g = pathPt(G, va, vd, .5);
+          log.unshift({ no: ++recNo, ok: !blocked, amt: p.amt, dest: p.j < 0 ? 'UNKNOWN PAYEE' : DS[p.j], type: p.type, t, x: g[0], y: g[1] });
+          if (log.length > 8) log.pop();
+        }
+        const [px, py] = pathPt(G, va, vd, tt);
+        const [qx, qy] = pathPt(G, va, vd, Math.max(0, tt - .07));
+        const col = p.type && !blocked ? CL : HZ;
+        let al = smooth(q / .05) * (1 - smooth((q - .9) / .1));
+        if (blocked && q > .5) al = 1 - (q - .5) * 2;
+        let g = c.createLinearGradient(qx, qy, px, py);
+        g.addColorStop(0, rgba(col, 0)); g.addColorStop(1, rgba(col, .95 * al));
+        c.strokeStyle = g; c.lineWidth = 1.8;
+        c.beginPath(); c.moveTo(qx, qy); c.lineTo(px, py); c.stroke();
+        c.fillStyle = rgba(col, al); c.beginPath(); c.arc(px, py, 2.2, 0, 6.283); c.fill();
+        if (p.type || (i + n) % 2 === 0) label(money(p.amt), px + 9, py - 9, .8 * al, 'left', p.type ? CL : HZ, sm);
+        if (blocked && q > .5) {
+          const k3 = (q - .5) * 2;
+          c.strokeStyle = rgba(CL, .85 * (1 - k3)); c.lineWidth = 1.2;
+          c.beginPath(); c.arc(px, py, 4 + k3 * 20, 0, 6.283); c.stroke();
+          label('BLOCKED · ' + p.type, px + 12, py + (G.mob ? 22 : -14), .95 * (1 - k3), 'left', CL, sm);
+        } else if (chk > .5 && q > .5 && q < .64) {
+          const k3 = (q - .5) / .14;
+          c.strokeStyle = rgba(HZ, .8 * (1 - k3)); c.lineWidth = 1;
+          const [gx, gy] = pathPt(G, va, vd, .5);
+          c.beginPath(); c.arc(gx, gy, 3 + k3 * 12, 0, 6.283); c.stroke();
+          if (i % 2 === 0) label('ALLOWED', gx + 12, gy + (G.mob ? 22 : 16), .8 * (1 - k3), 'left', HZ, sm);
+        }
       }
-      const risk = s >= 1.75 && s < 2.75, check = s >= 3.75;
-      for (const a of agents) {
-        const P = risk ? a.p * .55 : a.p;
-        const v = t / P + a.ph, n = Math.floor(v), u = v - n;
-        if (u > .78) continue;
-        const q = u / .78;
-        const ang = a.a0 + (t - u * P) * a.w, rad = R * ORB[a.o];
-        const Ax = cx + Math.cos(ang) * rad, Ay = cy + Math.sin(ang) * rad;
-        const dx = cx - Ax, dy = cy - Ay, d = Math.hypot(dx, dy) || 1, ux = dx / d, uy = dy / d;
-        const hv = hash(a.id, n);
-        let x0, y0, x1, y1, qq, col = HZ, alpha = 1;
-        if (risk && hv < .45) {
-          const side = hv < .22 ? 1 : -1;
-          x0 = Ax; y0 = Ay; x1 = Ax - ux * R * 1.3 + uy * R * .6 * side; y1 = Ay - uy * R * 1.3 - ux * R * .6 * side;
-          qq = q; col = CL; alpha = 1 - smooth((q - .7) / .3);
-          if (a.id % 2 === 0 && q > .2 && q < .8) label('UNBOUNDED', lerp(x0, x1, q) + 10, lerp(y0, y1, q) - 8, .8);
-        } else if (check) {
-          const Bx = cx - ux * re, By = cy - uy * re;
-          const blocked = hv < .3;
-          if (q < .55) { x0 = Ax; y0 = Ay; x1 = Bx; y1 = By; qq = q / .55; }
-          else {
-            qq = (q - .55) / .45;
-            if (blocked) {
-              x0 = Bx; y0 = By; x1 = Bx - ux * R * .3; y1 = By - uy * R * .3; col = CL; alpha = 1 - qq;
-              c.strokeStyle = rgba(CL, .8 * (1 - qq)); c.lineWidth = 1.2;
-              c.beginPath(); c.arc(Bx, By, 4 + qq * 16, 0, 6.283); c.stroke();
-              if (qq < .8) label('BLOCKED', Bx - ux * 18 + 6, By - uy * 18 - 6, .95 * (1 - qq));
-            } else {
-              x0 = Bx; y0 = By; x1 = cx - ux * Rp; y1 = cy - uy * Rp;
-              if (a.id % 4 === 1 && qq < .5) label('ALLOWED', Bx + 8, By + 14, .7 * (1 - qq * 2));
-            }
+      c.globalCompositeOperation = 'source-over';
+
+      // the record
+      if (rec > 0) {
+        const rows = G.mob ? (H > 760 ? 2 : 0) : (H > 760 ? 4 : 2);
+        const lx = G.X0, lw = G.X1 - G.X0 + (G.mob ? 0 : 60);
+        const ly = G.mob ? G.Y1 + 54 : G.Y1 + 64;
+        if (G.mob) label('RECORD #0' + recNo + ' ✓', g1[0], g1[1] - 14, .9 * rec, 'right', HZ, 9);
+        else label('RECORD #0' + recNo + ' ✓', g1[0], g1[1] + 22, .9 * rec, 'center');
+        if (rows > 0) {
+          label(G.mob ? 'THE RECORD · ANYONE CAN VERIFY' : 'THE RECORD · SIGNED · ANYONE CAN VERIFY IT', lx, ly, .9 * rec, 'left', CL, G.mob ? 9 : 11);
+          c.fillStyle = rgba(CL, .18 * rec); c.fillRect(lx, ly + 8, lw, 1);
+          for (let r = 0; r < rows && r < log.length; r++) {
+            const e = log[r], y = ly + 26 + r * (G.mob ? 16 : 19), age = t - e.t;
+            const a = rec * (r === 0 ? smooth(age / .35) : 1) * (1 - r * .16);
+            const f = G.mob ? 9 : 11, col = e.ok ? HZ : CL;
+            label('#0' + e.no, lx, y, a * .6, 'left', HZ, f);
+            label(e.ok ? 'ALLOWED' : 'BLOCKED', lx + (G.mob ? 48 : 70), y, a, 'left', col, f);
+            label(money(e.amt), lx + (G.mob ? 106 : 160), y, a, 'left', col, f);
+            if (!G.mob) label(e.ok ? '→ ' + e.dest : e.type, lx + 250, y, a * .8, 'left', col, f);
+            label('SIG ✓', lx + lw, y, a * .7, 'right', HZ, f);
           }
-        } else { x0 = Ax; y0 = Ay; x1 = cx - ux * Rp; y1 = cy - uy * Rp; qq = q; }
-        const px = lerp(x0, x1, qq), py = lerp(y0, y1, qq);
-        const sx2 = x1 - x0, sy2 = y1 - y0, sl = Math.hypot(sx2, sy2) || 1;
-        const tx = px - sx2 / sl * 26, ty = py - sy2 / sl * 26;
-        g = c.createLinearGradient(tx, ty, px, py);
-        g.addColorStop(0, rgba(col, 0)); g.addColorStop(1, rgba(col, .95 * alpha));
-        c.strokeStyle = g; c.lineWidth = 1.6;
-        c.beginPath(); c.moveTo(tx, ty); c.lineTo(px, py); c.stroke();
-        c.fillStyle = rgba(col, alpha); c.beginPath(); c.arc(px, py, 1.8, 0, 6.283); c.fill();
+          c.globalCompositeOperation = 'lighter';
+          for (const e of log) {
+            const age = t - e.t;
+            if (age > .6) continue;
+            const k4 = smooth(age / .6);
+            const x = lerp(e.x, lx - 8, k4), y = lerp(e.y, ly + 22, k4);
+            c.fillStyle = rgba(CL, rec * (1 - k4 * .5)); c.fillRect(x - 2, y - 2, 4, 4);
+          }
+          c.globalCompositeOperation = 'source-over';
+        }
       }
       c.restore();
     };
@@ -694,30 +798,39 @@ class Component extends DCLogic {
         c.restore();
       }
       c.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const mob = W < 900;
-      const cx = mob ? W / 2 : W * .33, cy = mob ? H * .34 : H * .53;
-      const R = mob ? W * .44 : Math.min(H * .42, W * .3);
-      const Rp = R * .24;
+      const G = geo();
+      const gc = G.P(UG, .5), g0 = G.P(UG, -.06), g1 = G.P(UG, 1.06);
       const e = smooth((s - .05) / .85);
       const diagA = smooth((s - .3) / .7);
-      if (diagA > .01) diagram(t, s, diagA, cx, cy, R, Rp);
+      if (diagA > .01) flow(t, s, diagA, G);
+      const chk = clamp((s - 3.7) / .5);
+      const lineA = Math.max(1 - .86 * smooth((s - .9) / .45), chk);
       if (s > .02) {
         const hx = ox + 960 * k, hy = oy + vy * k;
-        c.save(); c.globalCompositeOperation = 'lighter';
-        c.strokeStyle = rgba(HZ, .9); c.lineWidth = lerp(1.5, 2, e);
+        c.save(); c.globalCompositeOperation = 'lighter'; c.globalAlpha = lineA;
+        c.strokeStyle = rgba(HZ, .9); c.lineWidth = lerp(1.5, 2.2, e);
         c.shadowColor = 'rgba(176,222,245,.85)'; c.shadowBlur = 16 * dpr;
-        c.beginPath(); c.ellipse(lerp(hx, cx, e), lerp(hy, cy, e), lerp(900 * k, Rp, e), lerp(.6, Rp, e), 0, 0, 6.283); c.stroke();
+        if (chk > 0) { c.setLineDash([9, 5]); c.lineDashOffset = -t * 14; }
+        c.beginPath(); c.moveTo(lerp(hx - 900 * k, g0[0], e), lerp(hy, g0[1], e)); c.lineTo(lerp(hx + 900 * k, g1[0], e), lerp(hy, g1[1], e)); c.stroke();
         c.restore();
       }
       const ma = clamp((t - .9) / 1.4);
       if (ma > 0) {
         const rr = io((t - .9) / 3.2), topF = lerp(vy + 6, vy - 88 - 34, rr);
         const hmx = ox + 960 * k, hmy = oy + (topF + 44) * k, hms = 88 * k;
-        const mx = lerp(hmx, cx, e), my = lerp(hmy, cy, e), ms = lerp(hms, Rp * .9, e);
+        const fs = G.mob ? 26 : 34;
+        const mx = lerp(hmx, gc[0], e), my = lerp(hmy, gc[1], e), ms = lerp(hms, fs, e);
+        const mA = ma * (s < .9 ? 1 : Math.max(lineA, .1));
+        if (e > .3) {
+          c.save(); c.globalAlpha = smooth((e - .3) / .5) * Math.max(lineA, .4);
+          c.fillStyle = '#060c11'; c.beginPath(); c.arc(mx, my, ms * .95, 0, 6.283); c.fill();
+          if (chk > 0) { c.strokeStyle = rgba(HZ, .9 * chk); c.lineWidth = 1.5; c.shadowColor = 'rgba(176,222,245,.9)'; c.shadowBlur = 12 * dpr; c.stroke(); }
+          c.restore();
+        }
         const sc = ms / MB[3];
         c.save();
         if (s < .02) { c.beginPath(); c.rect(0, 0, W, oy + (vy + .5) * k); c.clip(); }
-        c.globalAlpha = ma;
+        c.globalAlpha = mA;
         c.shadowColor = 'rgba(176,222,245,.55)'; c.shadowBlur = 24 * dpr;
         c.translate(mx - MB[2] * sc / 2 - MB[0] * sc, my - MB[3] * sc / 2 - MB[1] * sc); c.scale(sc, sc);
         c.fillStyle = '#f2f2f2'; c.fill(mark, 'evenodd');
