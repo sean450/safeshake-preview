@@ -422,6 +422,8 @@ a{color:#f2f2f2;text-decoration:none}a:hover{color:#b0def5}
 .ffield.pulse{animation:pulse 1.4s ease-out 2;border-color:#295766}
 @media (max-width:900px){
 .anat{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding-bottom:20px;align-items:stretch}
+.pinstage .cols{row-gap:12px !important;padding-top:24px !important}
+.anat{padding-top:18px}
 .anat .ftags{display:contents}
 .anat .acard{grid-column:1 / -1;order:-1;aspect-ratio:auto;max-width:none;width:100%;padding:16px 14px 14px;margin-bottom:10px}
 .anat .arow{padding:9px 8px;font-size:10px}
@@ -433,6 +435,8 @@ a{color:#f2f2f2;text-decoration:none}a:hover{color:#b0def5}
 .js .anat .ftag.cur{opacity:1;background:#0a2638;border-color:#b0def5}
 .anat .arow.cur{background:rgba(176,222,245,.16);color:#f2f2f2}
 }
+.anat .acard,.anat .ftag{border-radius:12px}
+.anat .arow{border-radius:6px}
 </style>
 </helmet>
 <div class="ss" ref="{{rootRef}}">
