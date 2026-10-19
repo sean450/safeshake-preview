@@ -418,6 +418,8 @@ a{color:#f2f2f2;text-decoration:none}a:hover{color:#b0def5}
 .vsec2 .vterm{background:rgba(5,8,11,.6);border-color:rgba(242,242,242,.1)}
 @media (max-width:900px){.chain{left:20px;right:20px;width:auto;top:auto;bottom:24px;transform:none}.vsec2 .vterm{display:none}.br{font-size:14px;grid-template-columns:52px minmax(0,1fr) auto}.blk{padding:10px 12px}.bh{display:none}.lk{height:12px}}
 @media (max-width:900px){.para .tile{width:50% !important;opacity:.7}.para>div[style*="sticky"]{z-index:5 !important;text-shadow:0 2px 24px rgba(4,7,10,.9)}.para .tile .stat{flex-direction:column;align-items:flex-start;gap:4px;left:12px;right:12px;bottom:12px}.para .tile .stat b{font-size:26px}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(41,87,102,.6)}70%{box-shadow:0 0 0 14px rgba(41,87,102,0)}100%{box-shadow:0 0 0 0 rgba(41,87,102,0)}}
+.ffield.pulse{animation:pulse 1.4s ease-out 2;border-color:#295766}
 </style>
 </helmet>
 <div class="ss" ref="{{rootRef}}">
@@ -1002,6 +1004,29 @@ class Component extends DCLogic {
     this.dotsT = setInterval(() => this.feedDots(), 400);
     this.par = Array.prototype.slice.call(root.querySelectorAll('[data-speed]')).map((el) => ({ el, sec: el.closest('[data-par]'), speed: Number(el.getAttribute('data-speed')) || 0 }));
     this.li = 0; this.lastBad = null; this.tyLine = 0; this.tyPos = 0; this.tyHold = 0; this.rq = 0; this.ph = 0;
+    this.goAccess = (smooth) => {
+      const sec = root.querySelector('#access'), field = root.querySelector('#ss-email');
+      if (!sec) return;
+      const top = sec.getBoundingClientRect().top + window.scrollY + 40;
+      window.scrollTo({ top, behavior: smooth ? 'smooth' : 'auto' });
+      if (field) {
+        setTimeout(() => {
+          try { field.focus({ preventScroll: true }); } catch (e) { field.focus(); }
+          field.classList.remove('pulse'); void field.offsetWidth; field.classList.add('pulse');
+        }, smooth ? 700 : 80);
+      }
+    };
+    this.onAccess = (e) => {
+      const a = e.target.closest && e.target.closest('a[href="#access"]');
+      if (!a) return;
+      e.preventDefault();
+      if (this.state.menu) this.setState({ menu: false });
+      if (window.history && history.replaceState) history.replaceState(null, '', '#access');
+      this.goAccess(false);
+    };
+    root.addEventListener('click', this.onAccess);
+    // arriving from another page with #access: wait for the tall sections to size themselves first
+    if (location.hash === '#access') setTimeout(() => this.goAccess(false), 600);
     this.startStage();
     if (!this.motion) {
       this.setState({ step: 0, tfin: true, typed: TYPED[TYPED.length - 1] });
@@ -1139,6 +1164,7 @@ class Component extends DCLogic {
   }
 
   componentWillUnmount() {
+    if (this.root && this.onAccess) this.root.removeEventListener('click', this.onAccess);
     if (this.glitchT) clearInterval(this.glitchT);
     (this.timers || []).forEach((t) => clearInterval(t));
     if (this.dotsT) clearInterval(this.dotsT);
