@@ -420,6 +420,19 @@ a{color:#f2f2f2;text-decoration:none}a:hover{color:#b0def5}
 @media (max-width:900px){.para .tile{width:50% !important;opacity:.7}.para>div[style*="sticky"]{z-index:5 !important;text-shadow:0 2px 24px rgba(4,7,10,.9)}.para .tile .stat{flex-direction:column;align-items:flex-start;gap:4px;left:12px;right:12px;bottom:12px}.para .tile .stat b{font-size:26px}}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(41,87,102,.6)}70%{box-shadow:0 0 0 14px rgba(41,87,102,0)}100%{box-shadow:0 0 0 0 rgba(41,87,102,0)}}
 .ffield.pulse{animation:pulse 1.4s ease-out 2;border-color:#295766}
+@media (max-width:900px){
+.anat{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding-bottom:20px;align-items:stretch}
+.anat .ftags{display:contents}
+.anat .acard{grid-column:1 / -1;order:-1;aspect-ratio:auto;max-width:none;width:100%;padding:16px 14px 14px;margin-bottom:10px}
+.anat .arow{padding:9px 8px;font-size:10px}
+.anat .mrz{margin-top:10px;font-size:9px}
+.anat .ftag{padding:12px 12px 14px;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.anat .ftag .chip2{font-size:9px;padding:3px 6px}
+.anat .ftag .h3{font-size:15px;line-height:1.25;margin-top:8px !important}
+.js .anat .ftag{opacity:.55;transform:none}
+.js .anat .ftag.cur{opacity:1;background:#0a2638;border-color:#b0def5}
+.anat .arow.cur{background:rgba(176,222,245,.16);color:#f2f2f2}
+}
 </style>
 </helmet>
 <div class="ss" ref="{{rootRef}}">
@@ -559,15 +572,15 @@ a{color:#f2f2f2;text-decoration:none}a:hover{color:#b0def5}
 <div class="sbar mono dim"><div><span><span class="sq"></span>004</span><span><span class="sq"></span><span class="scr" data-scr-in>Anatomy</span></span></div><div class="hide-m"><span><span class="sq"></span>004</span><span><span class="sq"></span><span class="scr" data-scr-in>Signed once, never edited</span></span></div></div>
 <div class="cols" style="padding-top: 36px; align-items: end">
 <h2 class="h2" style="grid-column: 1 / span 7">What's inside <span class="it">an envelope.</span></h2>
-<p class="mono dim" style="grid-column: 9 / span 4; margin: 0; line-height: 1.8; text-align: right">Scroll to open it up</p>
+<p class="mono dim hide-m" style="grid-column: 9 / span 4; margin: 0; line-height: 1.8; text-align: right">Scroll to open it up</p><p class="mono dim show-m" style="margin: 0">Tap a field</p>
 </div>
 </div>
 <div class="wrap" style="flex: 1; display: flex">
 <div class="anat" style="width: 100%">
 <div class="ftags l">
-<div class="ftag {{f0}}"><span class="chip2" style="color: #b0def5">[01] Owner</span><p class="h3" style="margin-top: 10px">Who delegated</p></div>
-<div class="ftag {{f1}}"><span class="chip2" style="color: #b0def5">[02] Allocation</span><p class="h3" style="margin-top: 10px">What, and how much</p></div>
-<div class="ftag {{f2}}"><span class="chip2" style="color: #b0def5">[03] Rules</span><p class="h3" style="margin-top: 10px">Under which rules</p></div>
+<div class="ftag {{f0}}" role="button" tabindex="0" onClick="{{fp0}}"><span class="chip2" style="color: #b0def5">[01] Owner</span><p class="h3" style="margin-top: 10px">Who delegated</p></div>
+<div class="ftag {{f1}}" role="button" tabindex="0" onClick="{{fp1}}"><span class="chip2" style="color: #b0def5">[02] Allocation</span><p class="h3" style="margin-top: 10px">What, and how much</p></div>
+<div class="ftag {{f2}}" role="button" tabindex="0" onClick="{{fp2}}"><span class="chip2" style="color: #b0def5">[03] Rules</span><p class="h3" style="margin-top: 10px">Under which rules</p></div>
 </div>
 <div class="acard" aria-hidden="true">
 <div style="display: flex; gap: 12px; align-items: center; padding: 0 8px 14px; border-bottom: 1px solid rgba(176,222,245,.2); margin-bottom: 8px"><svg class="mk2" viewBox="388.809 265.285 64.16 63.984" style="width: 28px; height: 28px; color: #f2f2f2" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M 447.363281 265.285156 L 447.363281 284.03125 L 434.324219 284.03125 C 434.789062 284.53125 435.203125 285.148438 435.667969 285.640625 C 444.023438 294.492188 456.167969 301.570312 452.195312 315.863281 C 450.523438 321.886719 443.207031 329.269531 436.667969 329.269531 L 394.179688 329.269531 L 394.179688 310.828125 L 394.484375 310.523438 L 407.425781 310.523438 L 393.5625 296.570312 C 385.363281 287.390625 388.101562 272.574219 399.207031 267.15625 C 400.558594 266.496094 403.863281 265.285156 405.285156 265.285156 Z M 433.914062 284.03125 L 407.832031 284.03125 L 420.773438 297.082031 Z M 433.914062 310.523438 L 420.773438 297.472656 L 407.628906 310.523438 Z"></path></svg><div><div class="mono" style="font-size: 11px">SafeShake envelope</div><div class="mono" style="font-size: 9px; color: #b0def5; margin-top: 4px">env_001</div></div></div>
@@ -580,9 +593,9 @@ a{color:#f2f2f2;text-decoration:none}a:hover{color:#b0def5}
 <div class="mrz" style="padding: 0 8px">P&lt;SSK&lt;ENV001&lt;&lt;LEGAL&lt;&lt;&lt;&lt;<br>8000EUR&lt;M&lt;0520&lt;0620&lt;</div>
 </div>
 <div class="ftags r">
-<div class="ftag {{f3}}"><span class="chip2" style="color: #b0def5">[04] Validity</span><p class="h3" style="margin-top: 10px">For how long</p></div>
-<div class="ftag {{f4}}"><span class="chip2" style="color: #b0def5">[05] Signature</span><p class="h3" style="margin-top: 10px">Signed by the principal</p></div>
-<div class="ftag {{f5}}"><span class="chip2" style="color: #b0def5">[06] Record</span><p class="h3" style="margin-top: 10px">Every action, chained</p></div>
+<div class="ftag {{f3}}" role="button" tabindex="0" onClick="{{fp3}}"><span class="chip2" style="color: #b0def5">[04] Validity</span><p class="h3" style="margin-top: 10px">For how long</p></div>
+<div class="ftag {{f4}}" role="button" tabindex="0" onClick="{{fp4}}"><span class="chip2" style="color: #b0def5">[05] Signature</span><p class="h3" style="margin-top: 10px">Signed by the principal</p></div>
+<div class="ftag {{f5}}" role="button" tabindex="0" onClick="{{fp5}}"><span class="chip2" style="color: #b0def5">[06] Record</span><p class="h3" style="margin-top: 10px">Every action, chained</p></div>
 </div>
 </div>
 </div>
@@ -777,7 +790,7 @@ class Component extends DCLogic {
       log: [], tool: -1, tk: 'ka', typed: '',
       sh: { who: -1, what: 'Waiting for a request', c: [0, 0, 0], v: '', ok: true, spent: 6420, hist: 412 },
       k: [1284, 920, 344, 2210, 610, 4120, 8830, 2975],
-      tword: 'THIS', timg: 0, tfin: false, astep: 6, open: 1, mode: 'observe', mp: 1, ip: 0, vp: 1, tam: false
+      tword: 'THIS', timg: 0, tfin: false, astep: 6, mcur: 0, open: 1, mode: 'observe', mp: 1, ip: 0, vp: 1, tam: false
     };
     this.root = null; this.cv = null; this.wrap = null; this.inner = null; this.vis = null; this.s = 0; this.long = false;
     this.setRoot = (el) => { this.root = el; };
@@ -814,6 +827,7 @@ class Component extends DCLogic {
     this.pickObserve = () => this.jump(0);
     this.pickEnforce = () => this.jump(1);
     this.tog = [0, 1, 2, 3, 4, 5].map((i) => () => this.setState({ open: this.state.open === i ? -1 : i }));
+    this.fp = [0, 1, 2, 3, 4, 5].map((i) => () => { this.mHold = Date.now() + 6000; this.setState({ mcur: i }); });
     this.pick0 = () => this.setState({ slide: 0 });
     this.pick1 = () => this.setState({ slide: 1 });
     this.pick2 = () => this.setState({ slide: 2 });
@@ -997,6 +1011,12 @@ class Component extends DCLogic {
     this.fill = root.querySelector('[data-fill]');
     this.tbg = root.querySelector('[data-tbg]');
     this.dots = Array.prototype.slice.call(root.querySelectorAll('[data-dots]'));
+    this.mCycle = setInterval(() => {
+      if (this.wide || document.hidden || (this.mHold && Date.now() < this.mHold) || !this.stage) return;
+      const r = this.stage.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > (window.innerHeight || 800)) return;
+      this.setState({ mcur: (this.state.mcur + 1) % 6 });
+    }, 1700);
     this.dots.forEach((f) => { const sc = f.getAttribute('data-scene'); if (sc && !f.getAttribute('src')) f.setAttribute('src', 'dots/index.html?scene=' + sc + '&embed&notext&scrub&warm=0.3&grain=0' + ((window.innerWidth || 1200) < 900 ? '&f=tall&q=1&boost=1.6' : '&q=1.25&boost=1.25')); });
     this.itrack = root.querySelector('[data-itrack]');
     this.ibar = root.querySelector('[data-ibar]');
@@ -1168,6 +1188,7 @@ class Component extends DCLogic {
     if (this.glitchT) clearInterval(this.glitchT);
     (this.timers || []).forEach((t) => clearInterval(t));
     if (this.dotsT) clearInterval(this.dotsT);
+    if (this.mCycle) clearInterval(this.mCycle);
     ['rvIO', 'scIO', 'secIO', 'heroIO', 'ro'].forEach((k) => { if (this[k]) this[k].disconnect(); });
     if (this.raf) cancelAnimationFrame(this.raf);
     if (this.root && this.onOver) this.root.removeEventListener('mouseover', this.onOver);
@@ -1614,7 +1635,9 @@ class Component extends DCLogic {
     for (let i = 0; i < 8; i++) v['k' + i] = eur(k[i]);
     for (let i = 0; i < 6; i++) {
       v['ti' + i] = this.state.timg === i ? 'on' : '';
-      const on = i < as, cur = i === as - 1 && as < 6;
+      const tap = !this.wide;
+      const on = tap || i < as, cur = tap ? i === this.state.mcur : i === as - 1 && as < 6;
+      v['fp' + i] = this.fp[i];
       v['f' + i] = (on ? 'on' : '') + (cur ? ' cur' : '');
       v['r' + i] = (on ? 'on' : '') + (cur ? ' cur' : '');
       v['a' + i] = op === i ? 'open' : '';
